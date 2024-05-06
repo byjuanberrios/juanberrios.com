@@ -1,10 +1,24 @@
 ---
+import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import Message from "./Message.astro";
 
-import fakePlaylistCover from "../../src/assets/images/fake_playlist.webp";
+import IconAppleMusic from "../assets/icons/IconAppleMusic.astro";
+import IconSpotify from "../assets/icons/IconSpotify.astro";
 
 import "../styles/playlists.css";
+
+const sortByDate = (
+  a: { data: { date: Date } },
+  b: { data: { date: Date } }
+) => {
+  const dateB = new Date(b.data.date);
+  const dateA = new Date(a.data.date);
+  return dateB.getTime() - dateA.getTime();
+};
+
+const playlists = await getCollection("playlists");
+playlists.sort(sortByDate);
 ---
 
 <div>
@@ -17,40 +31,36 @@ import "../styles/playlists.css";
     que escribí hace un tiempo.
   </Message>
   <div class="playlists-grid">
-    <div class="item">
-      <Image src={fakePlaylistCover} alt="" />
-      <div class="content">
-        <p class="title">2024</p>
-        <p class="desc">35 canciones</p>
-      </div>
-    </div>
-    <div class="item">
-      <Image src={fakePlaylistCover} alt="" />
-      <div class="content">
-        <p class="title">2023</p>
-        <p class="desc">35 canciones</p>
-      </div>
-    </div>
-    <div class="item">
-      <Image src={fakePlaylistCover} alt="" />
-      <div class="content">
-        <p class="title">Listening 2022</p>
-        <p class="desc">35 canciones</p>
-      </div>
-    </div>
-    <div class="item">
-      <Image src={fakePlaylistCover} alt="" />
-      <div class="content">
-        <p class="title">Top 10 albums 2021</p>
-        <p class="desc">35 canciones</p>
-      </div>
-    </div>
-    <div class="item">
-      <Image src={fakePlaylistCover} alt="" />
-      <div class="content">
-        <p class="title">2020 Bests</p>
-        <p class="desc">35 canciones</p>
-      </div>
-    </div>
+    {
+      playlists.map((playlist) => (
+        <div class="item">
+          <Image src={playlist.data.imageUrl} alt="" inferSize={true} />
+          <div class="content">
+            <p class="title">{playlist.data.name}</p>
+            <p class="desc">{playlist.data.songs} canciones</p>
+            <div class="platforms">
+              {playlist.data.platforms.appleMusicLink && (
+                <a
+                  href={playlist.data.platforms.appleMusicLink}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <IconAppleMusic />
+                </a>
+              )}
+              {playlist.data.platforms.spotifyLink && (
+                <a
+                  href={playlist.data.platforms.spotifyLink}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <IconSpotify />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))
+    }
   </div>
 </div>

@@ -21,6 +21,11 @@
             .desc {
                 font-size: var(--step--1);
                 opacity: 0.5;
+                margin-bottom: var(--space-3xs);
+            }
+            .platforms {
+                display: flex;
+                gap: var(--space-2xs);
             }
         }
     }

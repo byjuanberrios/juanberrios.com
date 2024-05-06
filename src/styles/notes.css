@@ -25,6 +25,9 @@
                 margin-bottom: 0.4rem;
                 min-width: 2ch;
             }
+            &:hover {
+                opacity: 0.5;
+            }
         }
     }
     .more {

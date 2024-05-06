@@ -17,7 +17,23 @@ const nowCollections = defineCollection({
   }),
 });
 
+const playlistCollections = defineCollection({
+  type: "data",
+  schema: z.object({
+    date: z.string().transform((str) => new Date(str)),
+    name: z.string(),
+    songs: z.number(),
+    imageUrl: z.string(),
+    platforms: z.object({
+      spotifyLink: z.string().optional(),
+      appleMusicLink: z.string().optional(),
+      youtubeLink: z.string().optional(),
+    }),
+  }),
+});
+
 export const collections = {
   notes: notesCollections,
   now: nowCollections,
+  playlists: playlistCollections,
 };

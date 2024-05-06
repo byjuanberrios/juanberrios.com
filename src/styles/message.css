@@ -17,6 +17,7 @@
     }
     .content {
         line-height: 160%;
+        opacity: 0.7;
     }
 }
 
