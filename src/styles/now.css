@@ -1,0 +1,17 @@
+.now {
+    .item {
+        margin-top: var(--space-m);
+        .date {
+            margin: 0;
+            opacity: 0.5;
+        }
+        .content {
+            * {
+                margin: 0;
+            }
+            p, li {
+                margin-top: var(--space-2xs);
+            }
+        }
+    }
+}

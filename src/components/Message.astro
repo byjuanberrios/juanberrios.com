@@ -1,0 +1,14 @@
+---
+import "../styles/message.css";
+
+const { title } = Astro.props;
+---
+
+<div class="message">
+  <p class="title">{title || "FYI"}</p>
+  <div class="content">
+    <p>
+      <slot />
+    </p>
+  </div>
+</div>

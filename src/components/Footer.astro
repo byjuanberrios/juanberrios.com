@@ -1,0 +1,19 @@
+---
+import IconMap from "../assets/icons/IconMap.astro";
+
+import "../styles/footer.css";
+
+const { class: className } = Astro.props;
+---
+
+<footer class={`${className} footer`}>
+  <div class="footer-content">
+    <div class="made">
+      <IconMap />
+      <p>Hecho en Curicó, CL</p>
+    </div>
+    <div>
+      <a href="/" class="">Colofón</a>
+    </div>
+  </div>
+</footer>

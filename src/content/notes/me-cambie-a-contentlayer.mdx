@@ -1,0 +1,13 @@
+---
+title: Me cambié a Contentlayer
+date: "2023-11-24"
+summary: He migrado de Ghost a Contentlayer para gestionar mi blog y páginas del sitio. Contentlayer convierte el markup y el contenido en datos tipados, brindando flexibilidad en el diseño. Mis posts, escritos en Markdown desde iAWriter, se organizan en carpetas especiales, permitiendo su fácil manipulación y visualización en distintas partes del sitio.
+---
+
+Por mucho tiempo he estado usando Ghost para poder administrar el blog y algunas páginas del sitio, de hecho servía algunas páginas desde Next.js y otras desde Ghost [a través de su API](https://ghost.org/docs/content-api/).
+
+Usar Ghost como headless CMS fue útil hasta darme cuenta que muchos de los cambios de diseño dependían del contenido. Para solucionar esto opté por tratar el contenido y el markup como una sola cosa. Para esto uso **Contentlayer**...
+
+[Contentlayer](https://contentlayer.dev/) es un content SDK que trasforma el contenido en datos tipados que se pueden consumir. Precisamente, en este sitio web todos los posts tienen su carpeta especial y están escritos en Markdown. Por lo que puedo hacer un fetch local y mostrarlos donde quiera.
+
+Uso markdown desde hace mucho tiempo para mis notas y también para este blog, todo nace en mi iPhone o Mac escribiendo en la app [iAWriter](https://ia.net/writer/es) y luego exportando o copiando el contenido hacia la fuente de publicación.

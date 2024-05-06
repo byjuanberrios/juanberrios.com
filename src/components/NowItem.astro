@@ -1,0 +1,17 @@
+---
+import { getEntry } from "astro:content";
+
+const { slug, date } = Astro.props;
+
+const entry = await getEntry("now", slug);
+if (!entry) throw new Error("No Now item found!");
+const { Content } = await entry.render();
+---
+
+<!-- Parent node: div.now -->
+<div class="item">
+  <p class="date">{date}</p>
+  <div class="content">
+    <Content />
+  </div>
+</div>

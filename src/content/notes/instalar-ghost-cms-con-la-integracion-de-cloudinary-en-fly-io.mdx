@@ -1,0 +1,88 @@
+---
+title: Ghost CMS con Cloudinary en Fly.io
+date: "2023-01-22"
+summary: En este post, te mostraré cómo instalar Ghost CMS en Fly.io con la integración para alojar imágenes en Cloudinary que Ghost recomienda. Todo esto de manera gratuita.
+---
+import Message from "../../components/Message.astro";
+
+<Message inPost>
+  Desde Julio (más o menos) Fly.io ya no ofrece un "free tier" pero tampoco
+  cobra a las cuentas que facturan menos de 5 dólares al mes. Si vas a usar este
+  tutorial para un proyecto en producción ten precaución con los recursos que
+  utilizarás para no llevarte una sorpresa en la factura a fin de mes.
+</Message>
+
+En este post, te mostraré cómo instalar [Ghost CMS](https://ghost.org) en [Fly.io](https://Fly.io) con la [integración para alojar imágenes en Cloudinary](https://github.com/eexit/ghost-storage-cloudinary) que Ghost recomienda. T̵o̵d̵o̵ ̵e̵s̵t̵o̵ ̵d̵e̵ ̵m̵a̵n̵e̵r̵a̵ ̵g̵r̵a̵t̵u̵i̵t̵a̵
+
+Recorrí algunos blogs y foros buscando una solución (y _hasta la publicación de este post no existía una guía que muestre el procedimiento completo con resultados exitosos_), quizá el que más se aproxima es [este post de Joris Berthelot](https://blog.eexit.net/digitalocean-to-fly-io/) que fue vital para lograrlo.
+
+## Antes de empezar
+
+<Message inPost>
+  Si no te interesa la integración con Cloudinary puedes seguir [este
+  tutorial](https://www.autodidacts.io/host-a-ghost-blog-free-on-fly-io/amp/).
+</Message>
+
+**Este post asume que tienes ciertos conocimientos con la terminal o consola de comandos** (_aunque las instrucciones serán suficientes para hacer todo de principio a fin_). Aunque si o si...
+
+- Debes tener una cuenta gratuita de [Cloudinary](https://cloudinary.com/users/register_free#gsc.tab=0).
+- Debes [tener una cuenta en Fly.io](https://fly.io/docs/getting-started/log-in-to-fly/)
+- Debes tener flyctl ([Fly CLI](https://fly.io/docs/flyctl/installing/)) instalada en tu equipo.
+
+## Configuración
+
+Como primer paso, vamos a clonar (_o hacer fork_) el repositorio que contiene los archivos necesarios.
+
+[Link del repositorio aquí →](https://github.com/dandelior/fly-ghost-cloudinary)
+
+Una vez clonado el repo, nos dirigimos al archivo `docker-compose.yaml` y reemplazamos nuestra `CLOUDINARY_URL` con la que nos entrega Cloudinary en "API Environment variable". (_La URL que empieza con cloudinary://..._)
+
+```
+CLOUDINARY_URL: cloudinary://...
+```
+
+En el archivo `fly.toml` reemplazamos algunas variables de entorno:
+
+```
+app = "el-blog-de-messi"
+[ENV]
+    url = "https://el-blog-de-messi.fly.dev"
+    CLOUDINARY_URL = (como archivo anterior),
+    storage__ghost-storage-cloudinary__auth__api_key = "TU_API_KEY"
+    storage__ghost-storage-cloudinary__auth__api_secret = "TU_API_SECRET"
+    storage__ghost-storage-cloudinary__auth__cloud_name = "TU_CLOUD_NAME"
+    ...
+    storage__ghost-storage-cloudinary__upload__folder = "nombre_de_la_carpeta_donde_se_guardaran_las_imagenes"
+```
+
+La variable `url` que ingresamos será la que Fly usará como dirección de nuestro sitio web y en este caso "_el-blog-de-messi_" vendrá a ser también el nombre de nuestra `app`.
+
+## Lanzando la aplicación
+
+Con los archivos configurados vamos a decirle a Fly que queremos lanzar la app y desplegarla.
+
+Ejecutamos el comando `fly launch --no-deploy` (_muy importante pasarle el flag_).
+
+Nos preguntara si queremos copiar la configuración que se encuentra en nuestro archivo `fly.toml`, ingresamos ‘y’ o ‘yes’
+
+```
+Would you like to copy its configuration to the new app? (y/N) y
+```
+
+Nos pedirá el nombre de la app. Aquí usamos el nombre que ingresamos en url, por ejemplo, si ingresamos _https://el-blog-de-messi.fly.dev_ acá debemos ingresar `el-blog-de-messi`
+
+Elegimos una región para el despliegue. Yo vivo en Chile, y como me interesan las visitas desde Chile elijo `scl`
+
+Ahora creamos el volumen de alojamiento para nuestros datos:
+
+```
+fly volume create ghost_with_cloudinary_data --region scl --size 1
+```
+
+En mi caso le estoy pasando dos parámetros: `--region` que en mi caso es 'scl' y `size`  '1' (_1 GB_) que es suficiente para comenzar de manera gratuita.
+
+## Haciendo el deploy
+
+Finalmente hacemos el deploy y cruzamos los dedos para que todo funcione 🤞🏻: `fly deploy`
+
+Y eso es todo, Ghost CMS estará ahora configurado con Cloudinary en [Fly.io](https://Fly.io) de manera gratuita y tu sitio web estará disponible en la url especificada en el archivo `fly.toml`. Asegúrate de seguir las instrucciones cuidadosamente y si tienes alguna pregunta o problema, mi twitter es @[dandelior](https://twitter.com/dandelior). Disfruta tu nuevo sitio 🔥.

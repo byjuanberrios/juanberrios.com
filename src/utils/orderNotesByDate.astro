@@ -1,0 +1,11 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Note = CollectionEntry<"notes">;
+
+export const sortByDate = (a: Note, b: Note) => {
+  const dateB = new Date(b.data.date);
+  const dateA = new Date(a.data.date);
+  return dateB.getTime() - dateA.getTime();
+};
+---

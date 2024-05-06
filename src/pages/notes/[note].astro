@@ -1,0 +1,48 @@
+---
+import { getCollection, getEntry } from "astro:content";
+
+import Base from "../../layouts/Base.astro";
+import { sortByDate } from "../../utils/orderNotesByDate.astro";
+import PrevNext from "../../components/notes/PrevNext.astro";
+
+import "../../styles/single-now.css";
+
+const { note: noteSlug } = Astro.params;
+if (!noteSlug) throw new Error("Slug not found");
+const post = await getEntry("notes", noteSlug);
+
+if (!post) throw new Error("No post found for this slug");
+const { Content } = await post.render();
+
+export async function getStaticPaths() {
+  const allNotes = await getCollection("notes");
+  const NotesLength = allNotes.length;
+
+  return allNotes.sort(sortByDate).map((note, i) => {
+    return {
+      params: {
+        note: note.slug,
+      },
+      props: {
+        name: note.data.title,
+        date: note.data.date,
+        body: note.body,
+        prevNote: i + 1 === NotesLength ? null : allNotes[i + 1],
+        nextNote: i === 0 ? null : allNotes[i - 1],
+      },
+    };
+  });
+}
+
+const { prevNote, nextNote } = Astro.props;
+---
+
+<Base>
+  <div class="single-now">
+    <h1>{post.data.title}</h1>
+    <Content />
+    <div class="pagination">
+      <PrevNext {prevNote} {nextNote} />
+    </div>
+  </div>
+</Base>

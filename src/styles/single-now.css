@@ -1,0 +1,21 @@
+.single-now {
+    text-wrap: pretty;
+    line-height: 175%;
+    h1 {
+        max-width: 90%;
+        margin-block-end: calc(var(--space-xs) + var(--space-xl));
+    }
+    p, ul, ol {
+        opacity: 0.7;
+    }
+
+    .pagination {
+        margin-block-start: var(--space-2xl);
+        .pagination-item {
+            margin-block-start: var(--space-m);
+            p {
+                opacity: 0.5;
+            }
+        }
+    }
+}

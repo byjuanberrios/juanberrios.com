@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import meImage from "../../src/assets/images/avatar.webp";
+
+import "../styles/header.css";
+---
+
+<header class="main-header">
+  <nav>
+    <a href="/" class="brand-avatar">
+      <Image src={meImage} alt="Avatar de Juan Berrios" />
+    </a>
+    <a href="/" class="menu">Links</a>
+  </nav>
+</header>

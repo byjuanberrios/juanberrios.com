@@ -1,0 +1,33 @@
+---
+import { sortByDate } from "./orderNotesByDate.astro";
+
+interface Note {
+  title: string;
+  date: string;
+  slug: string;
+  summary?: string;
+  image?: string;
+}
+
+interface OrderedNotes {
+  [year: string]: Note[];
+}
+
+export const orderNotesByYear = (notes: any[], sliced?: boolean) => {
+  let allNotesByDate = notes.sort(sortByDate);
+  if (sliced) allNotesByDate = notes.slice(0, 6);
+
+  return allNotesByDate.reduce((acc: OrderedNotes, actualNote) => {
+    const year: string = actualNote.data.date.substring(0, 4);
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    const data = {
+      ...actualNote.data,
+      slug: actualNote.slug,
+    };
+    acc[year] = [data, ...acc[year]];
+    return acc;
+  }, {});
+};
+---

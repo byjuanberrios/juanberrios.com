@@ -1,0 +1,16 @@
+.presentation {
+    header {
+        h1 {
+            max-width: 28ch;
+            text-wrap: pretty;
+        }
+        p {
+            margin-block-start: var(--space-l);
+            max-width: 54ch;
+            opacity: 0.7;
+        }
+    }
+    figure {
+        margin-block: var(--space-3xl);
+    }
+}

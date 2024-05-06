@@ -1,0 +1,29 @@
+header.main-header {
+    padding-block: calc(var(--space-l-xl) + var(--space-2xs));
+    padding-inline: calc(var(--space-3xs) + var(--space-l));
+    margin-inline: auto;
+    /* max-width: 1320px; */
+    max-width: min(1320px, 100%)
+}
+
+header.main-header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-avatar {
+    display: block;
+    background-color: var(--color-gray);
+    border-radius: 100%;
+    img {
+        border-radius: 100%;
+        width: var(--space-xl);
+        height: var(--space-xl);
+    }
+}
+
+.menu {
+    font-size: var(--step-0);
+    text-decoration-line: none;
+}

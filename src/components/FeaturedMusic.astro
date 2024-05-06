@@ -1,0 +1,54 @@
+---
+const { image, artist, releaseName, position, appleMusicUrl, spotifyUrl } =
+  Astro.props;
+---
+
+<div class="musicReleaseCard" style="width: 100%; margin-top: 3rem; ">
+  <header
+    class="mb-5 lg:mb-4 grid grid-cols-2 gap-x-5"
+    style="margin-bottom: 1.25rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.25rem"
+  >
+    <img
+      src={image}
+      alt={`${artist} - ${releaseName} cover`}
+      style="border-radius: 0.25rem; margin-block: 0"
+    />
+    {position}
+    <div
+      style="display: grid; align-items: flex-start; align-content: flex-start; padding-top: 0.25rem"
+    >
+      <p
+        style="margin: 0; font-size: 0.85rem; font-weight: 700; width: 1.75rem; height: 1.75rem; display:grid; place-content: center;  border-radius: 9999px; background-color: hsl(192 100% 48%); color: rgb(255 255 255); margin-bottom: 0.625rem"
+      >
+        {position}
+      </p>
+      <h2 style="margin-top: 0px; margin-bottom: 0.25rem; line-height: 1.25">
+        {releaseName}
+      </h2>
+      {/* <h3 class="!m-0 !leading-tight">{artist}</h3> */}
+      <h4 style="margin: 0; line-height: 1.25">{artist}</h4>
+      <div style="margin-top: 0.75rem">
+        {/* <p class="!m-0 text-sm">Escucha en:</p> */}
+        {
+          appleMusicUrl && (
+            <div>
+              <a style="font-size: 0.85rem" href={appleMusicUrl}>
+                Escuchar en Apple music
+              </a>
+            </div>
+          )
+        }
+        {
+          spotifyUrl && (
+            <div>
+              <a style="font-size: 0.85rem" href={spotifyUrl}>
+                Escuchar en Spotify
+              </a>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </header>
+  <slot />
+</div>

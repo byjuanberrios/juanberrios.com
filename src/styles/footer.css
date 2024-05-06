@@ -1,0 +1,24 @@
+.footer {
+    margin-top: var(--space-3xl) !important;
+    padding-bottom: var(--space-2xl);
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: var(--step--1);
+        padding-top: var(--space-m);
+        border-top: solid 1px rgba(0, 0, 0, 0.1);
+        .made {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3xs);
+            svg {
+                width: calc(var(--space-2xs) + var(--space-2xs));
+                height: calc(var(--space-2xs) + var(--space-2xs));
+            }
+            p {
+                margin: 0
+            }
+        }
+    }
+}

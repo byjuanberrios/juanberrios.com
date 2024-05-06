@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import Message from "./Message.astro";
+
+import fakePlaylistCover from "../../src/assets/images/fake_playlist.webp";
+
+import "../styles/playlists.css";
+---
+
+<div>
+  <h1 class="inPage">Playlists</h1>
+  <Message title="Sobre playlists en Spotify">
+    Por el momento la mayoría de las playlists solo están en Apple music. Si
+    quieres saber porque prefiero Apple Music por sobre Spotify <a
+      href="/notes/apple-music">lee este post</a
+    >
+    que escribí hace un tiempo.
+  </Message>
+  <div class="playlists-grid">
+    <div class="item">
+      <Image src={fakePlaylistCover} alt="" />
+      <div class="content">
+        <p class="title">2024</p>
+        <p class="desc">35 canciones</p>
+      </div>
+    </div>
+    <div class="item">
+      <Image src={fakePlaylistCover} alt="" />
+      <div class="content">
+        <p class="title">2023</p>
+        <p class="desc">35 canciones</p>
+      </div>
+    </div>
+    <div class="item">
+      <Image src={fakePlaylistCover} alt="" />
+      <div class="content">
+        <p class="title">Listening 2022</p>
+        <p class="desc">35 canciones</p>
+      </div>
+    </div>
+    <div class="item">
+      <Image src={fakePlaylistCover} alt="" />
+      <div class="content">
+        <p class="title">Top 10 albums 2021</p>
+        <p class="desc">35 canciones</p>
+      </div>
+    </div>
+    <div class="item">
+      <Image src={fakePlaylistCover} alt="" />
+      <div class="content">
+        <p class="title">2020 Bests</p>
+        <p class="desc">35 canciones</p>
+      </div>
+    </div>
+  </div>
+</div>

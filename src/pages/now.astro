@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+
+import Base from "../layouts/Base.astro";
+import Message from "../components/Message.astro";
+import NowItem from "../components/NowItem.astro";
+
+import "../styles/now.css";
+
+const allNow = await getCollection("now");
+---
+
+<Base>
+  <div>
+    <h1 class="inPage">Now</h1>
+    <Message> Página inspirada en la idea de Derek Sivers </Message>
+    <div class="now">
+      {allNow.map((item) => <NowItem date={item.data.date} slug={item.slug} />)}
+    </div>
+  </div>
+</Base>
