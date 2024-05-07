@@ -13,7 +13,6 @@ const { image, artist, releaseName, position, appleMusicUrl, spotifyUrl } =
       alt={`${artist} - ${releaseName} cover`}
       style="border-radius: 0.25rem; margin-block: 0"
     />
-    {position}
     <div
       style="display: grid; align-items: flex-start; align-content: flex-start; padding-top: 0.25rem"
     >
@@ -25,10 +24,8 @@ const { image, artist, releaseName, position, appleMusicUrl, spotifyUrl } =
       <h2 style="margin-top: 0px; margin-bottom: 0.25rem; line-height: 1.25">
         {releaseName}
       </h2>
-      {/* <h3 class="!m-0 !leading-tight">{artist}</h3> */}
       <h4 style="margin: 0; line-height: 1.25">{artist}</h4>
       <div style="margin-top: 0.75rem">
-        {/* <p class="!m-0 text-sm">Escucha en:</p> */}
         {
           appleMusicUrl && (
             <div>

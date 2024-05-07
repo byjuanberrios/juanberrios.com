@@ -38,8 +38,9 @@
   
     /* Colors */
     --color-gray: #FCFBFB;
-    --color-highlight: #FF5400;
-    /* --color-highlight: #8DA0C1; */
+    /* --color-highlight: #024aad; */
+    --color-highlight: #2253ff;
+    --color-dark: #111111;
   }
 
 body {
@@ -214,4 +215,16 @@ h1.big {
 
 .stroke-highlight {
     stroke: var(--color-highlight);
+}
+
+.text-dark {
+    color: var(--color-dark);
+}
+
+.fill-dark {
+    fill: var(--color-dark);
+}
+
+.stroke-dark {
+    stroke: var(--color-dark);
 }

@@ -7,8 +7,8 @@
         align-items: center;
         gap: var(--space-s);
         img {
-            width: calc( var(--space-xl) + var(--space-3xl) );
-            height: calc( var(--space-xl) + var(--space-3xl) );
+            width: calc( var(--space-2xl) + var(--space-3xl) );
+            height: calc( var(--space-2xl) + var(--space-3xl) );
             border-radius: var(--space-3xs);
         }
         .content {
@@ -21,7 +21,7 @@
             .desc {
                 font-size: var(--step--1);
                 opacity: 0.5;
-                margin-bottom: var(--space-3xs);
+                margin-bottom: var(--space-2xs);
             }
             .platforms {
                 display: flex;
