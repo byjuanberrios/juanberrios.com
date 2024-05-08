@@ -7,8 +7,11 @@
         align-items: center;
         gap: var(--space-s);
         img {
-            width: calc( var(--space-2xl) + var(--space-3xl) );
-            height: calc( var(--space-2xl) + var(--space-3xl) );
+            /* width: calc( var(--space-2xl) + var(--space-3xl) ); */
+            /* width: 30vw; */
+            width: calc( var(--space-3xl) + var(--space-3xl) );
+            /* height: calc( var(--space-2xl) + var(--space-3xl) ); */
+            /* height: 30vw; */
             border-radius: var(--space-3xs);
         }
         .content {

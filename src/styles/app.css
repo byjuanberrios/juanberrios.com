@@ -39,8 +39,9 @@
     /* Colors */
     --color-gray: #FCFBFB;
     /* --color-highlight: #024aad; */
-    --color-highlight: #2253ff;
-    --color-dark: #111111;
+    /* --color-highlight: #2253ff; */
+    --color-highlight: #2347cc;
+    --color-black: #252525;
   }
 
 body {
@@ -147,12 +148,17 @@ figcaption {
 ul, 
 ol {
     /* padding-left: var(--space-l); */
-    padding-left: var(--space-s);
+    padding-left: var(--space-xl);
 }
 
 ul {
     list-style-type: disc;
-    list-style-position: outside;
+    /* list-style-position: outside; */
+}
+
+ol {
+    list-style-type: decimal;
+    /* list-style-position: outside; */
 }
 
 a {
@@ -169,6 +175,28 @@ a {
 
 b, strong {
     font-weight: 500;
+}
+
+code {
+    border-radius: var(--space-3xs);
+    font-size: var(--step--1);
+    padding: var(--space-3xs) var(--space-2xs);
+    background-color: #dbdbdb;
+}
+
+pre {
+    border-radius: var(--space-3xs);
+    font-size: var(--step--1);
+    padding: var(--space-xs) var(--space-m);
+    overflow: auto;
+    margin-block: var(--space-m);
+    background-color: #dbdbdb !important;
+    color: black !important;
+    code {
+        border-radius: 0;
+        padding: 0;
+        background-color: transparent;
+    }
 }
 
 /* Extra typogaphic classes */

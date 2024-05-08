@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import meImage from "../../src/assets/images/avatar.webp";
+import meImage from "../../src/assets/images/avatar_3.webp";
 
 import "../styles/header.css";
 ---
@@ -10,11 +10,8 @@ import "../styles/header.css";
     <a href="/" class="brand-avatar">
       <Image src={meImage} alt="Avatar de Juan Berrios" />
     </a>
-    <!-- <a href="/" class="menu">Links</a> -->
-    <div
-      style="cursor: pointer; font-size: var(--step--1); background-color: var(--color-dark); border-radius: var(--space-s); padding-block: var(--space-3xs); padding-inline: var(--space-s)"
-    >
-      <span style="color: white">Menu</span>
-    </div>
+    <button class="menu-button">
+      <span>Menu</span>
+    </button>
   </nav>
 </header>
