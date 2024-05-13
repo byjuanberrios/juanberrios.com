@@ -5,7 +5,7 @@ import Base from "../../layouts/Base.astro";
 import { sortByDate } from "../../utils/orderNotesByDate.astro";
 import PrevNext from "../../components/notes/PrevNext.astro";
 
-import "../../styles/single-now.css";
+import "../../styles/single-note.css";
 
 const { note: noteSlug } = Astro.params;
 if (!noteSlug) throw new Error("Slug not found");
@@ -38,7 +38,7 @@ const { prevNote, nextNote } = Astro.props;
 ---
 
 <Base>
-  <div class="single-now">
+  <div class="single-note">
     <h1>{post.data.title}</h1>
     <Content />
     <div class="pagination">
