@@ -1,7 +1,7 @@
 .notes-grid {
     p.title {
         opacity: 0.4;
-        margin-top: var(--space-s);
+        margin-top: var(--space-m);
     }
     .grid {
         .item {

@@ -13,7 +13,13 @@ const allNow = await getCollection("now");
 <Base>
   <div>
     <h1 class="inPage">Now</h1>
-    <Message> Página inspirada en la idea de Derek Sivers </Message>
+    <Message>
+      Página inspirada en la idea de <a
+        href="https://nownownow.com/about"
+        target="_blank"
+        rel="noopener">Derek Sivers</a
+      >
+    </Message>
     <div class="now">
       {allNow.map((item) => <NowItem date={item.data.date} slug={item.slug} />)}
     </div>

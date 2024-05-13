@@ -37,9 +37,7 @@ Como primer paso, vamos a clonar (_o hacer fork_) el repositorio que contiene lo
 
 Una vez clonado el repo, nos dirigimos al archivo `docker-compose.yaml` y reemplazamos nuestra `CLOUDINARY_URL` con la que nos entrega Cloudinary en "API Environment variable". (_La URL que empieza con cloudinary://..._)
 
-```
-CLOUDINARY_URL: cloudinary://...
-```
+```CLOUDINARY_URL: cloudinary://...```
 
 En el archivo `fly.toml` reemplazamos algunas variables de entorno:
 
@@ -65,9 +63,7 @@ Ejecutamos el comando `fly launch --no-deploy` (_muy importante pasarle el flag_
 
 Nos preguntara si queremos copiar la configuración que se encuentra en nuestro archivo `fly.toml`, ingresamos ‘y’ o ‘yes’
 
-```
-Would you like to copy its configuration to the new app? (y/N) y
-```
+`Would you like to copy its configuration to the new app? (y/N) y`
 
 Nos pedirá el nombre de la app. Aquí usamos el nombre que ingresamos en url, por ejemplo, si ingresamos `https://el-blog-de-messi.fly.dev` acá debemos ingresar `el-blog-de-messi`
 

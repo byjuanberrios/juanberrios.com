@@ -1,5 +1,5 @@
 .message {
-    background-color: #F5F5F5;
+    background-color: var(--color-gray-dark);
     padding-block: calc(var(--space-xs) + var(--space-3xs));
     padding-inline-start: calc(var(--space-s) + var(--space-3xs));
     padding-inline-end: calc(var(--space-s) + var(--space-xs));
