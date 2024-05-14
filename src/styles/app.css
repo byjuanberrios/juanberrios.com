@@ -40,6 +40,7 @@
     --color-gray: #FCFBFB;
     --color-gray-dark: #F5F5F5;
     --color-gray-darker: #f0f1f2;
+    --color-gray-darkest: #dcdbdb;
     /* --color-highlight: #024aad; */
     /* --color-highlight: #2253ff; */
     /* --color-highlight: #2347cc; */
@@ -156,7 +157,8 @@ ol {
 }
 
 ul {
-    list-style-type: disc;
+    /* list-style-type: disc; */
+    list-style-type: "→  ";
     /* list-style-position: outside; */
 }
 
@@ -251,6 +253,7 @@ h1.inPage {
 
 h1.big {
     font-size: var(--step-5);
+    line-height: 130%;
     /* letter-spacing: calc(var(--step-3) * 0.5 / 100);
     line-height: 140%;
     margin-top: calc(var(--space-3xl) + var(--space-xs)); */

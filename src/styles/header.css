@@ -39,3 +39,62 @@ header.main-header nav {
         color: white
     }
 }
+
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    display: flex;
+    place-items: start center;
+    z-index: 999;
+    transition: all ease 0.3s;
+    .modal-content {
+        position: relative;
+        width: 88%;
+        max-width: 500px;
+        /* height: 75vh; */
+        margin: 10vh auto 0;
+        background-color: var(--color-gray-darker);
+        border-radius: var(--space-xs);
+        padding-block-end: var(--space-xs);
+        .input {
+            width: 100%;
+            /* height: 30px; */
+            color: var(--color-highlight);
+            border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+            padding: var(--space-s) var(--space-l);
+        }
+        .menu {
+            display: grid;
+            padding: 0 var(--space-2xs);
+            p.title {
+                padding-inline: var(--space-s);
+                font-size: var(--step--1);
+                font-weight: 500;
+            }
+            .links {
+                margin-top: var(--space-3xs);
+                a {
+                    padding: var(--space-2xs) var(--space-s);
+                    font-size: var(--step-0);
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    border-radius: var(--space-2xs);
+                    &:nth-child(1) {
+                        background-color: var(--color-gray-darkest);
+                    }
+                    &:hover {
+                        background-color: var(--color-gray-darkest);
+                    }
+                }
+            }
+        }
+    }
+    &.display-none {
+        display: none;
+    }
+}

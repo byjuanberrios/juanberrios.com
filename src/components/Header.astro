@@ -5,13 +5,70 @@ import meImage from "../../src/assets/images/avatar_3.webp";
 import "../styles/header.css";
 ---
 
-<header class="main-header">
+<header class="main-header" transition:persist>
   <nav>
     <a href="/" class="brand-avatar">
       <Image src={meImage} alt="Avatar de Juan Berrios" />
     </a>
-    <button class="menu-button">
+    <button class="menu-button" id="trigger-menu">
       <span>Menu</span>
     </button>
   </nav>
+
+  <div class="modal display-none" id="modal">
+    <div class="modal-content">
+      <div class="input">Ir a...</div>
+      <div class="menu">
+        <p class="title">Páginas</p>
+        <div class="links">
+          <a href="/">Home</a>
+          <a
+            href="https://works.juanberrios.com"
+            target="_blank"
+            rel="noreferer noopener"
+            style="display: flex; align-items: center">Portafolio</a
+          >
+          <a href="/notes">Notas</a>
+          <a href="/playlists">Playlists</a>
+          <a href="/now">Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const triggerMenu = document.querySelector("#trigger-menu");
+    const modal = document.querySelector("#modal");
+    const menus = document.querySelectorAll(".menu a");
+
+    const open = () => {
+      modal?.classList.remove("display-none");
+      document.body.style.overflow = "hidden";
+      document.body.addEventListener("keydown", escapeClose);
+      menus?.forEach((menu) => menu.addEventListener("click", close));
+      modal?.addEventListener("click", outsideClose);
+    };
+    const close = () => {
+      modal?.classList.add("display-none");
+      document.body.style.overflow = "auto";
+      document.body.removeEventListener("keydown", escapeClose);
+      modal?.removeEventListener("click", outsideClose);
+    };
+    const escapeClose = (event: any) => {
+      if (event.keyCode === 27) {
+        close();
+      }
+    };
+
+    const outsideClose = (event: any) => {
+      if (
+        event.target === modal ||
+        event.target.classList.contains("display-none")
+      ) {
+        close();
+      }
+    };
+
+    triggerMenu?.addEventListener("click", open);
+  </script>
 </header>
