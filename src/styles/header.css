@@ -56,8 +56,8 @@ header.main-header nav {
         width: 88%;
         max-width: 500px;
         /* height: 75vh; */
-        margin: 10vh auto 0;
-        background-color: var(--color-gray-darker);
+        margin: 15vh auto 0;
+        background-color: var(--color-gray-dark);
         border-radius: var(--space-xs);
         padding-block-end: var(--space-xs);
         .input {
@@ -65,28 +65,29 @@ header.main-header nav {
             /* height: 30px; */
             color: var(--color-highlight);
             border-bottom: solid 1px rgba(0, 0, 0, 0.1);
-            padding: var(--space-s) var(--space-l);
+            padding: var(--space-s) var(--space-m);
         }
         .menu {
             display: grid;
             padding: 0 var(--space-2xs);
             p.title {
-                padding-inline: var(--space-s);
+                padding-inline: var(--space-xs);
                 font-size: var(--step--1);
                 font-weight: 500;
             }
             .links {
                 margin-top: var(--space-3xs);
                 a {
-                    padding: var(--space-2xs) var(--space-s);
+                    padding: var(--space-2xs) var(--space-xs);
                     font-size: var(--step-0);
                     text-decoration: none;
                     display: flex;
                     align-items: center;
                     border-radius: var(--space-2xs);
-                    &:nth-child(1) {
+                    /* &:nth-child(1) {
                         background-color: var(--color-gray-darkest);
-                    }
+                    } */
+                    &:focus, 
                     &:hover {
                         background-color: var(--color-gray-darkest);
                     }
