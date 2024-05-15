@@ -35,8 +35,12 @@ header.main-header nav {
     border-radius: var(--space-s); 
     padding-block: var(--space-3xs); 
     padding-inline: var(--space-s);
+    transition: all ease 0.3s;
     span {
         color: white
+    }
+    &:hover {
+        background-color: var(--color-black-lighter);
     }
 }
 
@@ -77,6 +81,7 @@ header.main-header nav {
             }
             .links {
                 margin-top: var(--space-3xs);
+                /* margin-top: calc(var(--space-3xs) - var(--space-2xs)); */
                 a {
                     padding: var(--space-2xs) var(--space-xs);
                     font-size: var(--step-0);

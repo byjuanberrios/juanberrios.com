@@ -13,7 +13,9 @@
     "@astrojs/check": "^0.5.10",
     "@astrojs/mdx": "^2.3.1",
     "@astrojs/ts-plugin": "^1.6.1",
+    "@iconify-json/tabler": "^1.1.111",
     "astro": "^4.5.18",
+    "astro-icon": "^1.1.0",
     "typescript": "^5.4.4"
   }
 }

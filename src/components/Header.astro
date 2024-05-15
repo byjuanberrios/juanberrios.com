@@ -1,8 +1,28 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
 import meImage from "../../src/assets/images/avatar_3.webp";
 
 import "../styles/header.css";
+
+const menu = [
+  { name: "Home", href: "/", icon: "tabler:home", external: false },
+  {
+    name: "Portafolio",
+    href: "https://works.juanberrios.com",
+    icon: "tabler:flare",
+    external: true,
+  },
+  { name: "Notas", href: "/notes", icon: "tabler:notebook", external: false },
+  {
+    name: "Playlists",
+    href: "/playlists",
+    icon: "tabler:playlist",
+    external: false,
+  },
+  { name: "Now", href: "/now", icon: "tabler:calendar-month", external: false },
+];
 ---
 
 <header class="main-header" transition:persist>
@@ -21,16 +41,19 @@ import "../styles/header.css";
       <div class="menu">
         <p class="title">Páginas</p>
         <div class="links">
-          <a href="/">Home</a>
-          <a
-            href="https://works.juanberrios.com"
-            target="_blank"
-            rel="noreferer noopener"
-            style="display: flex; align-items: center">Portafolio</a
-          >
-          <a href="/notes">Notas</a>
-          <a href="/playlists">Playlists</a>
-          <a href="/now">Now</a>
+          {
+            menu.map((m) => (
+              <a
+                href={m.href}
+                target={m.external ? "_blank" : "_self"}
+                rel={m.external ? "noreferer noopener" : ""}
+                style="display: flex; align-items: center;"
+              >
+                <Icon name={m.icon} />{" "}
+                <span style="margin-left: var(--space-2xs)">{m.name}</span>
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
