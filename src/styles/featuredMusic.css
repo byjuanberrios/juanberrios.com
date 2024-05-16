@@ -27,7 +27,8 @@
                 background-color: hsl(192 100% 48%); 
                 background-color: var(--color-highlight); 
                 color: white;
-                margin-bottom: var(--space-xs)
+                margin-bottom: var(--space-xs);
+                font-size: var(--step--1);
             }
             h2 {
                 margin-top: 0; 
