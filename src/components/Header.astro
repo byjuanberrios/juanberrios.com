@@ -13,6 +13,7 @@ const menu = [
     href: "https://works.juanberrios.com",
     icon: "tabler:flare",
     external: true,
+    tag: "Link externo",
   },
   { name: "Notas", href: "/notes", icon: "tabler:notebook", external: false },
   {
@@ -22,6 +23,30 @@ const menu = [
     external: false,
   },
   { name: "Now", href: "/now", icon: "tabler:calendar-month", external: false },
+];
+
+const platforms = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/soyjuanberrios",
+    icon: "tabler:brand-instagram",
+    external: true,
+    tag: "Link externo",
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/byjuanberrios",
+    icon: "tabler:brand-github",
+    external: true,
+    tag: "Link externo",
+  },
+  {
+    name: "Twitter (X)",
+    href: "https://twitter.com/byjuanberrios",
+    icon: "tabler:brand-twitter",
+    external: true,
+    tag: "Link externo",
+  },
 ];
 ---
 
@@ -49,8 +74,26 @@ const menu = [
                 rel={m.external ? "noreferer noopener" : ""}
                 style="display: flex; align-items: center;"
               >
-                <Icon name={m.icon} />{" "}
-                <span style="margin-left: var(--space-2xs)">{m.name}</span>
+                <Icon name={m.icon} /> <span class="name">{m.name}</span>{" "}
+                {m.tag && <span class="tag">{m.tag}</span>}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="menu">
+        <p class="title">Plataformas</p>
+        <div class="links">
+          {
+            platforms.map((m) => (
+              <a
+                href={m.href}
+                target={m.external ? "_blank" : "_self"}
+                rel={m.external ? "noreferer noopener" : ""}
+                style="display: flex; align-items: center;"
+              >
+                <Icon name={m.icon} /> <span class="name">{m.name}</span>{" "}
+                {m.tag && <span class="tag">{m.tag}</span>}
               </a>
             ))
           }
