@@ -12,10 +12,19 @@
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/mdx": "^2.3.1",
+    "@astrojs/react": "^3.3.4",
     "@astrojs/ts-plugin": "^1.6.1",
     "@iconify-json/tabler": "^1.1.111",
+    "@nanostores/react": "^0.7.2",
+    "@tabler/icons-react": "^3.4.0",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
     "astro": "^4.5.18",
     "astro-icon": "^1.1.0",
+    "cmdk": "^1.0.0",
+    "nanostores": "^0.10.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "typescript": "^5.4.4"
   }
 }

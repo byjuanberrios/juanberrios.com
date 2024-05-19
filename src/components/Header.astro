@@ -1,53 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
+import { MenuButton } from "./MenuButton";
+import { CommandMenu } from "./CommandMenu";
 
 import meImage from "../../src/assets/images/avatar_3.webp";
 
 import "../styles/header.css";
-
-const menu = [
-  { name: "Home", href: "/", icon: "tabler:home", external: false },
-  {
-    name: "Portafolio",
-    href: "https://works.juanberrios.com",
-    icon: "tabler:flare",
-    external: true,
-    tag: "Link externo",
-  },
-  { name: "Notas", href: "/notes", icon: "tabler:notebook", external: false },
-  {
-    name: "Playlists",
-    href: "/playlists",
-    icon: "tabler:playlist",
-    external: false,
-  },
-  { name: "Now", href: "/now", icon: "tabler:calendar-month", external: false },
-];
-
-const platforms = [
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/soyjuanberrios",
-    icon: "tabler:brand-instagram",
-    external: true,
-    tag: "Link externo",
-  },
-  {
-    name: "GitHub",
-    href: "https://github.com/byjuanberrios",
-    icon: "tabler:brand-github",
-    external: true,
-    tag: "Link externo",
-  },
-  {
-    name: "Twitter (X)",
-    href: "https://twitter.com/byjuanberrios",
-    icon: "tabler:brand-twitter",
-    external: true,
-    tag: "Link externo",
-  },
-];
 ---
 
 <header class="main-header" transition:persist>
@@ -55,86 +13,8 @@ const platforms = [
     <a href="/" class="brand-avatar">
       <Image src={meImage} alt="Avatar de Juan Berrios" />
     </a>
-    <button class="menu-button" id="trigger-menu">
-      <span>Menu</span>
-    </button>
+    <MenuButton client:load />
   </nav>
 
-  <div class="modal display-none" id="modal">
-    <div class="modal-content">
-      <div class="input">Ir a...</div>
-      <div class="menu">
-        <p class="title">Páginas</p>
-        <div class="links">
-          {
-            menu.map((m) => (
-              <a
-                href={m.href}
-                target={m.external ? "_blank" : "_self"}
-                rel={m.external ? "noreferer noopener" : ""}
-                style="display: flex; align-items: center;"
-              >
-                <Icon name={m.icon} /> <span class="name">{m.name}</span>{" "}
-                {m.tag && <span class="tag">{m.tag}</span>}
-              </a>
-            ))
-          }
-        </div>
-      </div>
-      <div class="menu">
-        <p class="title">Plataformas</p>
-        <div class="links">
-          {
-            platforms.map((m) => (
-              <a
-                href={m.href}
-                target={m.external ? "_blank" : "_self"}
-                rel={m.external ? "noreferer noopener" : ""}
-                style="display: flex; align-items: center;"
-              >
-                <Icon name={m.icon} /> <span class="name">{m.name}</span>{" "}
-                {m.tag && <span class="tag">{m.tag}</span>}
-              </a>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const triggerMenu = document.querySelector("#trigger-menu");
-    const modal = document.querySelector("#modal");
-    const menus = document.querySelectorAll(".menu a");
-
-    const open = () => {
-      modal?.classList.remove("display-none");
-      document.body.style.overflow = "hidden";
-      document.body.addEventListener("keydown", escapeClose);
-      menus?.forEach((menu) => menu.addEventListener("click", close));
-      modal?.addEventListener("click", outsideClose);
-    };
-    const close = () => {
-      modal?.classList.add("display-none");
-      document.body.style.overflow = "auto";
-      document.body.removeEventListener("keydown", escapeClose);
-      modal?.removeEventListener("click", outsideClose);
-    };
-    const escapeClose = (event: any) => {
-      if (event.keyCode === 27) {
-        close();
-      }
-    };
-
-    const outsideClose = (event: any) => {
-      if (
-        event.target === modal ||
-        event.target.classList.contains("display-none")
-      ) {
-        close();
-      }
-    };
-
-    triggerMenu?.addEventListener("click", open);
-  </script>
+  <CommandMenu client:only="react" />
 </header>
