@@ -1,21 +1,30 @@
+[cmdk-dialog], [cmdk-overlay] {
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+}
+
+[cmdk-overlay] {
+  top: 0;
+  left: 0;
+  height: 100%;
+  /* background-color: rgba(1, 1, 1, .4); */
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+}
+
 [cmdk-dialog] {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    place-items: start center;
-    padding-top: 15vh;
-    outline: none;
+  top: 15%;
+  left: 50%;
+  width: 88vw;
+  max-width: 550px;
+  transform: translate(-50%, 0);
 }
 
 [cmdk-root] {
-    width: 88vw;
-    max-width: 550px;
+    width: 100%;
     margin: 0 auto;
+    outline: none !important;
     [cmdk-input] {
       width: 100%;
       padding: calc(var(--space-2xs) + var(--space-xs)) var(--space-m);
@@ -24,6 +33,8 @@
       outline: none;
       border-top-left-radius: var(--space-2xs);
       border-top-right-radius: var(--space-2xs);
+      border-bottom-left-radius: 0; /* to fix Safari Mobile border */
+      border-bottom-right-radius: 0; /* to fix Safari Mobile border */
     }
     [cmdk-list] {
       background-color: white;
@@ -75,5 +86,8 @@
         border: solid 1px rgba(0, 0, 0, 0.1);
       }
     }
-    [cmdk-separator] {}
+    [cmdk-empty] {
+      padding: var(--space-s) var(--space-m) var(--space-3xs);
+      color: var(--color-highlight)
+    }
 }

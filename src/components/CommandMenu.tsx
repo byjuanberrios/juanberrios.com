@@ -88,15 +88,11 @@ export const CommandMenu = () => {
   const [open, setOpen] = React.useState(false);
   const $isCommandMenuOpen = useStore(isCommandMenuOpen);
 
-  // const handleClickOutside = () => {
-  //   setOpen(false);
-  // };
-
   // Toggle the menu when ⌘K is pressed || open the menu when $isCommandMenuOpen is `true`
   React.useEffect(() => {
     const down = (e: any) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        // e.preventDefault();
+        e.preventDefault();
         setOpen((open) => !open);
       }
     };
@@ -105,7 +101,7 @@ export const CommandMenu = () => {
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [$isCommandMenuOpen]);
+  }, [$isCommandMenuOpen, setOpen]);
 
   const navigateTo = (href: string) => {
     if (!href) return;
@@ -114,8 +110,8 @@ export const CommandMenu = () => {
       window.location.href = href;
     } else if (href.includes("//")) {
       window.open(href, "_blank", "noopener,noreferrer");
-      // isCommandMenuOpen.set(!$isCommandMenuOpen);
-      // setOpen(false);
+      isCommandMenuOpen.set(!$isCommandMenuOpen);
+      setOpen(false);
     } else {
       isCommandMenuOpen.set(!$isCommandMenuOpen);
       setOpen(false);
@@ -140,8 +136,6 @@ export const CommandMenu = () => {
                 <Command.Item
                   style={{ contentVisibility: "auto" }}
                   key={i}
-                  // onClick={() => navigate(m.href)}
-                  // onSelect={() => navigate(m.href)}
                   onSelect={() => navigateTo(m.href)}
                 >
                   {m.iconComp}
@@ -153,7 +147,11 @@ export const CommandMenu = () => {
 
             <Command.Group heading="Plataformas">
               {platforms.map((p, i) => (
-                <Command.Item style={{ contentVisibility: "auto" }} key={i}>
+                <Command.Item
+                  style={{ contentVisibility: "auto" }}
+                  key={i}
+                  onSelect={() => navigateTo(p.href)}
+                >
                   {p.iconComp}
                   <span className="name">{p.name}</span>
                   {p.tag && <span className="tag">{p.tag}</span>}
