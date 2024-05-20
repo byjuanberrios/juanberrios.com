@@ -60,7 +60,7 @@ const menu = [
 const platforms = [
   {
     name: "Instagram",
-    href: "https://www.instagram.com/soyjuanberrios",
+    href: "https://www.instagram.com/byjuanberrios",
     icon: "tabler:brand-instagram",
     iconComp: <IconBrandInstagram />,
     external: true,
