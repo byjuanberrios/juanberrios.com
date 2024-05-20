@@ -85,23 +85,21 @@ const platforms = [
 ];
 
 export const CommandMenu = () => {
-  const [open, setOpen] = React.useState(false);
   const $isCommandMenuOpen = useStore(isCommandMenuOpen);
 
-  // Toggle the menu when ⌘K is pressed || open the menu when $isCommandMenuOpen is `true`
+  // Toggle the menu when ⌘K is pressed (open the menu when $isCommandMenuOpen is `true`)
   React.useEffect(() => {
     const down = (e: any) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setOpen((open) => !open);
+        isCommandMenuOpen.set(!$isCommandMenuOpen);
       }
     };
 
-    if ($isCommandMenuOpen) setOpen(true);
-
     document.addEventListener("keydown", down);
+
     return () => document.removeEventListener("keydown", down);
-  }, [$isCommandMenuOpen, setOpen]);
+  }, [$isCommandMenuOpen]);
 
   const navigateTo = (href: string) => {
     if (!href) return;
@@ -111,10 +109,8 @@ export const CommandMenu = () => {
     } else if (href.includes("//")) {
       window.open(href, "_blank", "noopener,noreferrer");
       isCommandMenuOpen.set(!$isCommandMenuOpen);
-      setOpen(false);
     } else {
       isCommandMenuOpen.set(!$isCommandMenuOpen);
-      setOpen(false);
       navigate(href);
     }
   };
@@ -123,9 +119,8 @@ export const CommandMenu = () => {
     <div>
       <Command>
         <Command.Dialog
-          open={open}
-          onOpenChange={setOpen}
-          label="Global Command Menu"
+          open={$isCommandMenuOpen}
+          onOpenChange={() => isCommandMenuOpen.set(!$isCommandMenuOpen)}
         >
           <Command.Input placeholder="Ir a..." />
           <Command.List>
