@@ -70,7 +70,7 @@
       svg {
         margin-right: var(--space-2xs);
         opacity: 0.5;
-        width: var(--space-m);
+        width: var(--space-s);
       }
       .name {
         flex-grow: 1;
