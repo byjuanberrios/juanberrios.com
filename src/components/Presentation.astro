@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
 import meImage from "../../src/assets/images/me-1.webp";
 
 import "../styles/presentation.css";
@@ -11,18 +13,21 @@ import "../styles/presentation.css";
       Hola soy <span class="text-highlight">Juan Berrios</span>, <br />y este es
       mi jardín digital.
     </h1>
-    <!-- <p>
+    <p>
       Diseñador y desarrollador web chileno, viviendo en Curicó, esencialmente
       cristiano. Gran parte de lo que hago tiene que ver con internet.
-    </p> -->
+    </p>
   </header>
 
   <div class="portfolio-data">
     <div class="item">
-      <p class="title"><span>→ ¿Buscas mi portafolio?</span> 👀</p>
+      <p class="title">
+        <Icon name="tabler:flare" font-size="var(--step--1)" opacity={0.7} />
+        <span>Revisa mi portafolio</span>
+      </p>
       <div class="content">
         <p>
-          Puedes revisar mis trabajos de diseño y desarrollo <a
+          Mis trabajos de diseño y desarrollo <a
             href="https://works.juanberrios.com"
             rel="noopener noreferrer"
             target="_blank">en este link</a
@@ -30,17 +35,17 @@ import "../styles/presentation.css";
         </p>
       </div>
     </div>
-    <div class="item">
+    <div class="subitem">
       <p class="title">
-        → Disponibilidad
         <span class="availability">
           <span class="animated-ping"></span>
           <span class="ping"></span>
         </span>
+        <span>
+          <strong>Disponible para trabajar</strong> en proyectos freelance o con
+          empresas.
+        </span>
       </p>
-      <div class="content">
-        <p>Disponible para trabajar en proyectos freelance o con empresas.</p>
-      </div>
     </div>
   </div>
 
