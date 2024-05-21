@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { sortByDate } from "../utils/orderNotesByDate.astro";
 
 import Base from "../layouts/Base.astro";
 import Message from "../components/Message.astro";
@@ -8,9 +9,10 @@ import NowItem from "../components/NowItem.astro";
 import "../styles/now.css";
 
 const allNow = await getCollection("now");
+const nowEntries = allNow.sort(sortByDate);
 ---
 
-<Base>
+<Base title="Now">
   <div>
     <h1 class="inPage">Now</h1>
     <Message>
@@ -21,7 +23,11 @@ const allNow = await getCollection("now");
       >
     </Message>
     <div class="now">
-      {allNow.map((item) => <NowItem date={item.data.date} slug={item.slug} />)}
+      {
+        nowEntries.map((item) => (
+          <NowItem date={item.data.date} slug={item.slug} />
+        ))
+      }
     </div>
   </div>
 </Base>

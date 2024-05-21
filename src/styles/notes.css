@@ -33,6 +33,7 @@
     .more {
         display: inline-block;
         margin-block-start: var(--space-m);
+        opacity: 0.6;
     }
 }
 

@@ -34,8 +34,8 @@ header.main-header nav {
     span {
         color: white
     }
-    &:hover {
+    /* &:hover {
         background-color: var(--color-black-lighter);
-    }
+    } */
 }
 

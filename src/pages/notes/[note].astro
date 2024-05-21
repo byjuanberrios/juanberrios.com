@@ -37,7 +37,7 @@ export async function getStaticPaths() {
 const { prevNote, nextNote } = Astro.props;
 ---
 
-<Base>
+<Base title={post.data.title}>
   <div class="single-note">
     <h1>{post.data.title}</h1>
     <Content />

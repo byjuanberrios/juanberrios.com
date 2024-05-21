@@ -11,6 +11,97 @@
         }
     }
     figure {
-        margin-block: var(--space-3xl);
+        margin-block: calc(var(--space-3xl) + var(--space-3xs)) var(--space-3xl);
+    }
+}
+
+.portfolio-data {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: var(--space-m);
+    margin-top: var(--space-2xl);
+    line-height: 160%;
+    .item {
+        * {
+            margin: 0;
+        }
+        .title {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xs);
+            margin-bottom: calc(var(--space-2xs) - var(--space-3xs))
+        }
+        .content {
+            opacity: 0.6;
+            line-height: 150%;
+            padding-right: var(--space-s);
+            p {}
+        }
+    }
+}
+
+/* .cards {
+    display: grid;
+    gap: var(--space-s);
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    margin-top: var(--space-2xl);
+    .card {
+        background-color: var(--color-gray-dark);
+
+        padding-block: var(--space-xs);
+        padding-inline: var(--space-s) var(--space-m);
+        border-radius: var(--space-xs);
+        border: solid 1px rgba(0,0,0,0.05);
+        font-size: var(--step--1);
+
+        * {
+            margin: 0;
+        }
+        .title {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xs);
+            margin-bottom: calc(var(--space-2xs) - var(--space-3xs))
+        }
+        .content {
+            line-height: 160%;
+            line-height: 150%;
+            opacity: 0.6;
+        }
+    }
+} */
+
+@keyframes ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.availability {
+    width: .375rem;
+    height: .375rem;
+    display: flex;
+    margin-left: .375rem;
+    position: relative;
+    .animated-ping {
+        animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+        position: absolute;
+        display: inline-flex;
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+        background-color: rgb(22 163 74);;
+        opacity: 0.75;
+    }
+    .ping {
+        position: relative;
+        display: inline-flex;
+        border-radius: 100%;
+        width: .375rem;
+        height: .375rem;
+        background-color: rgb(22 163 74);;
     }
 }
