@@ -39,12 +39,13 @@
     /* Colors */
     --color-gray: #FCFBFB;
     --color-gray-dark: #F5F5F5;
-    --color-gray-darker: #f0f1f2;
+    --color-gray-darker: #e7e7e9;
     --color-gray-darkest: #dcdbdb;
     /* --color-highlight: #024aad; */
     /* --color-highlight: #2253ff; */
     /* --color-highlight: #2347cc; */
     --color-highlight: #7e7d7d;
+    --color-lightning: #1375f5;
     --color-black-lighter: #4c4c4c;
     --color-black: #252525;
   }

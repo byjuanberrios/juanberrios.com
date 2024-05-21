@@ -26,7 +26,8 @@ header.main-header nav {
 .menu-button {
     cursor: pointer; 
     font-size: var(--step--1); 
-    background-color: var(--color-black); 
+    background-color: var(--color-black);
+    /* background-color: var(--color-lightning); */
     border-radius: var(--space-s); 
     padding-block: var(--space-3xs); 
     padding-inline: var(--space-s);

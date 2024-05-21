@@ -18,7 +18,7 @@
 .portfolio-data {
     margin-top: var(--space-2xl);
     line-height: 160%;
-    border: solid 1px var(--color-gray-darkest);
+    border: solid 1px var(--color-gray-darker);
     /* border-radius: var(--space-2xs); */
     border-radius: var(--space-xs);
     .item, .subitem {
@@ -51,7 +51,7 @@
     .subitem {
         padding: var(--space-s) var(--space-m) var(--space-xs);
         background-color: var(--color-gray-dark);
-        border-top: solid 1px var(--color-gray-darkest);
+        border-top: solid 1px var(--color-gray-darker);
         font-size: var(--step--1);
         line-height: 150%;
         border-top-left-radius: 0;
