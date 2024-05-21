@@ -9,6 +9,7 @@ import {
   IconBrandGithub,
   IconBrandInstagram,
   IconBrandTwitter,
+  IconBrandVsco,
   IconCalendarMonth,
   IconFlare,
   IconHome,
@@ -22,14 +23,12 @@ const menu = [
   {
     name: "Home",
     href: "/",
-    icon: "tabler:home",
     iconComp: <IconHome />,
     external: false,
   },
   {
     name: "Portafolio",
     href: "https://works.juanberrios.com",
-    icon: "tabler:flare",
     iconComp: <IconFlare />,
     external: true,
     tag: "Link externo",
@@ -37,21 +36,18 @@ const menu = [
   {
     name: "Notas",
     href: "/notes",
-    icon: "tabler:notebook",
     iconComp: <IconNotebook />,
     external: false,
   },
   {
     name: "Playlists",
     href: "/playlists",
-    icon: "tabler:playlist",
     iconComp: <IconPlaylist />,
     external: false,
   },
   {
     name: "Now",
     href: "/now",
-    icon: "tabler:calendar-month",
     iconComp: <IconCalendarMonth />,
     external: false,
   },
@@ -61,7 +57,6 @@ const platforms = [
   {
     name: "Instagram",
     href: "https://www.instagram.com/byjuanberrios",
-    icon: "tabler:brand-instagram",
     iconComp: <IconBrandInstagram />,
     external: true,
     tag: "Link externo",
@@ -69,7 +64,6 @@ const platforms = [
   {
     name: "GitHub",
     href: "https://github.com/byjuanberrios",
-    icon: "tabler:brand-github",
     iconComp: <IconBrandGithub />,
     external: true,
     tag: "Link externo",
@@ -77,8 +71,14 @@ const platforms = [
   {
     name: "Twitter (X)",
     href: "https://twitter.com/byjuanberrios",
-    icon: "tabler:brand-twitter",
     iconComp: <IconBrandTwitter />,
+    external: true,
+    tag: "Link externo",
+  },
+  {
+    name: "VSCO",
+    href: "https://vsco.co/byjuanberrios",
+    iconComp: <IconBrandVsco />,
     external: true,
     tag: "Link externo",
   },
