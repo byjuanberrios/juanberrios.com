@@ -37,7 +37,7 @@
       border-bottom-right-radius: 0; /* to fix Safari Mobile border */
     }
     [cmdk-list] {
-      background-color: white;
+      background-color: var(--color-white);
       width: 100%;
       border-bottom-left-radius: var(--space-2xs);
       border-bottom-right-radius: var(--space-2xs);

@@ -33,7 +33,7 @@ header.main-header nav {
     padding-inline: var(--space-s);
     transition: all ease 0.3s;
     span {
-        color: white
+        color: var(--color-white);
     }
     /* &:hover {
         background-color: var(--color-black-lighter);

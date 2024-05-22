@@ -117,7 +117,12 @@ export const CommandMenu = () => {
 
   return (
     <div>
-      <Command>
+      <Command
+        filter={(value, search) => {
+          if (value.includes(search)) return 1;
+          return 0;
+        }}
+      >
         <Command.Dialog
           open={$isCommandMenuOpen}
           onOpenChange={() => isCommandMenuOpen.set(!$isCommandMenuOpen)}

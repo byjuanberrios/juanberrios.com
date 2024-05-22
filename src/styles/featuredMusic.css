@@ -26,7 +26,7 @@
                 border-radius: 9999px;
                 background-color: hsl(192 100% 48%); 
                 background-color: var(--color-highlight); 
-                color: white;
+                color: var(--color-white);
                 margin-bottom: var(--space-xs);
                 font-size: var(--step--1);
             }

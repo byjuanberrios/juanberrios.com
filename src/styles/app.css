@@ -37,13 +37,11 @@
     --space-xs-xs: clamp(0.6875rem, 0.663rem + 0.1087vi, 0.75rem);
   
     /* Colors */
+    --color-white: #FFFFFF;
     --color-gray: #FCFBFB;
     --color-gray-dark: #F5F5F5;
     --color-gray-darker: #e7e7e9;
     --color-gray-darkest: #dcdbdb;
-    /* --color-highlight: #024aad; */
-    /* --color-highlight: #2253ff; */
-    /* --color-highlight: #2347cc; */
     --color-highlight: #7e7d7d;
     --color-lightning: #1375f5;
     --color-black-lighter: #4c4c4c;
@@ -52,6 +50,7 @@
 
 body {
     background-color: var(--color-gray);
+    color: var(--color-black);
     font-family: 'Neue Montreal', sans-serif;
     /* font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji; */
     /* font-family: Georgia, serif; */
@@ -59,6 +58,24 @@ body {
     font-size: var(--step-0);
     letter-spacing: calc(var(--step-0) * 2 / 100);
     line-height: 170%;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-white: #000000;
+        --color-gray: #252525;
+        --color-gray-dark: #2f2f2f;
+        --color-gray-darker: #3c3c3c;
+        --color-gray-darkest: #4f4f4f;
+        --color-highlight: #7e7d7d;
+        --color-lightning: #1375f5;
+        --color-black-lighter: #dcdbdb;
+        --color-black: #FCFBFB;
+    }
+    /* body {
+        background-color: var(--color-black);
+        color: var(--color-gray);
+    } */
 }
 
 p,
@@ -217,8 +234,8 @@ pre {
     padding: 0;
     overflow: auto;
     margin-block: var(--space-m);
-    background-color: white !important;
-    color: black !important;
+    background-color: var(--color-white) !important;
+    color: var(--color-black) !important;
     code {
         line-height: 200%;
         padding: var(--space-2xs) var(--space-s);
