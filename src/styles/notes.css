@@ -21,7 +21,7 @@
             hr {
                 align-self: flex-end;
                 border-style: dashed;
-                border-color: rgba(0, 0, 0, 0.2);
+                border-color: var(--color-gray-dark);
                 margin-bottom: 0.4rem;
                 min-width: 2ch;
             }
