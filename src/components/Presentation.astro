@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
 
 import meImage from "../../src/assets/images/me-1.webp";
 
 import "../styles/presentation.css";
+import PortfolioData from "./PortfolioData.astro";
 ---
 
 <div class="presentation">
@@ -19,35 +19,7 @@ import "../styles/presentation.css";
     </p>
   </header>
 
-  <div class="portfolio-data">
-    <div class="item">
-      <p class="title">
-        <Icon name="tabler:flare" opacity={0.7} />
-        <span>Revisa mi portafolio</span>
-      </p>
-      <div class="content">
-        <p>
-          Encuentra mis trabajos de diseño y desarrollo <a
-            href="https://works.juanberrios.com"
-            rel="noopener noreferrer"
-            target="_blank">en este link</a
-          >
-        </p>
-      </div>
-    </div>
-    <div class="subitem">
-      <p class="title">
-        <span class="availability">
-          <span class="animated-ping"></span>
-          <span class="ping"></span>
-        </span>
-        <span>
-          <strong>Disponible para trabajar</strong> en proyectos freelance o con
-          empresas.
-        </span>
-      </p>
-    </div>
-  </div>
+  <PortfolioData />
 
   <figure>
     <Image src={meImage} alt="Avatar de Juan Berrios" class="border-small" />
