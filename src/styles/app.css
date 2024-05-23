@@ -43,7 +43,7 @@
     --color-gray-darker: #E0E0E0;
     --color-gray-darkest: #D6D6D6;
     --color-highlight: #7e7d7d;
-    --color-lightning: #1375f5;
+    --color-lightning: #B7F723;
     --color-black-lighter: #4c4c4c;
     --color-black: #252525;
   }
@@ -76,8 +76,8 @@ body {
         --color-gray-dark: #292929;
         --color-gray-darker: #333333;
         --color-gray-darkest: #3D3D3D;
-        --color-highlight: #7e7d7d;
-        --color-lightning: #1375f5;
+        /* --color-highlight: #7e7d7d;
+        --color-lightning: #1375f5; */
         --color-black-lighter: #dcdbdb;
         --color-black: #FCFBFB;
     }
@@ -277,9 +277,6 @@ h1.inPage {
 h1.big {
     font-size: var(--step-5);
     line-height: 130%;
-    /* letter-spacing: calc(var(--step-3) * 0.5 / 100);
-    line-height: 140%;
-    margin-top: calc(var(--space-3xl) + var(--space-xs)); */
 }
 
 /* Spacing */
