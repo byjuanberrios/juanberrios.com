@@ -1,0 +1,13 @@
+.colophon {
+    .colophon-head {
+        color: var(--color-highlight);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .colophon {
+        .colophon-head {
+            color: var(--color-lightning);
+        }
+    }
+}
