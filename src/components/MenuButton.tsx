@@ -10,6 +10,7 @@ export const MenuButton = () => {
       onClick={() => isCommandMenuOpen.set(!$isCommandMenuOpen)}
     >
       <span>Menu</span>
+      <div className="popover">Cmd + K</div>
     </button>
   );
 };

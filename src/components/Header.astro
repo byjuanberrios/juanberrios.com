@@ -6,12 +6,17 @@ import { CommandMenu } from "./CommandMenu";
 import meImage from "../../src/assets/images/avatar_3.webp";
 
 import "../styles/header.css";
+
+const { currentPath } = Astro.props;
+const message = currentPath === "/" ? "About" : "Ir al home";
+const isHome = currentPath === "/";
 ---
 
-<header class="main-header" transition:persist>
+<header class="main-header">
   <nav>
-    <a href="/" class="brand-avatar">
+    <a href={isHome ? "/about" : "/"} class="brand-avatar">
       <Image src={meImage} alt="Avatar de Juan Berrios" />
+      <div class="popover">{message}</div>
     </a>
     <MenuButton client:load />
   </nav>

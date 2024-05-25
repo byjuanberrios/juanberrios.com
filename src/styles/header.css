@@ -16,32 +16,85 @@ header.main-header nav {
     display: block;
     background-color: var(--color-gray);
     border-radius: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    /* justify-content: space-between; */
+    align-items: center;
+    .popover {
+        position: absolute;
+        text-wrap: nowrap;
+        left: 120%;
+        visibility: hidden;
+        opacity: 0;
+        background-color: var(--color-gray);
+        border: solid 1px var(--color-highlight);
+        border-radius: var(--space-s);
+        color: var(--color-highlight);
+        font-size: var(--step--2);
+        padding: 0 var(--space-2xs);
+        transition: all ease-out 0.15s;
+    }
     img {
         border-radius: 100%;
         width: var(--space-xl);
         height: var(--space-xl);
+        &:hover {
+            & ~ .popover {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
     }
 }
 
 .menu-button {
     cursor: pointer; 
-    font-size: var(--step--1); 
-    background-color: var(--color-black);
-    
-    border-radius: var(--space-s); 
-    padding-block: var(--space-3xs); 
-    padding-inline: var(--space-s);
-    transition: all ease 0.3s;
-    span {
-        color: var(--color-white);
+    position: relative;
+    .popover {
+        position: absolute;
+        background-color: var(--color-gray);
+        border: solid 1px var(--color-highlight);
+        border-radius: var(--space-s);
+        color: var(--color-highlight);
+        text-wrap: nowrap;
+        font-size: var(--step--2);
+        padding: 0 var(--space-2xs);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        bottom: 0;
+        left: -102%;
+        visibility: hidden;
+        opacity: 0;
+        transition: all ease-out 0.15s;
     }
-    /* &:hover {
-        background-color: var(--color-black-lighter);
-    } */
+    span {
+        font-size: var(--step--1); 
+        background-color: var(--color-black);
+        
+        border-radius: var(--space-s); 
+        padding-block: var(--space-3xs); 
+        padding-inline: var(--space-s);
+        transition: all ease 0.3s;
+        display: block;
+        color: var(--color-white);
+        &:hover,
+        &:focus {
+            & ~ .popover {
+                /* display: flex; */
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     .menu-button {
-        background-color: var(--color-lightning);
+        span {
+            background-color: var(--color-lightning);
+        }
     }
 }
