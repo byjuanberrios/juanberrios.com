@@ -1,0 +1,11 @@
+.about {
+    header {
+        h1 {
+            margin-bottom: var(--space-xl);
+        }
+        p {}
+    }
+    .things {
+        
+    }
+}
