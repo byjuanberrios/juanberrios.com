@@ -323,3 +323,15 @@ h1.big {
 .stroke-dark {
     stroke: var(--color-dark);
 }
+
+.text-lightning {
+    color: var(--color-lightning);
+}
+
+.fill-lightning {
+    fill: var(--color-lightning);
+}
+
+.stroke-lightning {
+    stroke: var(--color-lightning);
+}
