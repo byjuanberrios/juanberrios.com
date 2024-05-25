@@ -6,6 +6,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://juanberrios.com',
   integrations: [mdx(), icon(), react()],
   redirects: {
     '/blog': '/notes',
