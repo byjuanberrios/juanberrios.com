@@ -1,0 +1,34 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="404">
+  <div class="error-page">
+    <header>
+      <h1>Creo que estás perdido</h1>
+    </header>
+    <p>Estás leyendo esto y probablemente estés confundido.</p>
+    <p>
+      Sí, esta es una página 404 y sí, la página que estabas buscando ya no
+      existe o yo me equivoqué al escribirla. Da igual, no te preocupes. Existen
+      cosas aun más terribles que estar perdido o confundido, como por ejemplo,
+      estar perdido y confundido al mismo tiempo. Eso es lo peor.
+    </p>
+    <p>
+      Entonces, ¿qué puedes hacer al respecto? Bueno, puedes volver a la <a
+        href="/">página de inicio</a
+      > o presionar <strong>cmd + K</strong> (<i>ctrl + K en windows</i>) para
+      deplegar el menú.
+    </p>
+    <p>¿Lo ves? todo tiene solución.</p>
+  </div>
+
+  <style>
+    .error-page {
+      h1 {
+        max-width: 90%;
+        margin-block-end: calc(var(--space-xs) + var(--space-xl));
+      }
+    }
+  </style>
+</Base>
