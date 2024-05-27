@@ -22,7 +22,12 @@ import PortfolioData from "./PortfolioData.astro";
   <PortfolioData />
 
   <figure>
-    <Image src={meImage} alt="Avatar de Juan Berrios" class="border-small" />
+    <Image
+      src={meImage}
+      alt="Avatar de Juan Berrios"
+      class="border-small"
+      loading="eager"
+    />
     <figcaption>
       Este soy yo. Foto hecha por <a
         href="https://instagram.com/iamthejean"

@@ -34,7 +34,12 @@ playlists.sort(sortByDate);
     {
       playlists.map((playlist) => (
         <div class="item">
-          <Image src={playlist.data.imageUrl} alt="" inferSize={true} />
+          <Image
+            src={playlist.data.imageUrl}
+            alt=""
+            inferSize={true}
+            loading="eager"
+          />
           <div class="content">
             <p class="title">{playlist.data.name}</p>
             <p class="desc">{playlist.data.songs} canciones</p>
@@ -44,6 +49,7 @@ playlists.sort(sortByDate);
                   href={playlist.data.platforms.appleMusicLink}
                   target="_blank"
                   rel="noopener"
+                  aria-label="platform"
                 >
                   <IconAppleMusic />
                 </a>
@@ -53,6 +59,7 @@ playlists.sort(sortByDate);
                   href={playlist.data.platforms.spotifyLink}
                   target="_blank"
                   rel="noopener"
+                  aria-label="platform"
                 >
                   <IconSpotify />
                 </a>

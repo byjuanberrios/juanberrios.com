@@ -15,7 +15,7 @@ const isHome = currentPath === "/";
 <header class="main-header">
   <nav>
     <a href={isHome ? "/about" : "/"} class="brand-avatar">
-      <Image src={meImage} alt="Avatar de Juan Berrios" />
+      <Image src={meImage} alt="Avatar de Juan Berrios" loading="eager" />
       <div class="popover">{message}</div>
     </a>
     <MenuButton client:load />

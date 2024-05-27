@@ -8,6 +8,9 @@
     p, ul, ol {
         color: var(--color-black-lighter);
     }
+    img {
+        margin: var(--space-xl) 0;
+    }
     iframe {
         margin-top: var(--space-xl);
         max-width: 100%;
