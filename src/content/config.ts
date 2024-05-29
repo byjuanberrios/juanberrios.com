@@ -7,6 +7,7 @@ const notesCollections = defineCollection({
     date: z.string(),
     summary: z.string().optional(),
     image: z.string().optional(),
+    isPublished: z.boolean(),
   }),
 });
 

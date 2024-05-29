@@ -15,7 +15,9 @@ if (!post) throw new Error("No post found for this slug");
 const { Content } = await post.render();
 
 export async function getStaticPaths() {
-  const allNotes = await getCollection("notes");
+  const allNotes = await getCollection("notes", ({ data }) => {
+    return data.isPublished === true;
+  });
   const NotesLength = allNotes.length;
 
   return allNotes.sort(sortByDate).map((note, i) => {
@@ -24,9 +26,6 @@ export async function getStaticPaths() {
         note: note.slug,
       },
       props: {
-        name: note.data.title,
-        date: note.data.date,
-        body: note.body,
         prevNote: i + 1 === NotesLength ? null : allNotes[i + 1],
         nextNote: i === 0 ? null : allNotes[i - 1],
       },

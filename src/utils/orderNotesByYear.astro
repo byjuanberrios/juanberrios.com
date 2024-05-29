@@ -7,6 +7,7 @@ interface Note {
   slug: string;
   summary?: string;
   image?: string;
+  isPublished: boolean;
 }
 
 interface OrderedNotes {
@@ -22,11 +23,13 @@ export const orderNotesByYear = (notes: any[], sliced?: boolean) => {
     if (!acc[year]) {
       acc[year] = [];
     }
+
     const data = {
       ...actualNote.data,
       slug: actualNote.slug,
     };
     acc[year] = [data, ...acc[year]];
+
     return acc;
   }, {});
 };

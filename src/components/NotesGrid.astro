@@ -10,6 +10,7 @@ interface Note {
   slug: string;
   summary?: string;
   image?: string;
+  isPublished: boolean;
 }
 
 interface OrderedNotes {
@@ -18,7 +19,9 @@ interface OrderedNotes {
 
 const { inPage } = Astro.props;
 
-const allNotes = await getCollection("notes");
+const allNotes = await getCollection("notes", ({ data }) => {
+  return data.isPublished === true;
+});
 const orderedNotes: OrderedNotes = orderNotesByYear(
   allNotes,
   inPage ? false : true
