@@ -258,7 +258,10 @@ pre {
         }
     }
     &:before {
-        content: '</> Snippet';
+        /* content: 'Snippet'; */
+        content: attr(data-language);
+        /* content: "prefix" attr(data-language) / "Snippet"; */
+        /* content: open-quote attr(data-language); */
         font-family: 'Neue Montreal', sans-serif;
         opacity: 0.8;
         position: sticky;

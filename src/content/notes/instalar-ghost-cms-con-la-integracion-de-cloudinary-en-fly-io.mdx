@@ -2,6 +2,7 @@
 title: Ghost CMS con Cloudinary en Fly.io
 date: "2023-01-22"
 summary: En este post, te mostraré cómo instalar Ghost CMS en Fly.io con la integración para alojar imágenes en Cloudinary que Ghost recomienda. Todo esto de manera gratuita.
+isPublished: true
 ---
 import Message from "../../components/Message.astro";
 
@@ -41,7 +42,7 @@ Una vez clonado el repo, nos dirigimos al archivo `docker-compose.yaml` y reempl
 
 En el archivo `fly.toml` reemplazamos algunas variables de entorno:
 
-```
+```toml
 app = "el-blog-de-messi"
 [ENV]
     url = "https://el-blog-de-messi.fly.dev"
@@ -71,7 +72,7 @@ Elegimos una región para el despliegue. Yo vivo en Chile, y como me interesan l
 
 Ahora creamos el volumen de alojamiento para nuestros datos:
 
-```
+```shell
 fly volume create ghost_with_cloudinary_data --region scl --size 1
 ```
 
