@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+
+import Base from "../../layouts/Base.astro";
+import { getAlbums } from "../../scripts/notion";
+
+import "../../styles/single-album.css";
+
+const { album } = Astro.params;
+if (!album) throw new Error("Album not found");
+
+export async function getStaticPaths() {
+  const albums = await getAlbums();
+
+  return albums.map((album) => {
+    return {
+      params: {
+        album: album.slug,
+      },
+      props: {
+        name: album.name,
+        artist: album.artist,
+        year: album.year,
+        cover: album.cover,
+      },
+    };
+  });
+}
+
+const { name, artist, year, cover } = Astro.props;
+---
+
+<Base title={`${artist} - ${name}`}>
+  <div class="single-album">
+    <header>
+      <h1>{name} <span>({year})</span></h1>
+      <h3>{artist}</h3>
+    </header>
+
+    <Image src={cover} alt={`${artist} - ${name}`} inferSize={true} />
+  </div>
+</Base>

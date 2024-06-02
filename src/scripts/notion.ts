@@ -1,10 +1,12 @@
 import { Client } from "@notionhq/client";
+import { slugify } from "../utils/slugify.astro";
 
 export type Album = {
   artist: string;
   name: string;
   cover: any;
-  year?: number;
+  year: number;
+  slug: string;
 };
 
 export async function getAlbums(): Promise<Album[]> {
@@ -19,6 +21,9 @@ export async function getAlbums(): Promise<Album[]> {
       name: result.properties.Name.title[0].plain_text,
       cover: result.properties["Cover image"].rich_text[0].plain_text,
       year: result.properties.Year.number,
+      slug: slugify(
+        `${result.properties.Artist.rich_text[0].plain_text}-${result.properties.Name.title[0].plain_text}`
+      ),
     };
     return album;
   });

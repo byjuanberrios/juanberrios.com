@@ -1,0 +1,25 @@
+.single-album {
+    header {
+      margin-bottom: var(--space-2xl);
+      h1 {
+        margin: 0;
+        line-height: 130%;
+        span {
+          opacity: 0.3;
+          font-weight: 400;
+          font-size: var(--step-0);
+        }
+      }
+      h3 {
+        margin: 0;
+        line-height: 130%;
+        opacity: 0.5;
+      }
+    }
+
+    img {
+      background-color: var(--color-white);
+      border-radius: var(--space-3xs);
+      /* margin-bottom: var(--space-xs); */
+    }
+  }

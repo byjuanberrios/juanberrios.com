@@ -1,0 +1,36 @@
+.albums-header {
+    margin-bottom: var(--space-2xl);
+  }
+  .albums {
+    display: grid;
+    gap: var(--space-2xl) var(--space-xl);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    .album {
+      text-decoration: none;
+      img {
+        background-color: var(--color-white);
+        border-radius: var(--space-3xs);
+        margin-bottom: var(--space-xs);
+        object-fit: contain;
+        aspect-ratio: 1;
+      }
+      .data {
+        h3 {
+          margin: 0;
+          margin-bottom: calc(var(--space-3xs) / 1.5);
+          line-height: 130%;
+          font-size: var(--step-0);
+          span {
+            opacity: 0.3;
+            font-weight: 400;
+          }
+        }
+        p {
+          font-size: var(--step--1);
+          opacity: 0.5;
+          margin: 0;
+          line-height: 130%;
+        }
+      }
+    }
+  }
