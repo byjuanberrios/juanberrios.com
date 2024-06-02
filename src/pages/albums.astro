@@ -1,0 +1,71 @@
+---
+import Base from "../layouts/Base.astro";
+import { Image } from "astro:assets";
+import { getAlbums } from "../scripts/notion";
+import Message from "../components/Message.astro";
+
+const albums = await getAlbums();
+---
+
+<Base title="Albums seguros">
+  <header class="albums-header">
+    <h1 class="inPage">Mi lista de albums seguros</h1>
+    <Message title="En construcción">
+      Aun tengo que curar más esta lista y la idea es agregar más información de
+      cada album junto con enlaces donde escucharlos.
+    </Message>
+    <p>
+      Lista actualizada de los los albums más significativos, impactantes o
+      gratificantes que he escuchado en mi vida.
+    </p>
+  </header>
+
+  <div class="albums">
+    {
+      albums.map((album) => (
+        <div class="album">
+          <Image
+            src={album.cover || ""}
+            alt={`${album.artist || "??"} - ${album.name || "??"}`}
+            inferSize={true}
+          />
+          <div class="data">
+            <h3>{album.name || "??"}</h3>
+            <p>{album.artist || "??"}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <style>
+    .albums-header {
+      margin-bottom: var(--space-2xl);
+    }
+    .albums {
+      display: grid;
+      gap: var(--space-2xl) var(--space-xl);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      .album {
+        img {
+          border-radius: var(--space-3xs);
+          margin-bottom: var(--space-xs);
+        }
+        .data {
+          h3 {
+            margin: 0;
+            margin-bottom: calc(var(--space-3xs) / 1.5);
+            line-height: 130%;
+            font-size: var(--step-0);
+          }
+          p {
+            font-size: var(--step--1);
+            opacity: 0.5;
+            margin: 0;
+            line-height: 130%;
+          }
+        }
+      }
+    }
+  </style>
+</Base>
