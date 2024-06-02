@@ -7,7 +7,10 @@ import Message from "../components/Message.astro";
 const albums = await getAlbums();
 ---
 
-<Base title="Albums seguros">
+<Base
+  title="Albums seguros"
+  description="Lista actualizada de los los albums más significativos, impactantes o gratificantes que he escuchado en mi vida."
+>
   <header class="albums-header">
     <h1 class="inPage">Mi lista de albums seguros</h1>
     <Message title="En construcción">
@@ -30,7 +33,10 @@ const albums = await getAlbums();
             inferSize={true}
           />
           <div class="data">
-            <h3>{album.name || "??"}</h3>
+            <h3>
+              {album.name || "??"}{" "}
+              <span>{album.year && `(${album.year})`}</span>
+            </h3>
             <p>{album.artist || "??"}</p>
           </div>
         </div>
@@ -57,6 +63,10 @@ const albums = await getAlbums();
             margin-bottom: calc(var(--space-3xs) / 1.5);
             line-height: 130%;
             font-size: var(--step-0);
+            span {
+              opacity: 0.3;
+              font-weight: 400;
+            }
           }
           p {
             font-size: var(--step--1);

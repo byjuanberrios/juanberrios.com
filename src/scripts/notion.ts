@@ -4,6 +4,7 @@ export type Album = {
   artist: string;
   name: string;
   cover: any;
+  year?: number;
 };
 
 export async function getAlbums(): Promise<Album[]> {
@@ -12,12 +13,12 @@ export async function getAlbums(): Promise<Album[]> {
     database_id: import.meta.env.NOTION_DATABASE_ID,
   });
 
-  // return events;
   const albums = pages.results.map((result: any) => {
     const album = {
       artist: result.properties.Artist.rich_text[0].plain_text,
       name: result.properties.Name.title[0].plain_text,
       cover: result.properties["Cover image"].rich_text[0].plain_text,
+      year: result.properties.Year.number,
     };
     return album;
   });
@@ -32,6 +33,5 @@ export async function getAlbums(): Promise<Album[]> {
     return 0;
   });
 
-  // return albums;
   return sortedAlbums;
 }
