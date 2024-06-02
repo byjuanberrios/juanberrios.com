@@ -122,6 +122,11 @@ export const CommandMenu = () => {
           if (value.includes(search)) return 1;
           return 0;
         }}
+        // filter={(value, search, keywords) => {
+        //   const extendValue = value + " " + keywords.join(" ");
+        //   if (extendValue.includes(search)) return 1;
+        //   return 0;
+        // }}
       >
         <Command.Dialog
           open={$isCommandMenuOpen}
