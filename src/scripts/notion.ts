@@ -7,6 +7,8 @@ export type Album = {
   cover: any;
   year: number;
   slug: string;
+  tracklist?: string;
+  description?: string;
 };
 
 export async function getAlbums(): Promise<Album[]> {
@@ -16,6 +18,8 @@ export async function getAlbums(): Promise<Album[]> {
   });
 
   const albums = pages.results.map((result: any) => {
+    const tracklist = result.properties.Tracklist.rich_text[0];
+    const description = result.properties.Description.rich_text[0];
     const album = {
       artist: result.properties.Artist.rich_text[0].plain_text,
       name: result.properties.Name.title[0].plain_text,
@@ -24,6 +28,8 @@ export async function getAlbums(): Promise<Album[]> {
       slug: slugify(
         `${result.properties.Artist.rich_text[0].plain_text}-${result.properties.Name.title[0].plain_text}`
       ),
+      tracklist: tracklist ? tracklist.plain_text : "",
+      description: description ? description.plain_text : "",
     };
     return album;
   });

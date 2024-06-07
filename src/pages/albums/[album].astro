@@ -22,12 +22,14 @@ export async function getStaticPaths() {
         artist: album.artist,
         year: album.year,
         cover: album.cover,
+        tracklist: album.tracklist?.replace(/\n/g, "<br>"),
+        description: album.description,
       },
     };
   });
 }
 
-const { name, artist, year, cover } = Astro.props;
+const { name, artist, year, cover, tracklist, description } = Astro.props;
 ---
 
 <Base title={`${artist} - ${name}`}>
@@ -37,6 +39,26 @@ const { name, artist, year, cover } = Astro.props;
       <h3>{artist}</h3>
     </header>
 
-    <Image src={cover} alt={`${artist} - ${name}`} inferSize={true} />
+    <div class="cover appear">
+      <Image src={cover} alt={`${artist} - ${name}`} inferSize={true} />
+    </div>
+
+    {
+      description && (
+        <div class="description">
+          <h4>Qué tiene de especial</h4>
+          <p set:html={description} />
+        </div>
+      )
+    }
+
+    {
+      tracklist && (
+        <div class="tracklist">
+          <h4>Tracklist</h4>
+          <p set:html={tracklist} />
+        </div>
+      )
+    }
   </div>
 </Base>

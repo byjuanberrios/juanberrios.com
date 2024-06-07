@@ -1,3 +1,21 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes appear {
+  from {
+    right: 50%;
+  }
+  to {
+    right: -15%;
+  }
+}
+
 .single-album {
     header {
       margin-bottom: var(--space-2xl);
@@ -17,9 +35,44 @@
       }
     }
 
-    img {
-      background-color: var(--color-white);
-      border-radius: var(--space-3xs);
-      /* margin-bottom: var(--space-xs); */
+    .cover {
+      margin-bottom: var(--space-xl);
+      position: relative;
+      img {
+        width: 70%;
+        background-color: var(--color-white);
+        border-radius: var(--space-3xs);
+        position: relative;
+        z-index: 1;
+      }
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 75%;
+        aspect-ratio: 1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 50%;
+        margin: auto;
+        background-image: url('../assets/images/cd_2.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        animation: rotate 0.7s infinite linear, appear 1s forwards;
+      }
+    }
+    .description {
+      margin-bottom: var(--space-l);
+    }
+    .tracklist,
+    .description {
+      p {
+        margin-top: var(--space-2xs);
+        font-size: var(--step--1);
+        line-height: 150%;
+        opacity: 0.7;
+      }
     }
   }
