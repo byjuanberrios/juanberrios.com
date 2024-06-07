@@ -1,0 +1,35 @@
+---
+import Base from "../layouts/Base.astro";
+
+import "../styles/lists.css";
+---
+
+<Base title="Listas (Loved list)" description="…">
+  <div class="lists">
+    <header>
+      <h1>Listas</h1>
+      <p>
+        Las cosas que me gustan o que encuentro interesantes (<i
+          >y que no están en el menú principal</i
+        >).
+      </p>
+    </header>
+    <section class="items">
+      <div class="item">
+        <a href="/albums">
+          <h3>Albums más significativos</h3>
+        </a>
+        <p>
+          Una lista de los albums más significativos, impactantes o
+          gratificantes que he escuchado en mi vida.
+        </p>
+      </div>
+      <div class="item disabled">
+        <a href="/bookmarks" aria-disabled="true">
+          <h3>Marcadores</h3>
+        </a>
+        <p>Links con lecturas necesarias o herramientas interesantes.</p>
+      </div>
+    </section>
+  </div>
+</Base>
