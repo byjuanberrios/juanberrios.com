@@ -10,7 +10,7 @@ import "../styles/reset.css";
 import "../styles/fonts.css";
 import "../styles/app.css";
 
-const { title, description } = Astro.props;
+const { title, description, alt = false } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 const canonicalURL = new URL(currentPath, Astro.site);
@@ -78,7 +78,7 @@ const socialImageURL = new URL(socialImage.src, Astro.url);
 
     <ViewTransitions />
   </head>
-  <body>
+  <body class={alt && "alt"}>
     <Header currentPath={currentPath} />
     <main class="base-spacing max-spacing base-top-padding">
       <slot />
