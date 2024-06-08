@@ -6,19 +6,13 @@
     }
     section.items {
       .item {
-        &.disabled {
-          opacity: 0.5;
-          a {
-            pointer-events: none;
-          }
-          h3 {
-            &::after {
-              content: "(no disponible)";
-              font-size: var(--step--1);
-              font-weight: 400;
-              margin-left: var(--space-3xs);
-            }
-          }
+        margin-bottom: var(--space-xl);
+        a {
+          h3 {}
+        }
+        p {
+          opacity: 0.7;
+          margin-top: var(--space-xs);
         }
       }
     }

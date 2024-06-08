@@ -15,6 +15,7 @@ import {
   IconHome,
   IconNotebook,
   IconPlaylist,
+  IconLibrary,
 } from "@tabler/icons-react";
 
 import "../styles/commandMenu.css";
@@ -49,6 +50,12 @@ const menu = [
     name: "Now",
     href: "/now",
     iconComp: <IconCalendarMonth />,
+    external: false,
+  },
+  {
+    name: "Listas",
+    href: "/lists",
+    iconComp: <IconLibrary />,
     external: false,
   },
 ];

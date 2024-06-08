@@ -40,6 +40,8 @@
       position: relative;
       img {
         width: 70%;
+        aspect-ratio: 1;
+        object-fit: contain;
         background-color: var(--color-white);
         border-radius: var(--space-3xs);
         position: relative;
