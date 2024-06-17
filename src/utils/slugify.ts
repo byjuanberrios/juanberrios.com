@@ -1,4 +1,3 @@
----
 export const slugify = (str: string) => {
   return String(str)
     .normalize("NFKD") // split accented characters into their base characters and diacritical marks
@@ -9,4 +8,3 @@ export const slugify = (str: string) => {
     .replace(/\s+/g, "-") // replace spaces with hyphens
     .replace(/-+/g, "-"); // remove consecutive hyphens
 };
----
