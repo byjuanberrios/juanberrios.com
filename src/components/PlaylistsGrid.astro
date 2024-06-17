@@ -6,6 +6,8 @@ import Message from "./Message.astro";
 import IconAppleMusic from "../assets/icons/IconAppleMusic.astro";
 import IconSpotify from "../assets/icons/IconSpotify.astro";
 
+import { type Playlist } from "../types/types";
+
 import "../styles/playlists.css";
 
 const sortByDate = (
@@ -32,7 +34,7 @@ playlists.sort(sortByDate);
   </Message>
   <div class="playlists-grid">
     {
-      playlists.map((playlist) => (
+      playlists.map((playlist: Playlist) => (
         <div class="item">
           <Image
             src={playlist.data.imageUrl}

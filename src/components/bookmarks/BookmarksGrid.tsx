@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { useStore } from "@nanostores/react";
 import { $bookmarkCategory } from "../../store/nano";
-import type { Bookmark, BookmarksEntries } from "../../types/notion";
+import type { BookmarksEntries } from "../../types/notion";
 
 export const BookmarksGrid = ({
   bookmarks,

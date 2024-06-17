@@ -19,7 +19,7 @@ interface OrderedNotes {
 
 const { inPage } = Astro.props;
 
-const allNotes = await getCollection("notes", ({ data }) => {
+const allNotes = await getCollection("notes", ({ data }: { data: any }) => {
   return data.isPublished === true;
 });
 const orderedNotes: OrderedNotes = orderNotesByYear(

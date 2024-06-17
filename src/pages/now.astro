@@ -6,6 +6,8 @@ import Base from "../layouts/Base.astro";
 import Message from "../components/Message.astro";
 import NowItem from "../components/NowItem.astro";
 
+import { type Now } from "../types/types";
+
 import "../styles/now.css";
 
 const allNow = await getCollection("now");
@@ -24,7 +26,7 @@ const nowEntries = allNow.sort(sortByDate);
     </Message>
     <div class="now">
       {
-        nowEntries.map((item) => (
+        nowEntries.map((item: Now) => (
           <NowItem date={item.data.date} slug={item.slug} />
         ))
       }

@@ -5,6 +5,8 @@ import Base from "../../layouts/Base.astro";
 import { sortByDate } from "../../utils/orderNotesByDate.astro";
 import PrevNext from "../../components/notes/PrevNext.astro";
 
+import { type Note } from "../../types/types";
+
 import "../../styles/single-note.css";
 
 const { note: noteSlug } = Astro.params;
@@ -15,19 +17,22 @@ if (!post) throw new Error("No post found for this slug");
 const { Content } = await post.render();
 
 export async function getStaticPaths() {
-  const allNotes = await getCollection("notes", ({ data }) => {
-    return data.isPublished === true;
-  });
-  const NotesLength = allNotes.length;
+  const publishedNotes: Note[] = await getCollection(
+    "notes",
+    ({ data }: Note) => {
+      return data.isPublished === true;
+    }
+  );
+  const NotesLength = publishedNotes.length;
 
-  return allNotes.sort(sortByDate).map((note, i) => {
+  return publishedNotes.sort(sortByDate).map((note, i) => {
     return {
       params: {
         note: note.slug,
       },
       props: {
-        prevNote: i + 1 === NotesLength ? null : allNotes[i + 1],
-        nextNote: i === 0 ? null : allNotes[i - 1],
+        prevNote: i + 1 === NotesLength ? null : publishedNotes[i + 1],
+        nextNote: i === 0 ? null : publishedNotes[i - 1],
       },
     };
   });
