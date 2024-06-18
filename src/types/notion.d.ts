@@ -14,6 +14,7 @@ export type Bookmark = {
   category: {
     name: string;
     color: string;
+    id: string;
   };
   date: string;
 };

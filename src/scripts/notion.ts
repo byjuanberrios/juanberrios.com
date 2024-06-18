@@ -7,6 +7,12 @@ const notion = new Client({ auth: import.meta.env.NOTION_TOKEN });
 export async function getBookmarks(): Promise<OrderedBookmarks> {
   const pages: any = await notion.databases.query({
     database_id: import.meta.env.NOTION_BOOKMARKS_DATABASE_ID,
+    filter: {
+      property: "Name",
+      rich_text: {
+        is_not_empty: true,
+      },
+    },
   });
 
   const bookmarks = pages.results.map((result: any) => {
@@ -16,6 +22,7 @@ export async function getBookmarks(): Promise<OrderedBookmarks> {
       category: {
         name: result.properties.category.select.name,
         color: result.properties.category.select.color,
+        id: slugify(result.properties.category.select.name),
       },
       date: result.created_time,
     };
@@ -48,21 +55,28 @@ export async function getBookmarks(): Promise<OrderedBookmarks> {
 export async function getBookmarksCategories() {
   const pages: any = await notion.databases.query({
     database_id: import.meta.env.NOTION_BOOKMARKS_DATABASE_ID,
+    filter: {
+      property: "category",
+      select: {
+        is_not_empty: true,
+      },
+    },
   });
 
   const categories = pages.results.map((result: any) => {
     return {
       name: result.properties.category.select.name,
       color: result.properties.category.select.color,
+      id: slugify(result.properties.category.select.name),
     };
   });
 
   const uniqueCategories = categories.reduce(
     (
-      accCategories: { name: string; color: string }[],
-      category: { name: string; color: string }
+      accCategories: { name: string; color: string; id: string }[],
+      category: { name: string; color: string; id: string }
     ) => {
-      if (!accCategories.some((item) => item.name === category.name)) {
+      if (!accCategories.some((item) => item.id === category.id)) {
         accCategories.push(category);
       }
 
@@ -71,12 +85,24 @@ export async function getBookmarksCategories() {
     []
   );
 
-  return uniqueCategories;
+  const defaultCategory = {
+    name: "todo",
+    color: "black",
+    id: "all",
+  };
+
+  return [defaultCategory, ...uniqueCategories];
 }
 
 export async function getAlbums(): Promise<Album[]> {
   const pages: any = await notion.databases.query({
     database_id: import.meta.env.NOTION_ALBUMS_DATABASE_ID,
+    filter: {
+      property: "Artist",
+      rich_text: {
+        is_not_empty: true,
+      },
+    },
   });
 
   const albums = pages.results.map((result: any) => {
