@@ -11,13 +11,6 @@ const notesCollections = defineCollection({
   }),
 });
 
-const nowCollections = defineCollection({
-  type: "content",
-  schema: z.object({
-    date: z.string(),
-  }),
-});
-
 const playlistCollections = defineCollection({
   type: "data",
   schema: z.object({
@@ -35,6 +28,5 @@ const playlistCollections = defineCollection({
 
 export const collections = {
   notes: notesCollections,
-  now: nowCollections,
   playlists: playlistCollections,
 };

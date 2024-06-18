@@ -1,17 +1,8 @@
 ---
-import { getCollection } from "astro:content";
-import { sortByDate } from "../utils/orderNotesByDate.astro";
-
 import Base from "../layouts/Base.astro";
 import Message from "../components/Message.astro";
-import NowItem from "../components/NowItem.astro";
-
-import { type Now } from "../types/types";
 
 import "../styles/now.css";
-
-const allNow = await getCollection("now");
-const nowEntries = allNow.sort(sortByDate);
 ---
 
 <Base title="Now">
@@ -25,11 +16,24 @@ const nowEntries = allNow.sort(sortByDate);
       >
     </Message>
     <div class="now">
-      {
-        nowEntries.map((item: Now) => (
-          <NowItem date={item.data.date} slug={item.slug} />
-        ))
-      }
+      <p class="date">Actualizado el 18/07/2024</p>
+      <h2>Haciendo</h2>
+      <ul>
+        <li>Preparando todo para mudarme de casa</li>
+        <li>Buscando oportunidades laborales de manera remota</li>
+      </ul>
+      <h2>Viendo</h2>
+      <ul>
+        <li>House of the dragon S.2</li>
+        <li>True Detective S.1</li>
+      </ul>
+      <h2>Escuchando</h2>
+      <p>
+        Prácticamente todos los días estoy escuchando música distinta, puedes
+        ver mis playlist públicas en <a href="/playlists">Playlists</a>.
+      </p>
+      <h2>Leyendo</h2>
+      <p>Nada por el momento</p>
     </div>
   </div>
 </Base>
