@@ -1,0 +1,64 @@
+---
+title: "Rediseño 2024: Usando Utopia y Astro"
+date: "2024-06-19"
+summary: …
+isPublished: true
+---
+
+Bueno... he diseñado esto de nuevo. Esta vez me decidí por un stack diferente a pesar que muchas de las cosas de esta versión son [heredas de la versión anterior](https://2023.juanberrios.com).
+
+## Inspiración
+
+Este sitio ~~es una vil copia~~ está inspirado en algunas web personales como la de [Fabian Schultz](https://www.fabianschultz.com/), de donde me picó el bichito de agregar una barra de búsqueda en vez del clásico menú. Algo del footer también nació de allí. 
+
+Por otro lado, de la web de [Manuel Moreale](https://manuelmoreale.com/) repliqué el diseño de la lista de “*pensamientos*” que actualiza regularmente para armar la sección de notas.
+
+## Utopia
+
+Para esta ocasión decidí no usar Tailwind CSS en ninguna parte o componente del sitio web. Quería lograr un diseño escalable y minimalista pero me di cuenta que simplemente necesitaba un sistema de diseño fluido que pudiera entregarme variables de espaciado y tipografía, para eso utilicé [Utopia](https://utopia.fyi/). 
+
+Con Utopía pude generar componentes consistentes para cada pantalla sin la necesidad de usar breakpoints.
+
+Gracias a su plugin para Figma pude diseñar usando las variables que luego necesitaba para construir el código.
+
+![Así lucia el espacio de trabajo en una primera versión](https://lh3.googleusercontent.com/drive-viewer/AKGpihZCBZhMHHV6jZlGY3GDbif5iMqEIs7XA3Z_H0rqygmP8i4A0WDM7hbjf6nVWUi3MRtMZin-5tHXIK3nt9C99q1QoxwqySHnxw=s1600-rw-v1)
+
+{/* Caption: Así lucia el espacio de trabajo en una primera versión */}
+
+Terminé ajustando el rango tipográfico entre 14px-17px, esto quiere decir que en pantalla de smartphone se calcula un tamaño de texto de 14px (1rem) y en escritorio 17px (1rem igualmente). Utopía hace la magia con puro vanilla CSS:
+
+```css
+:root {
+	--step--2: clamp(0.6616rem, 0.6488rem + 0.0571vi, 0.6944rem);
+	--step--1: clamp(0.7609rem, 0.7325rem + 0.126vi, 0.8333rem);
+	--step-0: clamp(0.875rem, 0.8261rem + 0.2174vi, 1rem);
+	--step-1: clamp(1.0063rem, 0.9304rem + 0.337vi, 1.2rem);
+	--step-2: clamp(1.1572rem, 1.0465rem + 0.4918vi, 1.44rem);
+	--step-3: clamp(1.3308rem, 1.1753rem + 0.6908vi, 1.728rem);
+	--step-4: clamp(1.5304rem, 1.3178rem + 0.9447vi, 2.0736rem);
+	--step-5: clamp(1.7599rem, 1.4749rem + 1.2668vi, 2.4883rem);
+}
+```
+
+Con estas variables, pude disponer a mi gusto los tamaños necesarios para armar las jerarquías y contrastes necesarios entre los distintos tipos de letra.
+
+En cuanto al interlineado podía haberlo calcularlo de la misma forma (con `clamp()`) pero decidí usar un valor en porcentaje. Por ejemplo para los párrafos lo establecí en 170%
+
+Para la paleta de colores decidí hacer una sucesión monocromática 
+
+![digital-garden-light.png](https://lh3.googleusercontent.com/drive-viewer/AKGpihZFi9VuAXn8czKHQTgk4QWBg8uE18X1cKpAkfRSTQR8IdMXH04lB0NjjTCZG3OYKq705HSzs6R1CFH86jWkP9C132MeS1mxhw=s1600-rw-v1)
+
+![digital-garden-dark.png](https://lh3.googleusercontent.com/drive-viewer/AKGpihZOh4lFzDJac-t4WWe-ZMxITq0-OqMN4TWAvRgQyf9utCEN7Q-spoVWTTU25d9uZzjVUrCPhU4AOEXA1VNmHWoOgudXU7OK9GM=s1600-rw-v1)
+
+## Escribir verdadero HTML se siente genial
+
+No necesito Next.js para la mayoría de las cosas que componen este sitio, eso me hizo decantar por Astro como framework.
+
+Además hay bastantes cosas que Next.js y Astro comparten, como la sintaxis parecida a JSX, el enrutamiento y la posibilidad de instalar paquetes de React, entre otros.
+
+Como Astro separa las aguas (*javascript/HTML*) en el mismo archivo, permite hacer HTML común y corriente (como usar `class` en vez de `className`).
+
+Pero lo mejor de todo es el uso de interactividad solo si es necesario o cómo lo explica la propia documentación de Astro:
+
+> Astro fue diseñado para mostrar tu contenido y permitirte optar por la interactividad solo cuando sea necesario.
+>
