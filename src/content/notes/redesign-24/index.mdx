@@ -4,14 +4,26 @@ date: "2024-06-19"
 summary: …
 isPublished: true
 ---
+import Palette from "palette.astro";
+import Message from "../../../components/Message.astro";
 
-Bueno... he diseñado esto de nuevo. Esta vez me decidí por un stack diferente, a pesar de que la mayor parte de la web [hereda de la versión anterior](https://2023.juanberrios.com).
+<Message inPost>
+	Un resumen de las tecnologías y cosas que componen este sitio web la encuentras en [/this](/this)
+</Message>
+
+Bueno... he diseñado esto de nuevo. Esta vez me decidí por un stack diferente, a pesar de que la mayor parte de la web [hereda cosas de la versión anterior](https://2023.juanberrios.com).
 
 ## Inspiración
 
-Este sitio web está inspirado en algunas webs personales como la de [Fabian Schultz](https://www.fabianschultz.com/), de donde me picó el bichito por agregar una barra de búsqueda en vez del clásico menú. Algo del footer también nació de allí. 
+Inspirado en algunas webs personales como la de [Fabian Schultz](https://www.fabianschultz.com/), de donde me picó el bichito por agregar una barra de búsqueda en vez del clásico menú. Algo del footer también nació de allí. 
 
 Por otro lado, de la web de [Manuel Moreale](https://manuelmoreale.com/) repliqué el diseño de la lista de “*pensamientos*” que actualiza regularmente para armar la sección de notas.
+
+La paleta de colores también está inspirada en un montón de jardines digitales y portafolios minimalistas. Decidí hacer una sucesión monocromática de tonos grises tanto para la versión "_light_" como "_dark_".
+
+<Palette />
+
+Cada paleta se ve mejor en su contexto, así que cambia el modo de _dark_ a _light_ o viceversa si quieres notar las diferencias de brillo y pequeños contrastes.
 
 ## Utopia y el diseño
 
@@ -48,28 +60,24 @@ Por ejemplo, el rango de mi escala tipográfica tiene como mínimo 14px y un má
 
 Con estas variables, pude disponer a mi gusto los tamaños necesarios para armar las jerarquías y contrastes necesarios entre los distintos tipos de letra.
 
-En cuanto al interlineado podía haberlo calcularlo de la misma forma (con `clamp()`) pero decidí usar un valor en porcentaje. Por ejemplo para los párrafos lo establecí en 170% y para las cabeceras fui jugando con otros valores relativos. De esta forma no se pierde la consistencia formada por las demás variables.
+En cuanto al interlineado podía haberlo calculado de la misma forma (con `clamp()`) pero decidí usar un valor en porcentaje. Por ejemplo para los párrafos lo establecí en 170% y para las cabeceras fui jugando con otros valores relativos. De esta forma no se pierde la consistencia formada por las demás variables.
 
 Para esta ocasión decidí no usar Tailwind CSS en ninguna parte o componente del sitio web.
 
-## Colores
-
-Para la paleta de colores decidí hacer una sucesión monocromática de tonos grises tanto para la versión "_light_" como "_dark_".
-
-![digital-garden-light.png](https://lh3.googleusercontent.com/drive-viewer/AKGpihZFi9VuAXn8czKHQTgk4QWBg8uE18X1cKpAkfRSTQR8IdMXH04lB0NjjTCZG3OYKq705HSzs6R1CFH86jWkP9C132MeS1mxhw=s1600-rw-v1)
-
-![digital-garden-dark.png](https://lh3.googleusercontent.com/drive-viewer/AKGpihZOh4lFzDJac-t4WWe-ZMxITq0-OqMN4TWAvRgQyf9utCEN7Q-spoVWTTU25d9uZzjVUrCPhU4AOEXA1VNmHWoOgudXU7OK9GM=s1600-rw-v1)
-
 ## Escribir verdadero HTML se siente genial
 
-No necesito Next.js para la mayoría de las cosas que componen este sitio, eso me hizo decantar por Astro como framework.
+Descubrí que no necesito Next.js para construir este sitio web, así que me decanté por [Astro](https://astro.build) como framework.
 
-Además hay bastantes cosas que Next.js y Astro comparten, como la sintaxis parecida a JSX, el enrutamiento y la posibilidad de instalar paquetes de React, entre otros.
+Además hay bastantes cosas que Next.js y Astro comparten, como el enrutamiento y la posibilidad de instalar paquetes de React, entre otros.
 
-Como Astro separa las aguas (*javascript/HTML*) en el mismo archivo, permite hacer HTML común y corriente (como usar `class` en vez de `className`).
+Como Astro separa las aguas (*javascript de HTML*) en el mismo archivo, permite codear HTML común y corriente.
 
 Pero lo mejor de todo es el uso de interactividad solo si es necesario o cómo lo explica la propia documentación de Astro:
 
 > Astro fue diseñado para mostrar tu contenido y permitirte optar por la interactividad solo cuando sea necesario[^1].
 
-[^1]: [Documentación de Astro](https://docs.astro.build/es/concepts/why-astro/#orientado-al-contenido).
+Por último, y como mencione anteriormente estuve usando [Contentlayer](/notes/contentlayer) en la versión anterior, en cambio, ahora no necesito ninguna dependencia externa para manejar mi contenido en MDX, ya que Astro lo trae by default.
+
+Aun tengo algunas cosas que ajustar, si ves algo que funciona de manera extraña o no se entiende te agradecería que me lo comentaras.
+
+[^1]: [Por qué Astro (Docs)](https://docs.astro.build/es/concepts/why-astro/#orientado-al-contenido).
