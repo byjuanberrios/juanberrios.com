@@ -5,27 +5,35 @@ summary: …
 isPublished: true
 ---
 
-Bueno... he diseñado esto de nuevo. Esta vez me decidí por un stack diferente a pesar que muchas de las cosas de esta versión son [heredas de la versión anterior](https://2023.juanberrios.com).
+Bueno... he diseñado esto de nuevo. Esta vez me decidí por un stack diferente, a pesar de que la mayor parte de la web [hereda de la versión anterior](https://2023.juanberrios.com).
 
 ## Inspiración
 
-Este sitio ~~es una vil copia~~ está inspirado en algunas web personales como la de [Fabian Schultz](https://www.fabianschultz.com/), de donde me picó el bichito de agregar una barra de búsqueda en vez del clásico menú. Algo del footer también nació de allí. 
+Este sitio web está inspirado en algunas webs personales como la de [Fabian Schultz](https://www.fabianschultz.com/), de donde me picó el bichito por agregar una barra de búsqueda en vez del clásico menú. Algo del footer también nació de allí. 
 
 Por otro lado, de la web de [Manuel Moreale](https://manuelmoreale.com/) repliqué el diseño de la lista de “*pensamientos*” que actualiza regularmente para armar la sección de notas.
 
-## Utopia
+## Utopia y el diseño
 
-Para esta ocasión decidí no usar Tailwind CSS en ninguna parte o componente del sitio web. Quería lograr un diseño escalable y minimalista pero me di cuenta que simplemente necesitaba un sistema de diseño fluido que pudiera entregarme variables de espaciado y tipografía, para eso utilicé [Utopia](https://utopia.fyi/). 
+(Hablar de que busqué sobre escalas tipográficas y no me convencían…)
 
-Con Utopía pude generar componentes consistentes para cada pantalla sin la necesidad de usar breakpoints.
+En mi afan de lograr un diseño escalable y minimalista me topé con [Utopia](https://utopia.fyi/). Es justo lo que necesitaba para construir el sitio web; un sistema de diseño fluido que puede entregarme variables de espaciado y tipografía.
 
-Gracias a su plugin para Figma pude diseñar usando las variables que luego necesitaba para construir el código.
+Gracias a Utopía pude crear componentes consistentes para cada pantalla sin la necesidad de usar breakpoints.
 
-![Así lucia el espacio de trabajo en una primera versión](https://lh3.googleusercontent.com/drive-viewer/AKGpihZCBZhMHHV6jZlGY3GDbif5iMqEIs7XA3Z_H0rqygmP8i4A0WDM7hbjf6nVWUi3MRtMZin-5tHXIK3nt9C99q1QoxwqySHnxw=s1600-rw-v1)
+Al diseñar, esto se traduce como la facilidad de crear solo dos versiones de cada pantalla: una de escritorio y otra para móviles, el resto de "medidas intermedias" se adaptará de acuerdo al tamaño de la pantalla del visitante. 
 
-{/* Caption: Así lucia el espacio de trabajo en una primera versión */}
+{/* Cosa que se logra fácilmente gracias a un plugin para Figma. */}
 
-Terminé ajustando el rango tipográfico entre 14px-17px, esto quiere decir que en pantalla de smartphone se calcula un tamaño de texto de 14px (1rem) y en escritorio 17px (1rem igualmente). Utopía hace la magia con puro vanilla CSS:
+![Figma draft of work in process with Utopia plugins](https://lh3.googleusercontent.com/drive-viewer/AKGpihZCBZhMHHV6jZlGY3GDbif5iMqEIs7XA3Z_H0rqygmP8i4A0WDM7hbjf6nVWUi3MRtMZin-5tHXIK3nt9C99q1QoxwqySHnxw=s1600-rw-v1)
+
+Si te fijas en la imagen, estoy usando un plugin para Figma que hace todo más fácil.
+
+## Utopia y el desarrollo
+
+En el desarrollo, usar Utopia significa usar variables únicas y menos cantidad de código.
+
+Por ejemplo, el rango de mi escala tipográfica tiene como mínimo 14px y un máximo de 17px, esto quiere decir que en pantalla de smartphone se calcula un tamaño de texto de 14px (_1rem_) y en escritorio 17px (_igualmente 1rem_). Utopía hace la magia con puro vanilla CSS:
 
 ```css
 :root {
@@ -42,13 +50,17 @@ Terminé ajustando el rango tipográfico entre 14px-17px, esto quiere decir que 
 
 Con estas variables, pude disponer a mi gusto los tamaños necesarios para armar las jerarquías y contrastes necesarios entre los distintos tipos de letra.
 
-En cuanto al interlineado podía haberlo calcularlo de la misma forma (con `clamp()`) pero decidí usar un valor en porcentaje. Por ejemplo para los párrafos lo establecí en 170%
+En cuanto al interlineado podía haberlo calcularlo de la misma forma (con `clamp()`) pero decidí usar un valor en porcentaje. Por ejemplo para los párrafos lo establecí en 170% y para las cabeceras fui jugando con otros valores relativos. De esta forma no se pierde la consistencia formada por las demás variables.
 
-Para la paleta de colores decidí hacer una sucesión monocromática 
+Para esta ocasión decidí no usar Tailwind CSS en ninguna parte o componente del sitio web.
+
+Para la paleta de colores decidí hacer una sucesión monocromática de tonos grises tanto para la versión "_light_" como "_dark_".
 
 ![digital-garden-light.png](https://lh3.googleusercontent.com/drive-viewer/AKGpihZFi9VuAXn8czKHQTgk4QWBg8uE18X1cKpAkfRSTQR8IdMXH04lB0NjjTCZG3OYKq705HSzs6R1CFH86jWkP9C132MeS1mxhw=s1600-rw-v1)
 
 ![digital-garden-dark.png](https://lh3.googleusercontent.com/drive-viewer/AKGpihZOh4lFzDJac-t4WWe-ZMxITq0-OqMN4TWAvRgQyf9utCEN7Q-spoVWTTU25d9uZzjVUrCPhU4AOEXA1VNmHWoOgudXU7OK9GM=s1600-rw-v1)
+
+…
 
 ## Escribir verdadero HTML se siente genial
 
