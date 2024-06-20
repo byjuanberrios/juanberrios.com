@@ -83,6 +83,11 @@ blockquote {
     margin-top: var(--space-s);
 }
 
+blockquote {
+    padding-left: var(--space-s);
+    border-left: solid 1px var(--color-highlight);
+}
+
 .display-p { /* AUN SIN USAR */
     line-height: 160%;
 }

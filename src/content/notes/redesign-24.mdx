@@ -15,15 +15,13 @@ Por otro lado, de la web de [Manuel Moreale](https://manuelmoreale.com/) repliqu
 
 ## Utopia y el diseño
 
-(Hablar de que busqué sobre escalas tipográficas y no me convencían…)
+Desde un principio quería un sistema que me ayudara con el diseño, consideré usar una calculadora de escalas tipográficas como [Typescale](https://typescale.com/), pero nada me convenció más como lo hizo [Utopia](https://utopia.fyi/).
 
-En mi afan de lograr un diseño escalable y minimalista me topé con [Utopia](https://utopia.fyi/). Es justo lo que necesitaba para construir el sitio web; un sistema de diseño fluido que puede entregarme variables de espaciado y tipografía.
+Utopia es justo lo que necesitaba para construir el sitio web; un sistema de diseño fluido que puede entregarme variables de espaciado y tipografía.
 
 Gracias a Utopía pude crear componentes consistentes para cada pantalla sin la necesidad de usar breakpoints.
 
-Al diseñar, esto se traduce como la facilidad de crear solo dos versiones de cada pantalla: una de escritorio y otra para móviles, el resto de "medidas intermedias" se adaptará de acuerdo al tamaño de la pantalla del visitante. 
-
-{/* Cosa que se logra fácilmente gracias a un plugin para Figma. */}
+Esto permite crear solo dos versiones de cada pantalla: una para escritorio y otra para móviles, mientras que las dimensiones intermedias se ajustarán automáticamente según el tamaño de la pantalla del usuario.
 
 ![Figma draft of work in process with Utopia plugins](https://lh3.googleusercontent.com/drive-viewer/AKGpihZCBZhMHHV6jZlGY3GDbif5iMqEIs7XA3Z_H0rqygmP8i4A0WDM7hbjf6nVWUi3MRtMZin-5tHXIK3nt9C99q1QoxwqySHnxw=s1600-rw-v1)
 
@@ -31,7 +29,7 @@ Si te fijas en la imagen, estoy usando un plugin para Figma que hace todo más f
 
 ## Utopia y el desarrollo
 
-En el desarrollo, usar Utopia significa usar variables únicas y menos cantidad de código.
+Usar Utopia en el desarrollo, se traduce en variables únicas y menos cantidad de código.
 
 Por ejemplo, el rango de mi escala tipográfica tiene como mínimo 14px y un máximo de 17px, esto quiere decir que en pantalla de smartphone se calcula un tamaño de texto de 14px (_1rem_) y en escritorio 17px (_igualmente 1rem_). Utopía hace la magia con puro vanilla CSS:
 
@@ -54,13 +52,13 @@ En cuanto al interlineado podía haberlo calcularlo de la misma forma (con `clam
 
 Para esta ocasión decidí no usar Tailwind CSS en ninguna parte o componente del sitio web.
 
+## Colores
+
 Para la paleta de colores decidí hacer una sucesión monocromática de tonos grises tanto para la versión "_light_" como "_dark_".
 
 ![digital-garden-light.png](https://lh3.googleusercontent.com/drive-viewer/AKGpihZFi9VuAXn8czKHQTgk4QWBg8uE18X1cKpAkfRSTQR8IdMXH04lB0NjjTCZG3OYKq705HSzs6R1CFH86jWkP9C132MeS1mxhw=s1600-rw-v1)
 
 ![digital-garden-dark.png](https://lh3.googleusercontent.com/drive-viewer/AKGpihZOh4lFzDJac-t4WWe-ZMxITq0-OqMN4TWAvRgQyf9utCEN7Q-spoVWTTU25d9uZzjVUrCPhU4AOEXA1VNmHWoOgudXU7OK9GM=s1600-rw-v1)
-
-…
 
 ## Escribir verdadero HTML se siente genial
 
@@ -72,5 +70,6 @@ Como Astro separa las aguas (*javascript/HTML*) en el mismo archivo, permite hac
 
 Pero lo mejor de todo es el uso de interactividad solo si es necesario o cómo lo explica la propia documentación de Astro:
 
-> Astro fue diseñado para mostrar tu contenido y permitirte optar por la interactividad solo cuando sea necesario.
->
+> Astro fue diseñado para mostrar tu contenido y permitirte optar por la interactividad solo cuando sea necesario[^1].
+
+[^1]: [Documentación de Astro](https://docs.astro.build/es/concepts/why-astro/#orientado-al-contenido).
