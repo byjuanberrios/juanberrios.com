@@ -1,11 +1,9 @@
 .about {
     header {
         h1 {
-            margin-bottom: var(--space-xl);
+            max-width: 20ch;
+            margin-bottom: var(--space-2xl);
         }
         p {}
-    }
-    .things {
-        
     }
 }
