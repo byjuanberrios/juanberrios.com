@@ -24,6 +24,8 @@
         }
         .links {
             color: var(--color-highlight);
+            display: flex;
+            gap: var(--space-xs);
         }
     }
 }

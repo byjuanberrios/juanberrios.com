@@ -47,12 +47,6 @@ const menu = [
     external: false,
   },
   {
-    name: "Now",
-    href: "/now",
-    iconComp: <IconCalendarMonth />,
-    external: false,
-  },
-  {
     name: "Listas",
     href: "/lists",
     iconComp: <IconLibrary />,
