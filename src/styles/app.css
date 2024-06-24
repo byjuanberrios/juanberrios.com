@@ -55,7 +55,7 @@ body {
     font-family: 'Neue Montreal', sans-serif;
     font-weight: 400;
     font-size: var(--step-0);
-    letter-spacing: calc(var(--step-0) * 2 / 100);
+    letter-spacing: calc(var(--step-0) * 3 / 100);
     line-height: 170%;
     &.alt {
         background-color: hsl(39, 68%, 95%);
@@ -103,21 +103,21 @@ h6 {
 
 h1 {
     font-size: var(--step-3);
-    letter-spacing: calc(var(--step-4) * 0.5 / 100);
+    letter-spacing: calc(var(--step-4) * 1.1 / 100);
     line-height: 140%;
     margin-top: calc(var(--space-3xl) + var(--space-xs));
 }
 
 h2 {
     font-size: var(--step-2);
-    letter-spacing: calc(var(--step-3) * 0.5 / 100);
+    letter-spacing: calc(var(--step-3) * 1.1 / 100);
     line-height: 145%;
     margin-top: var(--space-xl);
 }
 
 h3 {
     font-size: var(--step-1);
-    letter-spacing: calc(var(--step-2) * 0.5 / 100);
+    letter-spacing: calc(var(--step-2) * 1.1 / 100);
     line-height: 150%;
     margin-top: var(--space-l);
 }
@@ -130,7 +130,7 @@ h6 {
 
 h4 {
     font-size: var(--step-0);
-    letter-spacing: calc(var(--step-1) * 0.5 / 100);
+    letter-spacing: calc(var(--step-1) * 1.1 / 100);
     margin-top: var(--space-m);
 }
 
@@ -141,12 +141,12 @@ h6 {
 
 h5 {
     font-size: var(--step--1);
-    letter-spacing: calc(var(--step--1) * 0.5 / 100);
+    letter-spacing: calc(var(--step--1) * 1.1 / 100);
 }
 
 h6 {
     font-size: var(--step--2);
-    letter-spacing: calc(var(--step--2) * 0.5 / 100);
+    letter-spacing: calc(var(--step--2) * 1.1 / 100);
 }
 
 figure {

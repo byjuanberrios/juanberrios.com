@@ -1,9 +1,18 @@
 .about {
     header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+        margin-bottom: var(--space-2xl);
         h1 {
-            max-width: 20ch;
-            margin-bottom: var(--space-2xl);
+            margin: 0;
         }
-        p {}
+        h1.big {
+            max-width: 22ch;
+        }
+    }
+    p {
+        /* text-wrap: balance; */
+        /* text-wrap: pretty; */
     }
 }
