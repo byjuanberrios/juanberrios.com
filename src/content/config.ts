@@ -26,7 +26,19 @@ const playlistCollections = defineCollection({
   }),
 });
 
+const worksCollections = defineCollection({
+  type: "data",
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      year: z.number(),
+      cover: image(),
+      // images: z.array(image()),
+    }),
+});
+
 export const collections = {
   notes: notesCollections,
   playlists: playlistCollections,
+  works: worksCollections,
 };

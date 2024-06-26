@@ -1,0 +1,38 @@
+.works {
+    .items {
+        display: grid;
+        gap: var(--space-2xl);
+        .item {
+            cursor: pointer;
+            .image {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                height: calc(var(--space-3xl) * 7.2);
+                background-color: var(--color-gray-dark);
+                display: flex;
+                justify-content: center;
+                align-items: start;
+                padding-top: var(--space-2xl);
+                transition: all ease-out 0.3s;
+            }
+            .data {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                h4, p {
+                    margin-top: var(--space-xs);
+                }
+                p {
+                    color: var(--color-highlight)
+                }
+            }
+            &:hover {
+                .image {
+                    background-color: var(--color-gray-darker);
+                }
+            }
+        }
+    }
+}
