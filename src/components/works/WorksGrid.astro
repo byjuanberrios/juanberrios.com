@@ -2,19 +2,18 @@
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
-// const imagePath = "../../assets/images/works";
+import { type Work } from "../../types/types";
 
 const works = await getCollection("works");
-console.log(works);
 ---
 
 <div class="items">
   {
-    works.map((work: any) => (
+    works.map((work: Work) => (
       <div class="item">
-        <div class="image border-small">
+        <a class="image border-small" href={`/works/${work.data.slug}`}>
           <Image src={work.data.cover} alt={work.data.name} loading="eager" />
-        </div>
+        </a>
         <div class="data">
           <h4>{work.data.name}</h4>
           <p>{work.data.year}</p>

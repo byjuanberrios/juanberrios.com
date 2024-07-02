@@ -1,5 +1,20 @@
 {
     "name": "Hotel Pulmahue",
+    "slug": "pulmahue",
     "year": 2023,
-    "cover": "./images/pulmahue.png"
+    "cover": "./images/pulmahue/cover.png",
+    "roles": ["Diseñador", "Desarrollador Frontend"],
+    "services": ["HTML", "CSS (SASS)", "Javascript"],
+    "tech": ["Next.js", "Figma"],
+    "client": "Hotel Pulmahue",
+    "description": [
+        "Pulmahue es un hotel enfocado en ofrecer servicios de hospedaje para trabajadores, ofreciéndoles un ambiente hogareño e ideal para descansar o trabajar.",
+        "Como encargo diseñé y desarrolle su sitio web de manera estática (SSG) para que sirva como punto de referencia para reservas, informaciones y promociones."
+    ],
+    "externalLink": "https://www.hotelpulmahue.com",
+    "images": [
+        "./images/pulmahue/1.jpg",
+        "./images/pulmahue/2.jpg",
+        "./images/pulmahue/3.jpg"
+    ]
 }

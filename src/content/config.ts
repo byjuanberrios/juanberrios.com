@@ -1,4 +1,5 @@
 import { z, defineCollection } from "astro:content";
+import { slugify } from "../utils/slugify";
 
 const notesCollections = defineCollection({
   type: "content",
@@ -31,9 +32,16 @@ const worksCollections = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
+      slug: z.string(),
       year: z.number(),
       cover: image(),
-      // images: z.array(image()),
+      roles: z.array(z.string()),
+      services: z.array(z.string()),
+      tech: z.array(z.string()),
+      client: z.string(),
+      description: z.array(z.string()),
+      externalLink: z.string().optional(),
+      images: z.array(image()).optional(),
     }),
 });
 

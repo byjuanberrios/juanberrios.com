@@ -1,0 +1,111 @@
+---
+import Base from "../../layouts/Base.astro";
+import { Image } from "astro:assets";
+import { getCollection, getEntry } from "astro:content";
+
+import { type Work } from "../../types/types";
+
+import "../../styles/works.css";
+
+const { work } = Astro.params;
+if (!work) throw new Error("Slug not found");
+
+export async function getStaticPaths() {
+  const collections = await getCollection("works");
+  return collections.map((work: Work) => {
+    return {
+      params: {
+        work: work.data.slug,
+      },
+      props: {
+        name: work.data.name,
+        year: work.data.year,
+        roles: work.data.roles,
+        services: work.data.services,
+        tech: work.data.tech,
+        client: work.data.client,
+        externalLink: work.data.externalLink || null,
+        description: work.data.description || "",
+        images: work.data.images || null,
+      },
+    };
+  });
+}
+
+const {
+  name,
+  year,
+  roles,
+  services,
+  tech,
+  client,
+  description,
+  externalLink,
+  images,
+}: Work["data"] = Astro.props;
+---
+
+<Base title={name}>
+  <div class="work">
+    <header>
+      <h1>{name}</h1>
+    </header>
+
+    <div class="data">
+      <div class="item">
+        <p>Año</p>
+        <p>{year}</p>
+      </div>
+      <div class="item">
+        <p>Rol</p>
+
+        <div>
+          {roles.map((role) => <p>{role}</p>)}
+        </div>
+      </div>
+      <div class="item">
+        <p>Tecnologías</p>
+
+        <div>
+          {tech.map((tech) => <p>{tech}</p>)}
+        </div>
+      </div>
+      <div class="item">
+        <p>Servicios</p>
+
+        <div>
+          {services.map((service) => <p>{service}</p>)}
+        </div>
+      </div>
+      <div class="item">
+        <p>Cliente/Agencia</p>
+        <p>{client}</p>
+      </div>
+      <div class="item">
+        <p>Visitar</p>
+        <a href={externalLink} target="_blank" rel="noreferrer noopener"
+          >Live site</a
+        >
+      </div>
+    </div>
+
+    <div class="description">
+      <h2>Sobre el proyecto</h2>
+      {(description as string[]).map((p) => <p>{p}</p>)}
+    </div>
+
+    {
+      images && (
+        <div class="images" style="margin: 20px 0">
+          {images.map((image, i) => (
+            <Image
+              src={image}
+              alt={`Imágen del proyecto ${name}`}
+              loading="eager"
+            />
+          ))}
+        </div>
+      )
+    }
+  </div>
+</Base>

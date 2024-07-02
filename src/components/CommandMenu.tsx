@@ -5,12 +5,13 @@ import { useStore } from "@nanostores/react";
 import { isCommandMenuOpen } from "../store/nano";
 import { navigate } from "astro:transitions/client";
 
+import type { Menu } from "../types/types";
+
 import {
   IconBrandGithub,
   IconBrandInstagram,
   IconBrandTwitter,
   IconBrandVsco,
-  IconCalendarMonth,
   IconFlare,
   IconHome,
   IconNotebook,
@@ -20,7 +21,7 @@ import {
 
 import "../styles/commandMenu.css";
 
-const menu = [
+const menu: Menu = [
   {
     name: "Home",
     href: "/",
@@ -29,10 +30,9 @@ const menu = [
   },
   {
     name: "Portafolio",
-    href: "https://works.juanberrios.com",
+    href: "/works",
     iconComp: <IconFlare />,
-    external: true,
-    tag: "Link externo",
+    external: false,
   },
   {
     name: "Notas",
@@ -123,17 +123,12 @@ export const CommandMenu = () => {
           if (value.includes(search)) return 1;
           return 0;
         }}
-        // filter={(value, search, keywords) => {
-        //   const extendValue = value + " " + keywords.join(" ");
-        //   if (extendValue.includes(search)) return 1;
-        //   return 0;
-        // }}
       >
         <Command.Dialog
           open={$isCommandMenuOpen}
           onOpenChange={() => isCommandMenuOpen.set(!$isCommandMenuOpen)}
         >
-          <Command.Input placeholder="Ir a..." />
+          <Command.Input placeholder="Buscar…" />
           <Command.List>
             <Command.Empty>No hay resultados</Command.Empty>
 

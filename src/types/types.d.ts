@@ -25,3 +25,27 @@ export type Note = {
   };
   slug: string;
 };
+
+export type Menu = {
+  name: string;
+  href: string;
+  iconComp: JSX.Element;
+  external: boolean;
+  tag?: string;
+}[];
+
+export type Work = {
+  data: {
+    name: string;
+    slug: string;
+    year: number;
+    cover: ImageFunction;
+    roles: string[];
+    services: string[];
+    tech: string[];
+    client: string;
+    description: string[];
+    externalLink?: string;
+    images?: ImageFunction[];
+  };
+};

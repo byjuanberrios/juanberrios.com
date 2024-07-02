@@ -1,5 +1,20 @@
 {
     "name": "Viveros El Maitén",
+    "slug": "elmaiten",
     "year": 2021,
-    "cover": "./images/el-maiten.png"
+    "cover": "./images/el-maiten/cover.png",
+    "roles": ["Diseño", "Desarrollo"],
+    "services": ["PHP", "Desarrollo de Tema", "Desarrollo de Plugins"],
+    "tech": ["Wordpress CMS", "Figma"],
+    "client": "Asomic",
+    "description": [
+        "El Maitén es un vivero especialista en patrones de cerezas. Como parte del encargo diseñé y desarrollé su sitio web corporativo para dar a conocer sus servicios, productos y formas de contacto."
+    ],
+    "externalLink": "https://viveroselmaiten.cl",
+    "images": [
+        "./images/el-maiten/1.jpg",
+        "./images/el-maiten/2.jpg",
+        "./images/el-maiten/3.jpg",
+        "./images/el-maiten/4.jpg"
+    ]
 }

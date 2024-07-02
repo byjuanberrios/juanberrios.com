@@ -37,7 +37,8 @@
     --space-xs-xs: clamp(0.6875rem, 0.663rem + 0.1087vi, 0.75rem);
   
     /* Colors */
-    --color-white: #FCFCFC;
+    /* --color-white: #FCFCFC; */
+    --color-white: #FAFAFA;
     --color-gray: #F5F5F5;
     --color-gray-dark: #EBEBEB;
     --color-gray-darker: #E0E0E0;
@@ -50,7 +51,8 @@
 
 
 body {
-    background-color: var(--color-gray);
+    /* background-color: var(--color-gray); */
+    background-color: var(--color-white);
     color: var(--color-black);
     font-family: 'Neue Montreal', sans-serif;
     font-weight: 400;

@@ -1,5 +1,20 @@
 {
     "name": "Pura Sangre CrossFit",
+    "slug": "purasangre",
     "year": 2022,
-    "cover": "./images/purasangre.png"
+    "cover": "./images/purasangre/cover.png",
+    "roles": ["Diseño", "Desarrollo"],
+    "services": ["HTML", "CSS (SASS)", "JavaScript"],
+    "tech": ["Gatsby", "Figma"],
+    "client": "Asomic",
+    "description": [
+        "Pura Sangre es un centro de CrossFit certificado referente en Chile y la región. Cuenta con instalaciones de primer nivel y coaches certificados para ofrecer clases personalizadas y grupales",
+        "El encargo consistió en diseñar y desarrollar su sitio web con un enfoque informativo y con opciones de contacto."
+    ],
+    "externalLink": "https://purasangrecrossfit.cl",
+    "images": [
+        "./images/purasangre/1.jpg",
+        "./images/purasangre/2.jpg",
+        "./images/purasangre/3.jpg"
+    ]
 }

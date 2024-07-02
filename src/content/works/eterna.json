@@ -1,5 +1,20 @@
 {
     "name": "Eterna Joyas",
+    "slug": "eterna",
     "year": 2023,
-    "cover": "./images/eterna.png"
+    "cover": "./images/eterna/cover.png",
+    "roles": ["Diseño", "Desarrollo", "Implementación"],
+    "services": ["HTML", "CSS", "(SASS)", "JavaScript (TypeScript)", "CMS Setup", "Assets Setup"],
+    "tech": ["Next.js", "Payload CMS", "Cloudflare R2", "Figma"],
+    "client": "Eterna Joyas",
+    "description": [
+        "Eterna Joyas es pequeña tienda online que ofrece joyas de plata a un precio accesible.", 
+        "El encargo consistió en diseñar e implementar un sitio web estilo catálogo para que los clientes puedan ver el stock actualizado de productos. Los productos son ingresados a través del CMS y consumidos desde una API por el front (Next.js)"
+    ],
+    "externalLink": "https://eternajoyas.cl",
+    "images": [
+        "./images/eterna/1.jpg",
+        "./images/eterna/2.jpg",
+        "./images/eterna/3.jpg"
+    ]
 }
