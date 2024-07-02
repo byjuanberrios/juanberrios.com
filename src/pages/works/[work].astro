@@ -53,36 +53,36 @@ const {
 
     <div class="data">
       <div class="item">
-        <p>Año</p>
+        <p class="tag">Año</p>
         <p>{year}</p>
       </div>
       <div class="item">
-        <p>Rol</p>
+        <p class="tag">Rol</p>
 
         <div>
           {roles.map((role) => <p>{role}</p>)}
         </div>
       </div>
       <div class="item">
-        <p>Tecnologías</p>
+        <p class="tag">Tecnologías</p>
 
         <div>
           {tech.map((tech) => <p>{tech}</p>)}
         </div>
       </div>
       <div class="item">
-        <p>Servicios</p>
+        <p class="tag">Servicios</p>
 
         <div>
           {services.map((service) => <p>{service}</p>)}
         </div>
       </div>
       <div class="item">
-        <p>Cliente/Agencia</p>
+        <p class="tag">Cliente/Agencia</p>
         <p>{client}</p>
       </div>
       <div class="item">
-        <p>Visitar</p>
+        <p class="tag">Visitar</p>
         <a href={externalLink} target="_blank" rel="noreferrer noopener"
           >Live site</a
         >

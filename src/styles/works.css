@@ -1,10 +1,6 @@
 .works {
     header {
         margin-bottom: var(--space-2xl);
-        /* p {
-            color: var(--color-highlight);
-            margin-bottom: var(--space-xl);
-        } */
         h1.big {
             margin-top: 0;
         }
@@ -53,21 +49,27 @@
         margin-bottom: var(--space-2xl);
     }
     .data {
-        margin: var(--space-2xl) 0;
+        margin: var(--space-xl) 0;
         .item {
             display: grid;
             grid-template-columns: 0.35fr 0.65fr;
-            padding: var(--space-xs) 0;
-            border-bottom: solid 1px var(--color-gray);
+            padding: var(--space-2xs) 0;
+            border-bottom: solid 1px var(--color-gray-dark);
             p, a {
                 margin: 0;
                 font-size: calc(var(--step--1) * 1.1);
                 line-height: 135%;
             }
+            .tag {
+                color: var(--color-highlight);
+            }
             &:last-child {
                 border-bottom: none;
             }
         }
+    }
+    .description {
+        margin: var(--space-2xl) 0;
     }
     .image {
         width: 100%;
@@ -75,9 +77,6 @@
         background-color: var(--color-gray-dark);
         padding-top: var(--space-2xl);
         margin: var(--space-2xl) 0;
-    }
-    .description {
-        margin: var(--space-3xl) 0;
     }
     .images {
         display: grid;
