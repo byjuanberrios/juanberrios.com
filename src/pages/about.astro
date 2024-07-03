@@ -1,48 +1,35 @@
 ---
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 
 import "../styles/about.css";
 ---
 
-<Base>
+<Base title="About">
   <div class="about">
-    <header>
-      <h1 class="big">
-        <span class="text-highlight">Frontend developer</span> y <span
-          class="text-highlight">UX/UI designer</span
-        > chileno.
-      </h1>
-      <!-- <h1 class="big">
-        <span class="text-highlight">Esencialmente cristiano</span>, gran parte
-        de lo que hago tiene que ver con internet.
-      </h1> -->
-    </header>
-
     <div>
+      <h2>En corto</h2>
       <p>
-        Frontend developer con 5+ años de experiencia desarrollando productos
-        digitales para los sectores fintech, bancario, fitness, agrícola, entre
-        otros.
-      </p>
-      <p>
-        Mi enfoque se centra mayormente en el desarrollo frontend y el UX/UI.
-        Cuento con experiencia colaborando con equipos multidisciplinarios para
-        llevar a cabo proyectos que van desde la conceptualización hasta la
-        implementación, asegurando siempre la calidad y el rendimiento de las
-        aplicaciones.
+        <strong>Soy esencialmente cristiano</strong>, estoy casado hace más de
+        tres años, soy un <strong>diseñador</strong> que aprendió <strong
+          >desarrollo frontend</strong
+        >
+        de manera autodidacta. Vivo en Curicó, una pequeña ciudad dos horas al sur
+        de Santiago de Chile.
       </p>
     </div>
 
-    <div>
-      <h2>Tech, stacks</h2>
-      <p>
-        He trabajando en proyectos que involucran las siguientes tecnologías:
-        JavaScript (<em
-          >Vanilla, TypeScript, con framewroks: React, Next.js, Astro</em
-        >), HTML, CSS (<em
-          >Vanilla, SASS, con frameworks: TailwindCSS, Bootstrap</em
-        >), CMS (<em>Wordpress, Payload, Ghost, Sanity, Strapi</em>).
-      </p>
+    <div class="images">
+      <Image
+        src="https://2023.juanberrios.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile-1.f062b21d.jpg&w=3840&q=75"
+        inferSize={true}
+        alt="Foto de Juan Berrios en un ambiente casual"
+      />
+      <Image
+        src="https://2023.juanberrios.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile-2.98965b43.jpg&w=3840&q=75"
+        inferSize={true}
+        alt="Foto de Juan Berrios trabajando"
+      />
     </div>
 
     <div>

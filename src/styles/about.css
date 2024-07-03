@@ -1,5 +1,5 @@
 .about {
-    header {
+    /* header {
         display: flex;
         flex-wrap: wrap;
         gap: var(--space-xs);
@@ -10,9 +10,14 @@
         h1.big {
             max-width: 22ch;
         }
-    }
-    p {
-        /* text-wrap: balance; */
-        /* text-wrap: pretty; */
+    } */
+    .images {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-m);
+        margin: var(--space-3xl) 0;
+        img {
+            border-radius: var(--space-3xs);
+        }
     }
 }

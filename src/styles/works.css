@@ -15,7 +15,7 @@
                 position: relative;
                 overflow: hidden;
                 width: 100%;
-                height: calc(var(--space-3xl) * 7.2);
+                height: calc(var(--space-l) * 16);
                 background-color: var(--color-gray-dark);
                 display: flex;
                 justify-content: center;

@@ -4,22 +4,23 @@ import { Image } from "astro:assets";
 import meImage from "../../src/assets/images/me-1.webp";
 
 import "../styles/presentation.css";
-import PortfolioData from "./PortfolioData.astro";
+// import PortfolioData from "./PortfolioData.astro";
 ---
 
 <div class="presentation">
   <header>
-    <h1 class="big" style="max-width: 19ch">
-      Hola soy <span class="text-highlight">Juan Berrios</span>, <br />y este es
-      mi jardín digital.
+    <h1 class="big">
+      Hola, soy <span class="text-highlight">Juan Berrios</span>, <br />y este
+      es mi jardín digital.
     </h1>
     <p>
-      Diseñador y desarrollador web chileno, viviendo en Curicó, esencialmente
-      cristiano. Gran parte de lo que hago tiene que ver con internet.
+      Desarrollador frontend y diseñador UX/UI chileno, viviendo en Curicó. Soy
+      esencialmente cristiano y gran parte de lo que hago tiene que ver con
+      internet. Más info en <a href="/about">/about</a>
     </p>
   </header>
 
-  <PortfolioData />
+  <!-- <PortfolioData /> -->
 
   <figure>
     <Image

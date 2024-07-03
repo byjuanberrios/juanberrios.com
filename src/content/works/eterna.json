@@ -4,7 +4,7 @@
     "year": 2023,
     "cover": "./images/eterna/cover.png",
     "roles": ["Diseño", "Desarrollo", "Implementación"],
-    "services": ["HTML", "CSS", "(SASS)", "JavaScript (TypeScript)", "CMS Setup", "Assets Setup"],
+    "services": ["HTML", "CSS (SASS)", "JavaScript (TypeScript)", "CMS Setup", "Assets Setup"],
     "tech": ["Next.js", "Payload CMS", "Cloudflare R2", "Figma"],
     "client": "Eterna Joyas",
     "description": [
