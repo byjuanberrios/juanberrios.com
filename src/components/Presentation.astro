@@ -1,40 +1,36 @@
 ---
-import { Image } from "astro:assets";
-
-import meImage from "../../src/assets/images/me-1.webp";
-
 import "../styles/presentation.css";
 // import PortfolioData from "./PortfolioData.astro";
 ---
 
 <div class="presentation">
   <header>
-    <h1 class="big">
-      Hola, soy <span class="text-highlight">Juan Berrios</span>, <br />y este
-      es mi jardín digital.
+    <h1 style="font-weight: 400;" class="big">
+      El jardín digital de<br />
+      <span style="font-weight: 500;">Juan Berrios</span>
     </h1>
     <p>
-      Desarrollador frontend y diseñador UX/UI chileno, viviendo en Curicó. Soy
-      esencialmente cristiano y gran parte de lo que hago tiene que ver con
-      internet. Más info en <a href="/about">/about</a>
+      Una casa siempre en construcción donde <a href="/notes">escribo</a>,
+      publico los proyectos de mi <a href="/works">portafolio</a>, comparto <a
+        href="/playlists">playlists</a
+      >, <a href="/bookmarks">marcadores</a>, entre <a href="/lists"
+        >otras cosas</a
+      > útiles o que me interesan.
+    </p>
+    <p>
+      Puedes <a href="/about">conocer más sobre mi</a>, sobre <a href="/this"
+        >este sitio</a
+      > o simplemente pasar a saludar a alguna de mis redes sociales, estoy en <a
+        href="https://instagram.com/byjuanberrios"
+        target="_blank"
+        rel="noopener noreferrer">Instagram</a
+      > y en <a
+        href="https://x.com/byjuanberrios"
+        target="_blank"
+        rel="noopener noreferrer">X</a
+      > como <strong>@byjuanberrios</strong>.
     </p>
   </header>
 
   <!-- <PortfolioData /> -->
-
-  <figure>
-    <Image
-      src={meImage}
-      alt="Avatar de Juan Berrios"
-      class="border-small"
-      loading="eager"
-    />
-    <figcaption>
-      Este soy yo. Foto hecha por <a
-        href="https://instagram.com/iamthejean"
-        target="_blank"
-        rel="noreferrer noopener">@iamthejean</a
-      >
-    </figcaption>
-  </figure>
 </div>

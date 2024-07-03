@@ -15,7 +15,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-m);
-        margin: var(--space-3xl) 0;
+        margin: var(--space-2xl) 0;
         img {
             border-radius: var(--space-3xs);
         }

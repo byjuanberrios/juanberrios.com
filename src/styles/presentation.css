@@ -3,15 +3,12 @@
         h1 {
             max-width: 28ch;
             text-wrap: pretty;
+            margin-block-end: var(--space-xl);
         }
         p {
-            margin-block-start: var(--space-l);
             max-width: 54ch;
             opacity: 0.7;
         }
-    }
-    figure {
-        margin-block: calc(var(--space-3xl) + var(--space-3xs)) var(--space-3xl);
     }
 }
 
