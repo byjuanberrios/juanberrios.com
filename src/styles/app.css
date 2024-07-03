@@ -283,6 +283,14 @@ h1.big {
     line-height: 130%;
 }
 
+.regular {
+    font-weight: 400;
+}
+
+.bold {
+    font-weight: 500;
+}
+
 /* Spacing */
 .base-spacing {
     padding-inline: calc(var(--space-3xs) + var(--space-l));
