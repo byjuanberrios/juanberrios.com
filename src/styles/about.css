@@ -1,16 +1,4 @@
 .about {
-    /* header {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-xs);
-        margin-bottom: var(--space-2xl);
-        h1 {
-            margin: 0;
-        }
-        h1.big {
-            max-width: 22ch;
-        }
-    } */
     .images {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
