@@ -42,6 +42,9 @@
             }
         }
     }
+    .about {
+        margin-top: var(--space-2xl);
+    }
 }
 
 .work {
