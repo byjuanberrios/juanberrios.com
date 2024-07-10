@@ -35,6 +35,14 @@
       }
     }
 
+    .streaming-links {
+      .platform {
+        p {
+          margin-top: 0;
+        }
+      }
+    }
+
     .cover {
       margin-bottom: var(--space-xl);
       position: relative;
@@ -66,9 +74,9 @@
       }
     }
     .description {
-      margin-bottom: var(--space-l);
+      margin-bottom: var(--space-xl);
     }
-    .tracklist,
+    /* .tracklist,
     .description {
       p {
         margin-top: var(--space-2xs);
@@ -76,5 +84,5 @@
         line-height: 150%;
         opacity: 0.7;
       }
-    }
+    } */
   }

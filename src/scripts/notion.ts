@@ -108,6 +108,14 @@ export async function getAlbums(): Promise<Album[]> {
   const albums = pages.results.map((result: any) => {
     const tracklist = result.properties.Tracklist.rich_text[0];
     const description = result.properties.Description.rich_text[0];
+    const spotify = result.properties.Spotify.url;
+    const apple_music = result.properties["Apple Music"].url;
+
+    const streamingLinks = {
+      ...(spotify && { spotify }),
+      ...(apple_music && { apple_music }),
+    };
+
     const album = {
       artist: result.properties.Artist.rich_text[0].plain_text,
       name: result.properties.Name.title[0].plain_text,
@@ -118,7 +126,10 @@ export async function getAlbums(): Promise<Album[]> {
       ),
       tracklist: tracklist ? tracklist.plain_text : "",
       description: description ? description.plain_text : "",
+      // Show streamingLinks only if there is a link of any platform
+      ...((apple_music || spotify) && { streamingLinks: streamingLinks }),
     };
+
     return album;
   });
 
