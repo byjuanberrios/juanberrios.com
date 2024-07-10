@@ -24,12 +24,14 @@ export async function getStaticPaths() {
         cover: album.cover,
         tracklist: album.tracklist?.replace(/\n/g, "<br>"),
         description: album.description,
+        streamingLinks: album.streamingLinks,
       },
     };
   });
 }
 
-const { name, artist, year, cover, tracklist, description } = Astro.props;
+const { name, artist, year, cover, tracklist, description, streamingLinks } =
+  Astro.props;
 ---
 
 <Base title={`${artist} - ${name}`}>
@@ -44,9 +46,31 @@ const { name, artist, year, cover, tracklist, description } = Astro.props;
     </div>
 
     {
+      streamingLinks && (
+        <div class="streaming-links">
+          {streamingLinks.apple_music && (
+            <div class="platform">
+              <p>
+                Escucha en <a href={streamingLinks.apple_music}>Apple Music</a>
+              </p>
+            </div>
+          )}
+
+          {streamingLinks.spotify && (
+            <div class="platform">
+              <p>
+                Escucha en <a href={streamingLinks.spotify}>Spotify</a>
+              </p>
+            </div>
+          )}
+        </div>
+      )
+    }
+
+    {
       description && (
         <div class="description">
-          <h4>Notas</h4>
+          <h3>Notas</h3>
           <p set:html={description} />
         </div>
       )
@@ -55,7 +79,7 @@ const { name, artist, year, cover, tracklist, description } = Astro.props;
     {
       tracklist && (
         <div class="tracklist">
-          <h4>Tracklist</h4>
+          <h3>Tracklist</h3>
           <p set:html={tracklist} />
         </div>
       )

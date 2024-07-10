@@ -4,8 +4,12 @@ export type Album = {
   cover: any;
   year: number;
   slug: string;
-  tracklist?: string;
-  description?: string;
+  tracklist: string;
+  description: string;
+  streamingLinks: {
+    spotify?: string;
+    apple_music?: string;
+  }?;
 };
 
 export type Bookmark = {

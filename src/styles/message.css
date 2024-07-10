@@ -3,7 +3,7 @@
     padding-block: calc(var(--space-xs) + var(--space-3xs));
     padding-inline-start: calc(var(--space-s) + var(--space-3xs));
     padding-inline-end: calc(var(--space-s) + var(--space-xs));
-    border-radius: var(--space-s);
+    border-radius: var(--space-xs);
     border: solid 1px rgba(0,0,0,0.05);
     margin-top: var(--space-xl);
     margin-bottom: var(--space-xl);
