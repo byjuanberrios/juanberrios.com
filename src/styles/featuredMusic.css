@@ -17,14 +17,12 @@
             padding-top: var(--space-3xs);
             p.position {
                 margin: 0; 
-                font-size: var(--step-0);
                 font-weight: 700; 
                 width: var(--space-xl);
                 height: var(--space-xl);
                 display:grid; 
                 place-content: center; 
                 border-radius: 9999px;
-                background-color: hsl(192 100% 48%); 
                 background-color: var(--color-highlight); 
                 color: var(--color-white);
                 margin-bottom: var(--space-xs);
@@ -44,9 +42,20 @@
                 .link {
                     line-height: 1.5;
                     a {
-                        font-size: 0.85rem;
                         font-size: var(--step--1);
                     }
+                }
+            }
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .musicReleaseCard {
+        header {
+            .releaseData {
+                p.position {
+                    background-color: var(--color-lightning); 
                 }
             }
         }
