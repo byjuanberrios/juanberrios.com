@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 import Base from "../../layouts/Base.astro";
 import { getAlbums } from "../../scripts/notion";
@@ -49,19 +50,39 @@ const { name, artist, year, cover, tracklist, description, streamingLinks } =
       streamingLinks && (
         <div class="streaming-links">
           {streamingLinks.apple_music && (
-            <div class="platform">
-              <p>
-                Escucha en <a href={streamingLinks.apple_music}>Apple Music</a>
-              </p>
-            </div>
+            <a
+              href={streamingLinks.apple_music}
+              target="_blank"
+              rel="noopener"
+              aria-label="platform"
+            >
+              <Icon name="tabler:brand-apple" />
+              <span>Apple music</span>
+            </a>
           )}
 
           {streamingLinks.spotify && (
-            <div class="platform">
-              <p>
-                Escucha en <a href={streamingLinks.spotify}>Spotify</a>
-              </p>
-            </div>
+            <a
+              href={streamingLinks.spotify}
+              target="_blank"
+              rel="noopener"
+              aria-label="platform"
+            >
+              <Icon name="tabler:brand-spotify" />
+              <span>Spotify</span>
+            </a>
+          )}
+
+          {streamingLinks.soundcloud && (
+            <a
+              href={streamingLinks.soundcloud}
+              target="_blank"
+              rel="noopener"
+              aria-label="platform"
+            >
+              <Icon name="tabler:brand-soundcloud" />
+              <span>Soundcloud</span>
+            </a>
           )}
         </div>
       )

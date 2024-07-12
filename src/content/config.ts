@@ -1,5 +1,4 @@
 import { z, defineCollection } from "astro:content";
-import { slugify } from "../utils/slugify";
 
 const notesCollections = defineCollection({
   type: "content",

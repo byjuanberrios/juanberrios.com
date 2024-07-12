@@ -36,9 +36,25 @@
     }
 
     .streaming-links {
-      .platform {
-        p {
-          margin-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2xs);
+      color: var(--color-white);
+      margin-bottom: var(--space-xl);
+      a {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3xs);
+        text-decoration: none;
+        font-size: calc(var(--space-2xs) * 1.4);
+        background-color: var(--color-black);
+        padding: var(--space-3xs) calc(var(--space-xs));
+        border-radius: var(--space-s);
+        &:after {
+            display: none !important;
+        }
+        [data-icon] {
+            font-size: calc(var(--space-xs) * 1.2);
         }
       }
     }
@@ -76,13 +92,14 @@
     .description {
       margin-bottom: var(--space-xl);
     }
-    /* .tracklist,
-    .description {
-      p {
-        margin-top: var(--space-2xs);
-        font-size: var(--step--1);
-        line-height: 150%;
-        opacity: 0.7;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .single-album {
+      .streaming-links {
+        a {
+          background-color: var(--color-lightning);
+        }
       }
-    } */
+    }
   }
