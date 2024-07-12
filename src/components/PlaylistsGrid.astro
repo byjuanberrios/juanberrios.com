@@ -37,7 +37,11 @@ playlists.sort(sortByDate);
           />
           <div class="content">
             <p class="title">{playlist.data.name}</p>
-            <p class="desc">{playlist.data.songs} canciones</p>
+            <p class="desc">
+              {playlist.data.songs
+                ? `${playlist.data.songs} canciones`
+                : "Se actualiza semanalmente"}
+            </p>
             <div class="platforms">
               {playlist.data.platforms.appleMusicLink && (
                 <a

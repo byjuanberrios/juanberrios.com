@@ -17,7 +17,7 @@ const playlistCollections = defineCollection({
   schema: z.object({
     date: z.string().transform((str) => new Date(str)),
     name: z.string(),
-    songs: z.number(),
+    songs: z.number().optional(),
     imageUrl: z.string(),
     platforms: z.object({
       spotifyLink: z.string().optional(),

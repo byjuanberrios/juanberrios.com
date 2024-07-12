@@ -2,7 +2,7 @@ export type Playlist = {
   data: {
     imageUrl: string;
     name: string;
-    songs: number;
+    songs?: number;
     platforms: {
       appleMusicLink: string | null;
       spotifyLink: string | null;

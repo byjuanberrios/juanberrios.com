@@ -60,6 +60,8 @@
           }
         }
         hr {
+          margin: 0;
+          width: auto;
           align-self: flex-end;
           border-style: dashed;
           border-color: var(--color-gray-darker);

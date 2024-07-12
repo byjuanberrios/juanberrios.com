@@ -346,3 +346,10 @@ h1.big {
 .stroke-lightning {
     stroke: var(--color-lightning);
 }
+
+hr {
+    margin-block: var(--space-2xl);
+    border-color: var(--color-gray-darkest);
+    width: 50%;
+    margin-inline: auto;
+}
