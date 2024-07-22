@@ -1,9 +1,5 @@
 .bookmarks {
     header {
-      h1 {
-      }
-      p {
-      }
       .categories {
         display: inline-flex;
         flex-wrap: wrap;
@@ -40,6 +36,9 @@
           align-items: center;
           gap: var(--space-2xs);
           margin: 0;
+          img {
+            margin-right: var(--space-3xs);
+          }
           .name::after {
             content: '';
             width: calc(var(--space-s) - var(--space-3xs));
@@ -75,14 +74,6 @@
           opacity: 0.5;
         }
       }
-    }
-
-    .dot {
-      display: inline-block;
-      border-radius: 100%;
-      width: var(--space-2xs);
-      height: var(--space-2xs);
-      background-color: var(--color-black);
     }
   }
 

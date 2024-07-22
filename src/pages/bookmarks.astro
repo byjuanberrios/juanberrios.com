@@ -3,12 +3,17 @@ import Base from "../layouts/Base.astro";
 import { BookmarksCategories } from "../components/bookmarks/BookmarksCategories";
 import { BookmarksGrid } from "../components/bookmarks/BookmarksGrid";
 
-import "../styles/bookmarks.css";
-import { getBookmarks, getBookmarksCategories } from "../scripts/notion";
+import type { Bookmark } from "../types/types";
 
-const categories = await getBookmarksCategories();
-const bookmarks = await getBookmarks();
-const bookmarksEntries = Object.entries(bookmarks);
+import {
+  getLinkdingBookmarks,
+  getLinkdingCategories,
+} from "../scripts/linkding";
+
+import "../styles/bookmarks.css";
+
+const bookmarks: Bookmark[] = await getLinkdingBookmarks();
+const categories: string[] = await getLinkdingCategories();
 ---
 
 <Base title="Marcadores" description="…">
@@ -18,6 +23,6 @@ const bookmarksEntries = Object.entries(bookmarks);
       <BookmarksCategories categories={categories} client:load />
     </header>
 
-    <BookmarksGrid bookmarks={bookmarksEntries} client:load />
+    <BookmarksGrid bookmarks={bookmarks} client:load />
   </div>
 </Base>
