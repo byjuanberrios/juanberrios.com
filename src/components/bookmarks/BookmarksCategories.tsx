@@ -22,16 +22,6 @@ export const BookmarksCategories = ({
                 : "var(--color-highlight)",
           }}
         >
-          <span
-            className="dot"
-            // style={{
-            //   backgroundColor: `color-mix(in lch, ${
-            //     category.color === "default"
-            //       ? "var(--color-lightning)"
-            //       : category.color
-            //   } 80%, black 20%)`,
-            // }}
-          />
           <span>{category}</span>
         </button>
       ))}

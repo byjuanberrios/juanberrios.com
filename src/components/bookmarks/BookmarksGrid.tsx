@@ -25,33 +25,30 @@ export const BookmarksGrid = ({ bookmarks }: { bookmarks: Bookmark[] }) => {
     setFilteredBookmarks(updatedBookmarks);
   };
 
-  // const bookmarksEntries = Object.entries(filteredBookmarks);
-
   return (
     <>
-      <section className="items">
-        {filteredBookmarks.map((bookmark: Bookmark, i: number) => (
-          <a
-            href={bookmark.url}
-            target="_blank"
-            rel="noreferrer noopener"
-            key={i}
-          >
-            <p>
-              <img
-                src={bookmark.favicon}
-                alt="fav"
-                style={{ borderRadius: "100%" }}
-              />
-              <span className="name">{bookmark.title}</span>
-            </p>
-            <hr />
-            <span className="date">
-              {bookmark.date.substring(8, 10)}/{bookmark.date.substring(5, 7)}
-            </span>
-          </a>
-        ))}
-      </section>
+      <div>
+        <p className="year">año</p>
+        <section className="items">
+          {filteredBookmarks.map((bookmark: Bookmark, i: number) => (
+            <a
+              href={bookmark.url}
+              target="_blank"
+              rel="noreferrer noopener"
+              key={i}
+            >
+              <p>
+                <img
+                  src={bookmark.favicon}
+                  alt="fav"
+                  style={{ borderRadius: "100%" }}
+                />
+                <span className="name">{bookmark.title}</span>
+              </p>
+            </a>
+          ))}
+        </section>
+      </div>
     </>
   );
 };
