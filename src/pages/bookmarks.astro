@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import { BookmarksCategories } from "../components/bookmarks/BookmarksCategories";
 import { BookmarksGrid } from "../components/bookmarks/BookmarksGrid";
 
-import type { Bookmark } from "../types/types";
+import type { Bookmark, OrderedBookmark } from "../types/types";
 
 import {
   getLinkdingBookmarks,
@@ -13,7 +13,7 @@ import {
 import "../styles/bookmarks.css";
 import Message from "../components/Message.astro";
 
-const bookmarks: Bookmark[] = await getLinkdingBookmarks();
+const bookmarks: OrderedBookmark = await getLinkdingBookmarks();
 const categories: string[] = await getLinkdingCategories();
 ---
 

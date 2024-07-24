@@ -19,6 +19,7 @@
     p.year {
       opacity: 0.4;
       margin-top: var(--space-m);
+      text-transform: capitalize;
     }
 
     .items {

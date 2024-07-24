@@ -66,3 +66,5 @@ export type Bookmark = {
   date: string;
   favicon?: string;
 };
+
+export type OrderedBookmark = { string: Bookmark[] };

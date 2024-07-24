@@ -10,51 +10,41 @@ const fetchLinkding = await fetch(
 );
 const res = await fetchLinkding.json().then((data) => data);
 
-export async function getLinkdingBookmarks() {
-  if (res.count < 1) {
-    return [];
-  }
+export async function getLinkdingBookmarks(): Promise<{ string: Bookmark[] }> {
+  const resultsByMonth: { string: Bookmark[] } = res.results.reduce(
+    (acc: any, bookmark: LinkdingBookmark) => {
+      const favicon = `https://www.google.com/s2/favicons?domain=${bookmark.url}`;
 
-  // const resultsByYear = res.results.reduce(
-  //   (acc: any, bookmark: LinkdingBookmark) => {
-  //     const favicon = `https://www.google.com/s2/favicons?domain=${bookmark.url}`;
-  //     const processedBookmark = {
-  //       title: bookmark.website_title,
-  //       description: bookmark.website_description,
-  //       url: bookmark.url,
-  //       tags: bookmark.tag_names,
-  //       date: bookmark.date_added,
-  //       favicon,
-  //     };
+      // Get the month of the bookmark in Spanish
+      const month = new Date(bookmark.date_added).toLocaleDateString("es-ES", {
+        month: "long",
+      });
+      const year = bookmark.date_added.substring(0, 4);
 
-  //     const year = processedBookmark.date.substring(0, 4);
-  //     // To remember: Initialize the array if there's not year with it
-  //     if (!acc[year]) {
-  //       acc[year] = [];
-  //     }
+      const header_date = `${month} ${year}`;
 
-  //     // To remember: push to the "year" the data
-  //     acc[year].push(processedBookmark);
-  //     return acc;
-  //   },
-  //   {}
-  // );
+      const processedBookmark = {
+        title: bookmark.website_title,
+        description: bookmark.website_description,
+        url: bookmark.url,
+        tags: bookmark.tag_names,
+        date: bookmark.date_added,
+        favicon,
+      };
 
-  // return resultsByYear;
+      // To remember: Initialize the array if there's not date with it
+      if (!acc[header_date]) {
+        acc[header_date] = [];
+      }
 
-  const results = res.results.map((result: LinkdingBookmark) => {
-    const favicon = `https://www.google.com/s2/favicons?domain=${result.url}`;
-    return {
-      title: result.website_title,
-      description: result.website_description,
-      url: result.url,
-      tags: result.tag_names,
-      date: result.date_added,
-      favicon,
-    };
-  });
+      // To remember: push to the "date" the data
+      acc[header_date].push(processedBookmark);
+      return acc;
+    },
+    {}
+  );
 
-  return results;
+  return resultsByMonth;
 }
 
 export async function getLinkdingCategories(): Promise<string[]> {
