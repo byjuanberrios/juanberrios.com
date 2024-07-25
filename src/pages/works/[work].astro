@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { Image } from "astro:assets";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 import { type Work } from "../../types/types";
 
@@ -97,7 +97,7 @@ const {
     {
       images && (
         <div class="images" style="margin: 20px 0">
-          {images.map((image, i) => (
+          {images.map((image) => (
             <Image
               src={image}
               alt={`Imágen del proyecto ${name}`}

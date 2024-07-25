@@ -49,3 +49,36 @@ export type Work = {
     images?: ImageFunction[];
   };
 };
+
+export type LinkdingBookmark = {
+  website_title: string;
+  website_description: string;
+  url: string;
+  tag_names: string[] | [];
+  date_added: string;
+};
+
+export type Bookmark = {
+  title: string;
+  description: string;
+  url: string;
+  tags: string[] | [];
+  date: string;
+  favicon?: string;
+};
+
+type Month =
+  | "enero"
+  | "febrero"
+  | "marzo"
+  | "abril"
+  | "mayo"
+  | "junio"
+  | "julio"
+  | "agosto"
+  | "septiembre"
+  | "octubre"
+  | "noviembre"
+  | "diciembre";
+
+export type OrderedBookmark = [month, Bookmark[]];
