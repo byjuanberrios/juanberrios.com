@@ -67,4 +67,18 @@ export type Bookmark = {
   favicon?: string;
 };
 
-export type OrderedBookmark = { string: Bookmark[] };
+type Month =
+  | "enero"
+  | "febrero"
+  | "marzo"
+  | "abril"
+  | "mayo"
+  | "junio"
+  | "julio"
+  | "agosto"
+  | "septiembre"
+  | "octubre"
+  | "noviembre"
+  | "diciembre";
+
+export type OrderedBookmark = [month, Bookmark[]];

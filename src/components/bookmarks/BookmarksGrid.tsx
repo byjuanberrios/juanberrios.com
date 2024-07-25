@@ -24,9 +24,9 @@ export const BookmarksGrid = ({
 
   const updateBookmarks = () => {
     // convert to entries for mapping and filter bookmarks with `selectedCategory`
-    const filteredData = Object.entries(bookmarks)
+    const filteredData = bookmarks
       .map(([month, bookmarks]) => {
-        const filteredBookmarks = bookmarks.filter((bookmark) =>
+        const filteredBookmarks = bookmarks.filter((bookmark: Bookmark) =>
           (bookmark.tags as string[]).includes(selectedCategory)
         );
         // return only the months with bookmarks in there
@@ -35,16 +35,13 @@ export const BookmarksGrid = ({
       // Filter out the null values from the final array to ensure only non-empty entries are returned.
       .filter((entry) => entry !== null);
 
-    // convert to object again
-    const filteredDataObj = Object.fromEntries(filteredData);
-
-    setFilteredBookmarks(filteredDataObj);
+    setFilteredBookmarks(filteredData as OrderedBookmark);
   };
 
   return (
     <>
       <div>
-        {Object.entries(filteredBookmarks).map(([month, items]) => (
+        {filteredBookmarks.map(([month, items]) => (
           <>
             <p className="year">{month}</p>
             <section className="items">

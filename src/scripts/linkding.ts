@@ -1,4 +1,4 @@
-import type { Bookmark, LinkdingBookmark } from "../types/types";
+import type { LinkdingBookmark, OrderedBookmark } from "../types/types";
 
 const fetchLinkding = await fetch(
   "https://juanberrios-bm.fly.dev/api/bookmarks/shared",
@@ -10,8 +10,8 @@ const fetchLinkding = await fetch(
 );
 const res = await fetchLinkding.json().then((data) => data);
 
-export async function getLinkdingBookmarks(): Promise<{ string: Bookmark[] }> {
-  const resultsByMonth: { string: Bookmark[] } = res.results.reduce(
+export async function getLinkdingBookmarks(): Promise<OrderedBookmark> {
+  const resultsByMonth: OrderedBookmark = res.results.reduce(
     (acc: any, bookmark: LinkdingBookmark) => {
       const favicon = `https://www.google.com/s2/favicons?domain=${bookmark.url}`;
 
@@ -19,6 +19,7 @@ export async function getLinkdingBookmarks(): Promise<{ string: Bookmark[] }> {
       const month = new Date(bookmark.date_added).toLocaleDateString("es-ES", {
         month: "long",
       });
+
       const year = bookmark.date_added.substring(0, 4);
 
       const header_date = `${month} ${year}`;
@@ -44,7 +45,7 @@ export async function getLinkdingBookmarks(): Promise<{ string: Bookmark[] }> {
     {}
   );
 
-  return resultsByMonth;
+  return Object.entries(resultsByMonth) as OrderedBookmark;
 }
 
 export async function getLinkdingCategories(): Promise<string[]> {
