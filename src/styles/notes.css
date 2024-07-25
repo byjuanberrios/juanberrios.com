@@ -1,7 +1,12 @@
 .notes-grid {
-    p.title {
+    position: relative;
+    p.year {
+        margin-top: var(--space-2xl);
+        margin-bottom: var(--space-l);
         opacity: 0.4;
-        margin-top: var(--space-xl);
+    }
+    p.month {
+        opacity: 0.4;
         text-transform: capitalize;
     }
     .grid {
@@ -42,6 +47,25 @@
         display: inline-block;
         margin-block-start: var(--space-m);
         opacity: 0.6;
+    }
+}
+
+@media (min-width: 768px) {
+    .notes-grid {
+        p.year {
+            position: absolute;
+            left: -6ch;
+            margin-top: 0;
+        }
+        p.year {
+            &:nth-child(n+3) {
+                margin-top: var(--space-2xl);
+                margin-bottom: 0;
+            }
+            &+p.month {
+                margin-top: var(--space-2xl);
+            }
+        }
     }
 }
 
