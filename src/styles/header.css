@@ -2,8 +2,12 @@ header.main-header {
     padding-block: calc(var(--space-l-xl) + var(--space-2xs));
     padding-inline: calc(var(--space-3xs) + var(--space-l));
     margin-inline: auto;
-    /* max-width: 1320px; */
-    max-width: min(1320px, 100%)
+}
+
+@media (width > 768px) {
+    header.main-header {
+        max-width: min(1320px, 92vw);
+    }
 }
 
 header.main-header nav {

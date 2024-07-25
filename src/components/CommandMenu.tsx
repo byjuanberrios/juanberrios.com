@@ -16,6 +16,7 @@ import {
   IconHome,
   IconNotebook,
   IconPlaylist,
+  IconBookmark,
   IconLibrary,
 } from "@tabler/icons-react";
 
@@ -44,6 +45,12 @@ const menu: Menu = [
     name: "Playlists",
     href: "/playlists",
     iconComp: <IconPlaylist />,
+    external: false,
+  },
+  {
+    name: "Bookmarks",
+    href: "/bookmarks",
+    iconComp: <IconBookmark />,
     external: false,
   },
   {
