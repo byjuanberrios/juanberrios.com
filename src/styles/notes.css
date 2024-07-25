@@ -1,7 +1,8 @@
 .notes-grid {
     p.title {
         opacity: 0.4;
-        margin-top: var(--space-m);
+        margin-top: var(--space-xl);
+        text-transform: capitalize;
     }
     .grid {
         .item {
@@ -27,6 +28,10 @@
                 border-color: var(--color-gray-darker);
                 margin-bottom: 0.4rem;
                 min-width: 2ch;
+            }
+            span {
+                text-transform: capitalize;
+                color: var(--color-highlight);
             }
             &:hover {
                 opacity: 0.5;

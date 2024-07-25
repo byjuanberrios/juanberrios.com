@@ -3,7 +3,7 @@
     line-height: 175%;
     h1 {
         max-width: 90%;
-        margin-block-end: calc(var(--space-xs) + var(--space-xl));
+        margin-block-end: calc(var(--space-s) + var(--space-xl));
     }
     p, ul, ol {
         color: var(--color-black-lighter);

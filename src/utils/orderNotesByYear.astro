@@ -16,19 +16,26 @@ interface OrderedNotes {
 
 export const orderNotesByYear = (notes: any[], sliced?: boolean) => {
   let allNotesByDate = notes.sort(sortByDate);
-  if (sliced) allNotesByDate = notes.slice(0, 6);
+  if (sliced) allNotesByDate = notes.slice(0, 5);
 
   return allNotesByDate.reduce((acc: OrderedNotes, actualNote) => {
     const year: string = actualNote.data.date.substring(0, 4);
-    if (!acc[year]) {
-      acc[year] = [];
+    const month = new Date(actualNote.data.date).toLocaleDateString("es-ES", {
+      month: "long",
+    });
+    const month_num = actualNote.data.date.substring(5, 7);
+
+    const date_header = `${year} ${month_num} ${month}`;
+
+    if (!acc[date_header]) {
+      acc[date_header] = [];
     }
 
     const data = {
       ...actualNote.data,
       slug: actualNote.slug,
     };
-    acc[year] = [data, ...acc[year]];
+    acc[date_header] = [data, ...acc[date_header]];
 
     return acc;
   }, {});
