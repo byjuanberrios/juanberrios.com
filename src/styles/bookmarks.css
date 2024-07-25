@@ -4,7 +4,7 @@
         display: inline-flex;
         flex-wrap: wrap;
         gap: var(--space-xs) var(--space-l);
-        margin-bottom: var(--space-xl);
+        margin-bottom: var(--space-m);
         button.category-button {
           text-align: left;
           padding: 0;
