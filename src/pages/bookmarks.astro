@@ -13,7 +13,7 @@ import {
 import "../styles/bookmarks.css";
 import Message from "../components/Message.astro";
 
-const bookmarks: OrderedBookmark = await getLinkdingBookmarks();
+const bookmarks: OrderedBookmark[] = await getLinkdingBookmarks();
 const categories: string[] = await getLinkdingCategories();
 ---
 

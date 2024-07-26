@@ -10,20 +10,10 @@ const fetchLinkding = await fetch(
 );
 const res = await fetchLinkding.json().then((data) => data);
 
-export async function getLinkdingBookmarks(): Promise<OrderedBookmark> {
-  const resultsByMonth: OrderedBookmark = res.results.reduce(
+export async function getLinkdingBookmarks(): Promise<OrderedBookmark[]> {
+  const resultsByYear = res.results.reduce(
     (acc: any, bookmark: LinkdingBookmark) => {
       const favicon = `https://www.google.com/s2/favicons?domain=${bookmark.url}`;
-
-      // Get the month of the bookmark in Spanish
-      const month = new Date(bookmark.date_added).toLocaleDateString("es-ES", {
-        month: "long",
-      });
-
-      const year = bookmark.date_added.substring(0, 4);
-
-      const header_date = `${month} ${year}`;
-
       const processedBookmark = {
         title: bookmark.website_title,
         description: bookmark.website_description,
@@ -33,19 +23,20 @@ export async function getLinkdingBookmarks(): Promise<OrderedBookmark> {
         favicon,
       };
 
-      // To remember: Initialize the array if there's not date with it
-      if (!acc[header_date]) {
-        acc[header_date] = [];
+      const year = processedBookmark.date.substring(0, 4);
+      // To remember: Initialize the array if there's not year with it
+      if (!acc[year]) {
+        acc[year] = [];
       }
 
-      // To remember: push to the "date" the data
-      acc[header_date].push(processedBookmark);
+      // To remember: push to the "year" the data
+      acc[year].push(processedBookmark);
       return acc;
     },
     {}
   );
 
-  return Object.entries(resultsByMonth) as OrderedBookmark;
+  return Object.entries(resultsByYear);
 }
 
 export async function getLinkdingCategories(): Promise<string[]> {
