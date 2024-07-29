@@ -1,3 +1,5 @@
+export const prerender = false;
+
 export async function GET() {
   const LASTFM_USER = import.meta.env.LASTFM_USER ?? process.env.LASTFM_USER;
   const LASTFM_API_KEY =
