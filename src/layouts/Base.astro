@@ -13,7 +13,7 @@ import "../styles/app.css";
 const { title, description, alt = false } = Astro.props;
 
 const currentPath = Astro.url.pathname;
-const canonicalURL = new URL(currentPath, Astro.site);
+const canonicalURL = new URL(currentPath, Astro.url);
 const socialImageURL = new URL(socialImage.src, Astro.url);
 ---
 
