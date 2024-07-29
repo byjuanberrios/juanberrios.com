@@ -2,15 +2,15 @@
 export const prerender = false;
 
 // import { getLastListenedSong } from "../../scripts/lastfm";
-// import { Lastfm } from "./Lastfm";
+import { Lastfm } from "./Lastfm";
 
 // const lastSong = await getLastListenedSong();
 
-// const lastSong_alt = await fetch(`${Astro.url}api/last-song.json`);
-// const lastSong_alt_res = await lastSong_alt.json().then((data) => data);
+const lastSong_alt = await fetch(`${Astro.url}api/last-song.json`);
+const lastSong_alt_res = await lastSong_alt.json().then((data) => data);
 
-console.log(`${Astro.url}api/last-song.json`);
+// console.log(`${Astro.url}api/last-song.json`);
 ---
 
-<p>Last.fm API endpoint succesfully added!</p>
-<!-- <Lastfm lastSong={lastSong_alt_res} client:load /> -->
+<!-- <p>Last.fm API endpoint succesfully added!</p> -->
+<Lastfm lastSong={lastSong_alt_res} client:load />
