@@ -37,7 +37,6 @@
     --space-xs-xs: clamp(0.6875rem, 0.663rem + 0.1087vi, 0.75rem);
   
     /* Colors */
-    /* --color-white: #FCFCFC; */
     --color-white: #FAFAFA;
     --color-gray: #F5F5F5;
     --color-gray-dark: #EBEBEB;
@@ -352,4 +351,41 @@ hr {
     border-color: var(--color-gray-darkest);
     width: 50%;
     margin-inline: auto;
+}
+
+.listening-wrapper {
+    margin-top: var(--space-3xl);
+    .listening {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 70px auto;
+        gap: var(--space-s);
+        margin-top: var(--space-m);
+        overflow: hidden;
+        .cover {
+            border-radius: var(--space-3xs);
+        }
+        .info {
+            p.song { 
+                font-size: var(--step-0);
+                line-height: 160%;
+                margin: 0;
+                text-wrap: nowrap;
+            }
+            p.artist { 
+                font-size: var(--step--1);
+                line-height: 120%;
+                margin: 0;
+            }
+            p.date {
+                font-size: var(--step--1);
+                line-height: 120%;
+                margin-top: var(--space-3xs);
+                opacity: 0.6;
+                .month {
+                    text-transform: capitalize;
+                }
+            }
+        }   
+    }
 }

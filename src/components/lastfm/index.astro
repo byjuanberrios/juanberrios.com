@@ -1,0 +1,11 @@
+---
+export const prerender = false;
+
+import { getLastListenedSong } from "../../scripts/lastfm";
+import { Lastfm } from "./Lastfm";
+
+const lastSong = await getLastListenedSong();
+---
+
+<!-- <p>last.fm</p> -->
+<Lastfm lastSong={lastSong} client:load />

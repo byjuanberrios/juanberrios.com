@@ -10,5 +10,5 @@ export type Album = {
     spotify?: string;
     apple_music?: string;
     soundcloud?: string;
-  }?;
+  };
 };
