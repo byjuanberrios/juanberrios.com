@@ -1,16 +1,16 @@
 ---
 export const prerender = false;
 
-// import { getLastListenedSong } from "../../scripts/lastfm";
+import { getLastListenedSong } from "../../scripts/lastfm";
 import { Lastfm } from "./Lastfm";
 
-const BASE_URL = import.meta.env.DEV
-  ? import.meta.env.LOCAL_URL
-  : import.meta.env.SITE;
+// const BASE_URL = import.meta.env.DEV
+//   ? import.meta.env.LOCAL_URL
+//   : import.meta.env.SITE;
 
-// const lastSong = await getLastListenedSong();
-const lastSong_alt = await fetch(`${BASE_URL}/api/last-song.json`);
-const lastSong_alt_res = await lastSong_alt.json().then((data) => data);
+const lastSong = await getLastListenedSong();
+// const lastSong_alt = await fetch(`${BASE_URL}/api/last-song.json`);
+// const lastSong_alt_res = await lastSong_alt.json().then((data) => data);
 ---
 
-<Lastfm lastSong={lastSong_alt_res} client:load />
+<Lastfm lastSong={lastSong} client:load />
