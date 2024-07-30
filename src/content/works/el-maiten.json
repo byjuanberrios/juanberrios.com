@@ -3,7 +3,7 @@
     "slug": "elmaiten",
     "year": 2021,
     "cover": "./images/el-maiten/cover.png",
-    "roles": ["Diseño", "Desarrollo"],
+    "roles": ["Diseño", "Desarrollor"],
     "services": ["PHP", "Desarrollo de Tema", "Desarrollo de Plugins"],
     "tech": ["Wordpress CMS", "Figma"],
     "client": "Viveros El Maitén (por Asomic)",
@@ -16,5 +16,6 @@
         "./images/el-maiten/2.jpg",
         "./images/el-maiten/3.jpg",
         "./images/el-maiten/4.jpg"
-    ]
+    ],
+    "archived": true
 }

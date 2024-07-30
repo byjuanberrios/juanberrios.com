@@ -41,6 +41,8 @@ const worksCollections = defineCollection({
       description: z.array(z.string()),
       externalLink: z.string().optional(),
       images: z.array(image()).optional(),
+      archived: z.boolean().optional(),
+      priority: z.number().optional().default(999),
     }),
 });
 

@@ -60,8 +60,10 @@ export type Work = {
     tech: string[];
     client: string;
     description: string[];
+    priority: number;
     externalLink?: string;
     images?: ImageFunction[];
+    archived?: boolean;
   };
 };
 

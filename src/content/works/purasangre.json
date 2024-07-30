@@ -3,7 +3,7 @@
     "slug": "purasangre",
     "year": 2022,
     "cover": "./images/purasangre/cover.png",
-    "roles": ["Diseño", "Desarrollo"],
+    "roles": ["Diseñador", "Desarrollador"],
     "services": ["HTML", "CSS (SASS)", "JavaScript"],
     "tech": ["Gatsby", "Figma"],
     "client": "Pura Sangre CrossFit (por Asomic)",
@@ -16,5 +16,6 @@
         "./images/purasangre/1.jpg",
         "./images/purasangre/2.jpg",
         "./images/purasangre/3.jpg"
-    ]
+    ],
+    "priority": 4
 }

@@ -4,17 +4,15 @@ import { Image } from "astro:assets";
 
 import { type Work } from "../../types/types";
 
-const sortByYear = (
-  a: { data: { year: number } },
-  b: { data: { year: number } }
-) => {
-  const dateB = new Date(b.data.year);
-  const dateA = new Date(a.data.year);
-  return dateB.getTime() - dateA.getTime();
-};
+const works = await getCollection(
+  "works",
+  ({ data }: { data: Work["data"] }) => data.archived !== true
+);
 
-const works = await getCollection("works");
-works.sort(sortByYear);
+const sortByPriority = (a: { data: Work["data"] }, b: { data: Work["data"] }) =>
+  a.data.priority - b.data.priority;
+
+works.sort(sortByPriority);
 ---
 
 <div class="items">
@@ -27,6 +25,13 @@ works.sort(sortByYear);
         <div class="data">
           <h4>{work.data.name}</h4>
           <p>{work.data.year}</p>
+          <div class="roles">
+            <p>
+              {work.data.roles.map((role) => (
+                <span>{role}</span>
+              ))}
+            </p>
+          </div>
         </div>
       </div>
     ))

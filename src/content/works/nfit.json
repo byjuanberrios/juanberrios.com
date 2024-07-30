@@ -1,0 +1,22 @@
+{
+    "name": "NFIT",
+    "slug": "nfit",
+    "year": 2022,
+    "cover": "./images/nfit/cover.png",
+    "roles": ["Diseñador", "Desarrollador"],
+    "services": [ "HTML", "CSS", "JavaScript"],
+    "tech": ["IONIC", "Figma"],
+    "client": "Asomic/NFIT",
+    "description": [
+        "NFIT es la culminación de un esfuerzo colaborativo con el equipo de Asomic, un sistema digital de gestión para centros deportivos y sus alumnos. Junto a ellos diseñé una aplicación móvil y una platafoma de gestión. De esta forma los alumnos pueden reservar clases, confirmar asistencia, comprar o renovar membresias, entre otras funciones. Por otro lado, los administradores pueden tener el control de su membresía y profesores, gestionando clases, actividades, horarios, tipos de planes, entre otras funciones."
+    ],
+    "externalLink": "https://apps.apple.com/cl/app/nfit/id1458653773/?ref=works.juanberrios.com",
+    "images": [
+        "./images/nfit/1.jpg",
+        "./images/nfit/2.jpg",
+        "./images/nfit/3.jpg",
+        "./images/nfit/4.jpg",
+        "./images/nfit/5.jpg"
+    ],
+    "priority": 2
+}

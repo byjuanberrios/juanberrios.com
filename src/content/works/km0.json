@@ -1,0 +1,24 @@
+{
+    "name": "Kilometro Cero App",
+    "slug": "km0",
+    "year": 2022,
+    "cover": "./images/km0/cover.png",
+    "roles": ["Diseñador", "Desarrollador"],
+    "services": [ "HTML", "CSS", "JavaScript"],
+    "tech": ["IONIC", "Figma"],
+    "client": "Asomic",
+    "description": [
+        "En estrecha colaboración con el equipo de Asomic, he liderado el diseño y he colaborado en el desarrollo de la aplicación móvil Kilometro Cero.",
+        "Esta plataforma ofrece una experiencia integral para los amantes del ciclismo, permitiendo la reserva eficiente de servicios de taller, comunicación directa con sucursales, registro detallado de bicicletas y participación en eventos exclusivos. Kilometro Cero no solo optimiza la gestión de servicios, sino que también fortalece la conexión entre los usuarios y la comunidad ciclista, brindando acceso a eventos pasados, listas de asistentes y memorables fotografías.",
+        "Tuve la oportunidad de definir los lineamientos de la marca digital, diseñar la interfaz y desarrollar la parte frontend de aplicación con el framework IONIC.",
+        "La aplicación se distribuye tanto en iOS como en Android."
+    ],
+    "externalLink": "https://apps.apple.com/cl/app/kilometro-cero/id1472395043/?ref=works.juanberrios.com",
+    "images": [
+        "./images/km0/1.jpg",
+        "./images/km0/2.jpg",
+        "./images/km0/3.jpg",
+        "./images/km0/4.jpg"
+    ],
+    "priority": 3
+}

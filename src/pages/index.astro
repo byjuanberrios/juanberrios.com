@@ -5,7 +5,7 @@ import Base from "../layouts/Base.astro";
 import Presentation from "../components/Presentation.astro";
 import ProfileImage from "../components/ProfileImage.astro";
 import NotesGrid from "../components/NotesGrid.astro";
-import Lastfm from "../components/lastfm/index.astro";
+// import { Lastfm } from "../components/lastfm/Lastfm";
 ---
 
 <Base>
@@ -18,6 +18,6 @@ import Lastfm from "../components/lastfm/index.astro";
   <!-- Notas Grid -->
   <NotesGrid />
 
-  <!-- Last.fm: Added… risky -->
-  <Lastfm />
+  <!-- Last.fm: Temporally hidden -->
+  <!-- <Lastfm client:load /> -->
 </Base>

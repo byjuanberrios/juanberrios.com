@@ -83,12 +83,16 @@ const {
         <p class="tag">Cliente</p>
         <p>{client}</p>
       </div>
-      <div class="item">
-        <p class="tag">Visitar</p>
-        <a href={externalLink} target="_blank" rel="noreferrer noopener"
-          >Live site</a
-        >
-      </div>
+      {
+        externalLink && (
+          <div class="item">
+            <p class="tag">Visitar</p>
+            <a href={externalLink} target="_blank" rel="noreferrer noopener">
+              Live site
+            </a>
+          </div>
+        )
+      }
     </div>
 
     <div class="description">

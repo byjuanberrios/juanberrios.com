@@ -16,5 +16,6 @@
         "./images/pulmahue/1.jpg",
         "./images/pulmahue/2.jpg",
         "./images/pulmahue/3.jpg"
-    ]
+    ],
+    "archived": true
 }

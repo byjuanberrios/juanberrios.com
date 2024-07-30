@@ -1,0 +1,22 @@
+{
+    "name": "Leasing digital Itaú",
+    "slug": "itau",
+    "year": 2023,
+    "cover": "./images/itau/cover.png",
+    "roles": ["Desarrollador"],
+    "services": [ "Typescript", "MUI" ],
+    "tech": ["Next.js", "NodeJS" ],
+    "client": "Itaú (via Synaptic)",
+    "description": [
+        "Proyecto a cargo de Synaptic para Itaú que consiste en una plataforma web para clientes empresa del banco, donde pueden simular y contratar productos de Leasing.",
+        "Me integré a la mitad del proyecto para trabajar en las secciones de contratación y simulación que son el corazón del proyecto",
+        "Trabajé con un equipo multidisciplinario con metodologías ágiles llevando a código el diseño de interfaz, procurando la exactitud del diseño, creando componentes reactivos con Next.js, consumiendo servicios del banco y creando API's para conectar otros servicios necesarios.",
+        "El producto se encuentra disponible en el sitio privado para clientes empresas del Banco Itaú"
+    ],
+    "images": [
+        "./images/itau/1.jpg",
+        "./images/itau/2.jpg",
+        "./images/itau/3.jpg"
+    ],
+    "priority": 1
+}
