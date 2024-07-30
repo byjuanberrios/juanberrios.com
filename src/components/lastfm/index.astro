@@ -1,5 +1,5 @@
 ---
-import { Lastfm } from "./Lastfm";
+// import { Lastfm } from "./Lastfm";
 
 import { GET } from "../../pages/api/last-song.json";
 
@@ -11,6 +11,35 @@ const data = await response.json();
 
 // const lastSong_alt = await fetch(`https://juanberrios.com/api/last-song.json`);
 // const lastSong_alt_res = await lastSong_alt.json().then((data) => data);
+const { name, artist, image, playDate } = data;
 ---
 
-<Lastfm lastSong={data} client:load />
+<!-- <Lastfm lastSong={data} client:load /> -->{
+  data ? (
+    <div class="listening-wrapper">
+      <h2>Escuchando</h2>
+      <div class="listening">
+        <img class="cover" src={image} alt={`${artist} album`} />
+        <div class="info">
+          <p class="song">{name}</p>
+          <p class="artist">{artist}</p>
+          <p class="date">
+            {playDate ? (
+              <>
+                Reproducido el {playDate.day} de{" "}
+                <span class="month">{playDate.month}</span>
+                <span> a las {playDate.time} hrs</span>
+              </>
+            ) : (
+              "Reproduciendo ahora"
+            )}
+          </p>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div class="listening-wrapper">
+      <p>Cargando…</p>
+    </div>
+  )
+}
