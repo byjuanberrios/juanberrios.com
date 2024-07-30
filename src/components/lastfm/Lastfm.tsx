@@ -1,5 +1,3 @@
-// export const prerender = false;
-
 import { useEffect, useState } from "react";
 import type { LastSong } from "../../types/lastfm";
 

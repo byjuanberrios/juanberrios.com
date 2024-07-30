@@ -1,6 +1,7 @@
 // export const prerender = false;
+import type { APIRoute } from "astro";
 
-export async function GET() {
+export const GET: APIRoute = async () => {
   const LASTFM_USER = import.meta.env.LASTFM_USER ?? process.env.LASTFM_USER;
   const LASTFM_API_KEY =
     import.meta.env.LASTFM_API_KEY ?? process.env.LASTFM_API_KEY;
@@ -58,4 +59,4 @@ export async function GET() {
       "Content-Type": "application/json",
     },
   });
-}
+};
