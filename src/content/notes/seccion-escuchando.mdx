@@ -1,0 +1,121 @@
+---
+title: Cómo hice la sección “Escuchando”
+date: "2024-07-31"
+summary: Cómo añadí una “Listening section” usando la API de Last.fm con renderizado híbrido y los API Endpoints de Astro.
+isPublished: true
+---
+
+Te explico cómo añadí una “Listening section” usando la API de Last.fm con renderizado híbrido y los API Endpoints de Astro.
+
+## Contexto
+Estos días he estado estudiando la forma de agregar una pequeña sección donde aparezca la última canción que he escuchado. Esto se debe a que hace poco comencé a utilizar Last.fm para hacer seguimiento de todo lo que escucho en Apple Music y Spotify.
+
+Como he explicado en otras secciones de la página, este sitio web está hecho con Astro de manera totalmente estática (SSG). Así que lo primero que tenía que hacer era pasar el sitio a modo “hybrid” para que pudiera ejecutar en tiempo real la llamada a la API de Last.fm.
+
+Para esto, tuve que modificar el archivo `astro.config.mjs` para indicarle a Astro que utilizaré el modo de renderización híbrida:
+
+``` js
+export default defineConfig({
+  ...
+  output: "hybrid"
+});
+```
+
+Luego ejecuté `npx astro add cloudflare` en la terminal para instalar el adaptador de Cloudflare ya que la web está hospedada allí..
+
+## Obteniendo una API Key
+
+Creamos una cuenta de API [aquí](https://www.last.fm/api/account/create). Al crearla, nos proporcionarán nuestra API Key (guárdala en un lugar seguro).
+
+Agregamos dos variables de entorno en un nuevo archivo en la raíz de nuestro proyecto: `.dev.vars`
+
+``` shell
+LASTFM_USER=<AQUÍ_VA_TU_USERNAME>
+LASTFM_API_KEY=<AQUÍ_VA_TU_API_KEY>
+```
+
+## API Endpoints
+Aquí la cosa se puso interesante. Creé un endpoint con un fetch() a la API de Last.fm y luego hice sus respectivas transformaciones. Con este endpoint solucionamos el problema de ventilar la API Key ya que la llamada se hace en el servidor.
+
+Este archivo debe ir en la carpeta `/pages`. En mi caso, dentro de ella creé la carpeta `/api` y allí el archivo con un nombre similar a `lastfm.json.ts`. (el “.ts” solo se usa para construir el endpoint y no se utilizará cuando lo llamemos).
+
+``` ts
+export const prerender = false;
+
+import type { APIContext } from "astro";
+
+export async function GET(context: APIContext) {
+  const runtime = context.locals.runtime;
+  const { LASTFM_USER, LASTFM_API_KEY } = runtime.env;
+
+  const response = await fetch(
+    `https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=${LASTFM_USER}&api_key=${LASTFM_API_KEY}&limit=1&nowplaying=true&format=json`
+  )
+    .then((res) => res.json())
+    .then((data) => data);
+
+  if (!response) {
+    return new Response(null, {
+      status: 404,
+      statusText: "No Encontrado",
+    });
+  }
+
+  // ... (aquí iría el resto del código de procesamiento de la respuesta)
+
+  return new Response(JSON.stringify(response), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+```
+
+Desglozando algunas lineas:
+- `export const prerender = false` nos asegura que al hacer el build de nuestra web no se haga una versión estática de este archivo y lo maneje como SSR.
+- `const runtime = context.locals.runtime` de esta forma accedemos al contexto local de las variables de entorno para poder hacer un fetch que “lea” esas variables en producción (Cloudflare Pages).
+- `const { LASTFM_USER, LASTFM_API_KEY } = runtime.env` desestructuramos el objeto para extraer las variables de entorno.
+- El resto es hacer el fetch y devolver un los datos obtenidos.
+
+## El componente
+Creé un componente de React con una llamada a la API “local” que acabamos de crear y muestro los datos.
+
+``` tsx
+export const prerender = false;
+
+import { useEffect, useState } from "react";
+import type { Lastfm } from "../types/lastfm";
+
+export const Lastfm = () => {
+  const [data, setData] = useState<Lastfm>();
+
+  useEffect(() => {
+    fetch(`/api/lastfm.json`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setData(data);
+      });
+  }, []);
+
+  if (!data) {
+    return (
+      // Aqui muestro lo que quiero rederizar mientas no hay datos
+    );
+  }
+
+  return (
+    // Aquí muestro los datos
+  );
+};
+
+```
+
+## Cloudflare Pages
+Para que la llamada funcione en producción, hay que decirle a Cloudflare cuáles son tus variables (las que definimos en `.dev.vars`)
+
+Si no hemos cargado nuestro proyecto aún, podemos asignar variables de entorno antes de hacer el deploy. O si ya tenemos nuestro proyecto en funcionamiento, podemos entrar en él a través del panel de Información General y en la pestaña de Configuración podemos agregarlas.
+
+Hacemos el build y terminamos.

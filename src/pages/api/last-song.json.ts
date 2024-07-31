@@ -39,7 +39,7 @@ export async function GET(context: APIContext) {
           month: "long",
         }),
         time: uts_date?.toLocaleTimeString("es-ES", {
-          timeZone: "America/Punta_Arenas",
+          timeZone: "America/Santiago",
           timeStyle: "short",
           hour12: false,
         }),

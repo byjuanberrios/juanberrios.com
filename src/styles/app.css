@@ -226,7 +226,7 @@ code {
     font-size: var(--step--1);
     padding: var(--space-3xs) var(--space-2xs);
     font-family: 'Courier New', Courier, monospace;
-    background-color: var(--color-gray-dark);
+    background-color: var(--color-gray-darker);
     border: solid 1px rgba(0,0,0,0.05);
 }
 
@@ -234,11 +234,10 @@ pre {
     position: relative;
     border-radius: var(--space-xs);
     font-size: var(--step--1);
-    border: solid 1px rgba(0,0,0,0.05);
     padding: 0;
     overflow: auto;
-    margin-block: var(--space-m);
-    background-color: var(--color-white) !important;
+    margin-block: var(--space-l);
+    background-color: #262E47 !important;
     color: var(--color-black) !important;
     code {
         line-height: 200%;
@@ -267,7 +266,18 @@ pre {
         display: block;
         font-size: var(--step--1);
         padding: var(--space-2xs) var(--space-m);
-        background-color: var(--color-gray-darker);
+        /* background-color: var(--color-gray-darker); */
+        background-color: #1a1f31 !important;
+        color: var(--color-gray) !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    pre {
+        background-color: #151b2b !important;
+        &:before {
+            color: var(--color-black-lighter) !important;
+        }
     }
 }
 

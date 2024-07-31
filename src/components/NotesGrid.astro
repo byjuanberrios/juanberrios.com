@@ -40,16 +40,18 @@ const orderedNotes: OrderedNotes = orderNotesByYear(
                   <>
                     <p class="title month">{month_name}</p>
                     <div class="grid">
-                      {orderedNotes[year][month].map((note: Note) => {
-                        const day = `${note.date.substring(8, 10)}`;
-                        return (
-                          <a class="item" href={`/notes/${note.slug}`}>
-                            <p>{note.title}</p>
-                            <hr />
-                            <span>{day}</span>
-                          </a>
-                        );
-                      })}
+                      {orderedNotes[year][month]
+                        .sort((noteA, noteB) => (noteA < noteB ? 1 : -1))
+                        .map((note: Note) => {
+                          const day = `${note.date.substring(8, 10)}`;
+                          return (
+                            <a class="item" href={`/notes/${note.slug}`}>
+                              <p>{note.title}</p>
+                              <hr />
+                              <span>{day}</span>
+                            </a>
+                          );
+                        })}
                     </div>
                   </>
                 );
@@ -69,16 +71,18 @@ const orderedNotes: OrderedNotes = orderNotesByYear(
               .sort((monthA, monthB) => (monthA < monthB ? 1 : -1))
               .map((month) => (
                 <div class="grid">
-                  {orderedNotes[year][month].map((note: Note) => {
-                    const date = `${note.date.substring(5, 7)}/${note.date.substring(2, 4)}`;
-                    return (
-                      <a class="item" href={`/notes/${note.slug}`}>
-                        <p>{note.title}</p>
-                        <hr />
-                        <span>{date}</span>
-                      </a>
-                    );
-                  })}
+                  {orderedNotes[year][month]
+                    .sort((noteA, noteB) => (noteA < noteB ? 1 : -1))
+                    .map((note: Note) => {
+                      const date = `${note.date.substring(8, 10)}/${note.date.substring(5, 7)}/${note.date.substring(2, 4)}`;
+                      return (
+                        <a class="item" href={`/notes/${note.slug}`}>
+                          <p>{note.title}</p>
+                          <hr />
+                          <span>{date}</span>
+                        </a>
+                      );
+                    })}
                 </div>
               ))}
           </>
