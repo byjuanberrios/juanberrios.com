@@ -15,6 +15,6 @@ export default defineConfig({
     "/blog/[note]": "/notes/[note]",
     "/posts/[note]": "/notes/[note]"
   },
-  output: "server",
+  output: "hybrid",
   adapter: cloudflare()
 });
