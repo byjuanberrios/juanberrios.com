@@ -4732,6 +4732,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     sharp: "npm:^0.33.4"
     typescript: "npm:^5.4.4"
+    wrangler: "npm:^3.67.1"
   languageName: unknown
   linkType: soft
 
@@ -8009,7 +8010,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^3.39.0":
+"wrangler@npm:^3.39.0, wrangler@npm:^3.67.1":
   version: 3.67.1
   resolution: "wrangler@npm:3.67.1"
   dependencies:
