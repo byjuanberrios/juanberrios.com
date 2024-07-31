@@ -70,8 +70,5 @@
 }
 
 .why-blog {
-    margin-block-start: calc(var(--space-xl) + var(--space-m));
-    p {
-        opacity: 0.7;
-    }
+    margin-block-start: var(--space-3xl);
 }
