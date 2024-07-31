@@ -10,7 +10,7 @@ const data = await fetch(
   .then((res) => res.json())
   .then((data) => data);
 
-export const GET: APIRoute = () => {
+export const GET: APIRoute = ({}) => {
   // const LASTFM_USER = import.meta.env.LASTFM_USER ?? process.env.LASTFM_USER;
   // const LASTFM_API_KEY =
   //   import.meta.env.LASTFM_API_KEY ?? process.env.LASTFM_API_KEY;
