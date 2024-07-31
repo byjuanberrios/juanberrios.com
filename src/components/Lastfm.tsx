@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import type { LastSong } from "../types/lastfm";
 
 export const Lastfm = () => {
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<LastSong>();
 
   useEffect(() => {
     fetch(`/api/last-song.json`)

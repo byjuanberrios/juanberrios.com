@@ -1,4 +1,6 @@
-export async function GET(context: any) {
+import type { APIContext } from "astro";
+
+export async function GET(context: APIContext) {
   const runtime = context.locals.runtime;
   const { LASTFM_USER, LASTFM_API_KEY } = runtime.env;
 
