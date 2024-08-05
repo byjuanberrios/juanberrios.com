@@ -23,6 +23,7 @@ export async function GET(context: APIContext) {
   const artistName = track[0].artist["#text"];
   const songName = track[0].name;
   const image = track[0].image[2]["#text"];
+  const album = track[0].album["#text"];
 
   const uts_playDate = track[0]?.date?.uts
     ? parseInt(track[0].date.uts, 10) * 1000
@@ -31,12 +32,10 @@ export async function GET(context: APIContext) {
 
   const playDate = uts_playDate
     ? {
-        uts: uts_date,
-        day: uts_date?.toLocaleDateString("es-ES", {
-          day: "numeric",
-        }),
-        month: uts_date?.toLocaleDateString("es-ES", {
-          month: "long",
+        date: uts_date?.toLocaleDateString("es-ES", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "2-digit",
         }),
         time: uts_date?.toLocaleTimeString("es-ES", {
           timeZone: "America/Santiago",
@@ -49,6 +48,7 @@ export async function GET(context: APIContext) {
   const result = {
     name: songName,
     artist: artistName,
+    album,
     image,
     playDate,
   };

@@ -47,9 +47,7 @@ export interface LastFmResponse {
 }
 
 export interface PlayDate {
-  uts: Date | null;
-  day: string | undefined;
-  month: string | undefined;
+  date: string | undefined;
   time: string | undefined;
 }
 
@@ -57,5 +55,6 @@ export interface LastSong {
   name: string;
   artist: string;
   image: string;
+  album: string;
   playDate: PlayDate | null;
 }

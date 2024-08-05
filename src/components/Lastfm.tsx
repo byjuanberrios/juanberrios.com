@@ -3,6 +3,8 @@ export const prerender = false;
 import { useEffect, useState } from "react";
 import type { LastSong } from "../types/lastfm";
 
+import "../styles/lastfm.css";
+
 export const Lastfm = () => {
   const [data, setData] = useState<LastSong>();
 
@@ -24,7 +26,7 @@ export const Lastfm = () => {
     );
   }
 
-  const { name, artist, image, playDate } = data;
+  const { name, artist, image, album, playDate } = data;
 
   return (
     <div className="listening-wrapper">
@@ -32,19 +34,22 @@ export const Lastfm = () => {
       <div className="listening">
         <img className="cover" src={image} alt={`${artist} album`} />
         <div className="info">
-          <p className="song">{name}</p>
-          <p className="artist">{artist}</p>
-          <p className="date">
-            {playDate ? (
-              <>
-                Reproducido el {playDate.day} de{" "}
-                <span className="month">{playDate.month}</span>
-                <span> a las {playDate.time} hrs</span>
-              </>
-            ) : (
-              "Reproduciendo ahora"
-            )}
-          </p>
+          <div className="song">
+            <p className="name">{name}</p>
+            <p className="artist">{artist}</p>
+            <p className="album">{album}</p>
+          </div>
+          <div className="date">
+            <p className="date">
+              {playDate ? (
+                <>
+                  {playDate.date} - {playDate.time}
+                </>
+              ) : (
+                "Reproduciendo ahora"
+              )}
+            </p>
+          </div>
         </div>
       </div>
     </div>
