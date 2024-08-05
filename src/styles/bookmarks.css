@@ -1,20 +1,66 @@
 .bookmarks {
+  .categories {
+    width: 100%;
+    padding: var(--space-xs) var(--space-m);
+    margin-inline: calc(var(--space-3xs)* -1);
+    background-color: var(--color-gray-dark);
+    border-radius: var(--space-xs);
+    margin-bottom: calc(var(--space-xl) + var(--space-xs));
+    transition: all ease-in-out 0.2s;
     header {
-      .categories {
-        display: inline-flex;
-        flex-wrap: wrap;
-        gap: var(--space-xs) var(--space-l);
-        margin-bottom: var(--space-m);
-        button.category-button {
-          text-align: left;
-          padding: 0;
-          line-height: 120%;
-          text-transform: capitalize;
-          display: inline-flex;
-          align-items: center;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      margin: var(--space-3xs) 0;
+      h4 {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        gap: var(--space-2xs);
+        svg {
+          width: var(--space-s);
+        }
+      }
+      .open-close {
+        svg {
+          width: var(--space-m);
         }
       }
     }
+    .items {
+      border-top: solid 1px var(--color-gray-darker);
+      gap: var(--space-2xs) var(--space-s);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      margin-top: var(--space-xs);
+      padding-block: var(--space-s) var(--space-2xs);
+      button.category-button {
+        appearance: none;
+        text-align: left;
+        padding: 0;
+        line-height: 120%;
+        text-transform: capitalize;
+        display: inline-flex;
+        align-items: center;
+        color: var(--color-highlight);
+        transition: all ease-in-out 0.2s;
+        &.category-selected,
+        &:hover {
+          color: var(--color-black);
+        }
+      }
+    }
+    &:hover {
+      background-color: var(--color-gray-dark);
+    }
+    &.opened {
+      &:hover {
+        background-color: var(--color-gray-dark);
+      }
+    }
+  }
 
     p.year {
       opacity: 0.4;
@@ -64,6 +110,17 @@
 
 @media (prefers-color-scheme: dark) {
   .bookmarks {
+    .categories {
+      background-color: var(--color-gray);
+      &:hover {
+        background-color: var(--color-gray-dark);
+      }
+      &.opened {
+        &:hover {
+          background-color: var(--color-gray);
+        }
+      }
+    }
     .items {
       a {
         p {

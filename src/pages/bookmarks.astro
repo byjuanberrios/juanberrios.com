@@ -11,7 +11,6 @@ import {
 } from "../scripts/linkding";
 
 import "../styles/bookmarks.css";
-import Message from "../components/Message.astro";
 
 const bookmarks: OrderedBookmark[] = await getLinkdingBookmarks();
 const categories: string[] = await getLinkdingCategories();
@@ -24,9 +23,6 @@ const categories: string[] = await getLinkdingCategories();
   <div class="bookmarks">
     <header>
       <h1 class="inPage">Bookmarks</h1>
-      <Message
-        >Algunos de los marcadores de mi lista personal de Linkding.</Message
-      >
       <BookmarksCategories categories={categories} client:load />
     </header>
 
