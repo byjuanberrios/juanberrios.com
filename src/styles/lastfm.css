@@ -13,6 +13,7 @@
         .info {
             display: grid;
             grid-template-columns: 0.6fr 0.4fr;
+            justify-content: space-between;
             align-items: start;
 
             .song {
@@ -40,6 +41,7 @@
             }
             .date {
                 text-align: right;
+                margin-top: calc(var(--space-3xs) * -1);
                 p.date {
                     margin: 0;
                     display: inline-block;
@@ -49,6 +51,7 @@
                     line-height: 120%;
                     padding: var(--space-3xs) var(--space-2xs);
                     border-radius: var(--space-2xs);
+                    text-wrap: nowrap;
                     opacity: 0.6;
                 }
             }
