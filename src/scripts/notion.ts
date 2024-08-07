@@ -21,11 +21,13 @@ export async function getAlbums(): Promise<Album[]> {
     const spotify = result.properties.Spotify.url;
     const apple_music = result.properties["Apple Music"].url;
     const soundcloud = result.properties.Soundcloud.url;
+    const youtube = result.properties.YouTube.url;
 
     const streamingLinks = {
       ...(spotify && { spotify }),
       ...(apple_music && { apple_music }),
       ...(soundcloud && { soundcloud }),
+      ...(youtube && { youtube }),
     };
 
     const album = {
@@ -39,7 +41,7 @@ export async function getAlbums(): Promise<Album[]> {
       tracklist: tracklist ? tracklist.plain_text : "",
       description: description ? description.plain_text : "",
       // Show streamingLinks only if there is a link of any platform
-      ...((apple_music || spotify || soundcloud) && {
+      ...((apple_music || spotify || soundcloud || youtube) && {
         streamingLinks: streamingLinks,
       }),
     };

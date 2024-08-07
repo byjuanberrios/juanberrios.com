@@ -73,6 +73,18 @@ const { name, artist, year, cover, tracklist, description, streamingLinks } =
             </a>
           )}
 
+          {streamingLinks.youtube && (
+            <a
+              href={streamingLinks.youtube}
+              target="_blank"
+              rel="noopener"
+              aria-label="platform"
+            >
+              <Icon name="tabler:brand-youtube" />
+              <span>YouTube</span>
+            </a>
+          )}
+
           {streamingLinks.soundcloud && (
             <a
               href={streamingLinks.soundcloud}

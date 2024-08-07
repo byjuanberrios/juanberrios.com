@@ -9,6 +9,7 @@ export type Album = {
   streamingLinks: {
     spotify?: string;
     apple_music?: string;
+    youtube?: string;
     soundcloud?: string;
   };
 };
