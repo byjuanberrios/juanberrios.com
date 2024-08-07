@@ -36,8 +36,8 @@ const menu: Menu = [
     external: false,
   },
   {
-    name: "Notas",
-    href: "/notes",
+    name: "Posts",
+    href: "/posts",
     iconComp: <IconNotebook />,
     external: false,
   },

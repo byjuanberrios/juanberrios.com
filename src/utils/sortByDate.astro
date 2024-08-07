@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-type Entry = CollectionEntry<"notes"> | CollectionEntry<"now">;
+type Entry = CollectionEntry<"posts">;
 
 export const sortByDate = (a: Entry, b: Entry) => {
   const dateB = new Date(b.data.date);

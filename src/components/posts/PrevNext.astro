@@ -1,0 +1,20 @@
+---
+const { prevPost, nextPost } = Astro.props;
+---
+
+{
+  nextPost && (
+    <div class="pagination-item">
+      <p>Siguiente</p>
+      <a href={`/posts/${nextPost.slug}`}>{nextPost.data.title}</a>
+    </div>
+  )
+}
+{
+  prevPost && (
+    <div class="pagination-item">
+      <p>Anterior</p>
+      <a href={`/posts/${prevPost.slug}`}>{prevPost.data.title}</a>
+    </div>
+  )
+}

@@ -1,0 +1,31 @@
+---
+import { sortByDate } from "./sortByDate.astro";
+import type { OrderedPosts, RawPost } from "../types/types";
+
+export const orderPostsByYear = (posts: RawPost[], sliced?: boolean) => {
+  let allPostsByDate = posts.sort(sortByDate);
+  if (sliced) allPostsByDate = posts.slice(0, 5);
+
+  return allPostsByDate.reduce((acc: OrderedPosts, actualPost) => {
+    const year: string = actualPost.data.date.substring(0, 4);
+    const month_num = actualPost.data.date.substring(5, 7);
+
+    if (!acc[year]) {
+      acc[year] = {};
+    }
+
+    if (!acc[year][month_num]) {
+      acc[year][month_num] = [];
+    }
+
+    const data = {
+      ...actualPost.data,
+      slug: actualPost.slug,
+    };
+
+    acc[year][month_num] = [data, ...acc[year][month_num]];
+
+    return acc;
+  }, {});
+};
+---

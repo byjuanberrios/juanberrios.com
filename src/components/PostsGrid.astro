@@ -1,18 +1,18 @@
 ---
 import { getCollection } from "astro:content";
-import { orderNotesByYear } from "../utils/orderNotesByYear.astro";
-import type { Note, OrderedNotes } from "../types/types";
+import { orderPostsByYear } from "../utils/orderPostsByYear.astro";
+import type { Post, OrderedPosts } from "../types/types";
 
-import "../styles/notes.css";
+import "../styles/posts.css";
 
 const { inPage } = Astro.props;
 
-const allNotes = await getCollection("notes", ({ data }: { data: Note }) => {
+const allPosts = await getCollection("posts", ({ data }: { data: Post }) => {
   return data.isPublished === true;
 });
 
-const orderedNotes: OrderedNotes = orderNotesByYear(
-  allNotes,
+const orderedPosts: OrderedPosts = orderPostsByYear(
+  allPosts,
   inPage ? false : true
 );
 ---
@@ -20,16 +20,16 @@ const orderedNotes: OrderedNotes = orderNotesByYear(
 {
   // Page grid
   inPage ? (
-    <div class="notes-grid">
+    <div class="posts-grid">
       <h1 class="inPage regular">
-        Todas las <span class="bold">notas</span>
+        Todos los <span class="bold">posts</span>
       </h1>
-      {Object.keys(orderedNotes)
+      {Object.keys(orderedPosts)
         .sort((yearA, yearB) => (yearA < yearB ? 1 : -1))
         .map((year) => (
           <>
             <p class="title year">{year}</p>
-            {Object.keys(orderedNotes[year])
+            {Object.keys(orderedPosts[year])
               .sort((monthA, monthB) => (monthA < monthB ? 1 : -1))
               .map((month) => {
                 const month_name = new Date(`1999/${month}/01`).toLocaleString(
@@ -40,13 +40,13 @@ const orderedNotes: OrderedNotes = orderNotesByYear(
                   <>
                     <p class="title month">{month_name}</p>
                     <div class="grid">
-                      {orderedNotes[year][month]
-                        .sort((noteA, noteB) => (noteA < noteB ? 1 : -1))
-                        .map((note: Note) => {
-                          const day = `${note.date.substring(8, 10)}`;
+                      {orderedPosts[year][month]
+                        .sort((postA, postB) => (postA < postB ? 1 : -1))
+                        .map((post: Post) => {
+                          const day = `${post.date.substring(8, 10)}`;
                           return (
-                            <a class="item" href={`/notes/${note.slug}`}>
-                              <p>{note.title}</p>
+                            <a class="item" href={`/posts/${post.slug}`}>
+                              <p>{post.title}</p>
                               <hr />
                               <span>{day}</span>
                             </a>
@@ -61,23 +61,23 @@ const orderedNotes: OrderedNotes = orderNotesByYear(
     </div>
   ) : (
     // Index grid
-    <div class="notes-grid">
-      <h2 style="margin-bottom: var(--space-s)">Últimas notas</h2>
-      {Object.keys(orderedNotes)
+    <div class="posts-grid">
+      <h2 style="margin-bottom: var(--space-s)">Últimos posts</h2>
+      {Object.keys(orderedPosts)
         .sort((yearA, yearB) => (yearA < yearB ? 1 : -1))
         .map((year) => (
           <>
-            {Object.keys(orderedNotes[year])
+            {Object.keys(orderedPosts[year])
               .sort((monthA, monthB) => (monthA < monthB ? 1 : -1))
               .map((month) => (
                 <div class="grid">
-                  {orderedNotes[year][month]
-                    .sort((noteA, noteB) => (noteA < noteB ? 1 : -1))
-                    .map((note: Note) => {
-                      const date = `${note.date.substring(8, 10)}/${note.date.substring(5, 7)}/${note.date.substring(2, 4)}`;
+                  {orderedPosts[year][month]
+                    .sort((postA, postB) => (postA < postB ? 1 : -1))
+                    .map((post: Post) => {
+                      const date = `${post.date.substring(8, 10)}/${post.date.substring(5, 7)}/${post.date.substring(2, 4)}`;
                       return (
-                        <a class="item" href={`/notes/${note.slug}`}>
-                          <p>{note.title}</p>
+                        <a class="item" href={`/posts/${post.slug}`}>
+                          <p>{post.title}</p>
                           <hr />
                           <span>{date}</span>
                         </a>
@@ -87,8 +87,8 @@ const orderedNotes: OrderedNotes = orderNotesByYear(
               ))}
           </>
         ))}
-      <a href="/notes" class="more">
-        Ver todas las notas
+      <a href="/posts" class="more">
+        Ver todos los posts
       </a>
     </div>
   )

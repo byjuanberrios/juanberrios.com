@@ -10,10 +10,8 @@ export default defineConfig({
   site: 'https://juanberrios.com',
   integrations: [mdx(), icon(), react()],
   redirects: {
-    '/blog': '/notes',
-    '/posts': '/notes',
-    "/blog/[note]": "/notes/[note]",
-    "/posts/[note]": "/notes/[note]"
+    '/blog': '/posts',
+    "/blog/[post]": "/posts/[post]",
   },
   output: "hybrid",
   adapter: cloudflare()

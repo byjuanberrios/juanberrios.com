@@ -15,7 +15,7 @@ export type Now = {
   slug: any;
 };
 
-export type RawNote = {
+export type RawPost = {
   data: {
     isPublished: boolean;
     title: string;
@@ -26,7 +26,7 @@ export type RawNote = {
   slug: string;
 };
 
-export type Note = {
+export type Post = {
   isPublished: boolean;
   title: string;
   date: string;
@@ -35,9 +35,9 @@ export type Note = {
   slug: string;
 };
 
-export type OrderedNotes = {
+export type OrderedPosts = {
   [year: string]: {
-    [month: string]: Note[];
+    [month: string]: Post[];
   };
 };
 

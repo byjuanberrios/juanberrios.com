@@ -1,4 +1,4 @@
-.notes-grid {
+.posts-grid {
     position: relative;
     p.year {
         margin-top: var(--space-2xl);
@@ -51,7 +51,7 @@
 }
 
 @media (min-width: 768px) {
-    .notes-grid {
+    .posts-grid {
         p.year {
             position: absolute;
             left: -6ch;
