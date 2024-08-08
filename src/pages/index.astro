@@ -1,9 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import Presentation from "../components/Presentation.astro";
-import ProfileImage from "../components/ProfileImage.astro";
+import ImageWithCaption from "../components/ImageWithCaption.astro";
 import PostsGrid from "../components/PostsGrid.astro";
 import { Lastfm } from "../components/Lastfm";
+
+import meImage from "../../src/assets/images/me-1.webp";
 ---
 
 <Base>
@@ -11,7 +13,17 @@ import { Lastfm } from "../components/Lastfm";
   <Presentation />
 
   <!-- Imágenes -->
-  <ProfileImage />
+  <ImageWithCaption
+    src={meImage}
+    alt="Foto de Juan Berrios"
+    isLocal
+    classNames="profileImage"
+    >Este soy yo. Foto hecha por <a
+      href="https://instagram.com/iamthejean"
+      target="_blank"
+      rel="noreferrer noopener">@iamthejean</a
+    ></ImageWithCaption
+  >
 
   <!-- Posts Grid -->
   <PostsGrid />

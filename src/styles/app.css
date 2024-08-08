@@ -363,3 +363,7 @@ hr {
     width: 50%;
     margin-inline: auto;
 }
+
+.profileImage {
+    margin-block: calc(var(--space-3xl) + var(--space-3xs)) var(--space-3xl);
+  }
