@@ -367,3 +367,9 @@ hr {
 .profileImage {
     margin-block: calc(var(--space-3xl) + var(--space-3xs)) var(--space-3xl);
   }
+
+.image-with-border {
+    img, figure {
+        border: solid 1px var(--color-gray-darker)
+    }
+}

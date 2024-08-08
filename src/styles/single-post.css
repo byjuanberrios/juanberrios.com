@@ -9,7 +9,7 @@
         color: var(--color-black-lighter);
     }
     img {
-        margin: var(--space-xl) 0;
+        margin-block: var(--space-xl);
     }
     iframe {
         margin-top: var(--space-xl);
