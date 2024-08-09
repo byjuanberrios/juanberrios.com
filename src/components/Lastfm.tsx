@@ -3,6 +3,8 @@ export const prerender = false;
 import { useEffect, useState } from "react";
 import type { LastSong } from "../types/lastfm";
 
+import SoundWaves from "../assets/icons/SoundWaves";
+
 import "../styles/lastfm.css";
 
 export const Lastfm = () => {
@@ -30,7 +32,21 @@ export const Lastfm = () => {
 
   return (
     <div className="listening-wrapper">
-      <h2>Escuchando</h2>
+      <header>
+        <h2>Escuchando</h2>
+        <div className="date">
+          {playDate ? (
+            <p className="date">
+              El {playDate.date} a las {playDate.time} hrs
+            </p>
+          ) : (
+            <p className="now">
+              <SoundWaves />
+              <span>Ahora</span>
+            </p>
+          )}
+        </div>
+      </header>
       <div className="listening">
         <img className="cover" src={image} alt={`${artist} album`} />
         <div className="info">
@@ -38,17 +54,6 @@ export const Lastfm = () => {
             <p className="name">{name}</p>
             <p className="artist">{artist}</p>
             <p className="album">{album}</p>
-          </div>
-          <div className="date">
-            <p className="date">
-              {playDate ? (
-                <>
-                  {playDate.date} - {playDate.time}
-                </>
-              ) : (
-                "Reproduciendo ahora"
-              )}
-            </p>
           </div>
         </div>
       </div>
