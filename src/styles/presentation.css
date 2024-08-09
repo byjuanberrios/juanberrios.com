@@ -15,16 +15,13 @@
     margin-top: var(--space-2xl);
     line-height: 160%;
     border: solid 1px var(--color-gray-darker);
-    /* border-radius: var(--space-2xs); */
     border-radius: var(--space-xs);
     .item, .subitem {
-        /* font-size: var(--step-0); */
         * {
             margin: 0;
         }
         .title {
             font-weight: 500;
-            /* margin-bottom: calc(var(--space-2xs) - var(--space-3xs)); */
             margin-bottom: var(--space-2xs);
         }
         .content {
@@ -35,9 +32,6 @@
     }
     .item {
         padding: var(--space-m) var(--space-m) var(--space-l);
-        /* display: flex;
-        align-items: center;
-        gap: var(--space-xs) */
         .title {
             display: inline-flex;
             align-items: center;

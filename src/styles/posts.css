@@ -1,5 +1,8 @@
 .posts-grid {
     position: relative;
+    h2 {
+        margin-bottom: var(--space-s)
+    }
     p.year {
         margin-top: var(--space-2xl);
         margin-bottom: var(--space-l);
@@ -71,4 +74,39 @@
 
 .why-blog {
     margin-block-start: var(--space-3xl);
+}
+
+@keyframes ping {
+    75%, 100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.updated {
+    width: var(--space-s);
+    height: var(--space-s);
+    position: relative;
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .animated-ping {
+        animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+        position: absolute;
+        display: inline-flex;
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+        background-color: var(--color-lightning-dark);
+        opacity: 0.75;
+    }
+    .ping {
+        position: relative;
+        display: inline-flex;
+        border-radius: 100%;
+        width: var(--space-2xs);
+        height: var(--space-2xs);
+        background-color: var(--color-lightning-dark);
+    }
 }

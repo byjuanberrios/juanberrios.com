@@ -1,0 +1,37 @@
+---
+import type { RawPost } from "../../types/types";
+
+const { posts } = Astro.props;
+---
+
+<div class="posts-grid">
+  <h2>Últimos posts</h2>
+  <div class="grid">
+    {
+      posts
+        .sort((postA: RawPost, postB: RawPost) =>
+          postA.data.date < postB.data.date ? 1 : -1
+        )
+        .slice(0, 5)
+        .map((post: RawPost, i: number) => {
+          const date = `${post.data.date.substring(8, 10)}/${post.data.date.substring(5, 7)}/${post.data.date.substring(2, 4)}`;
+          return (
+            <a class="item" href={`/posts/${post.slug}`}>
+              <div style="display: inline-flex; align-items: center; gap: var(--space-3xs)">
+                <p>{post.data.title}</p>
+                {i === 0 && (
+                  <div class="updated">
+                    <span class="animated-ping" />
+                    <span class="ping" />
+                  </div>
+                )}
+              </div>
+              <hr />
+              <span>{date}</span>
+            </a>
+          );
+        })
+    }
+  </div>
+  <a href="/posts" class="more">Ver todos los posts</a>
+</div>
