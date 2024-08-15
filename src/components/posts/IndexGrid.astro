@@ -17,14 +17,13 @@ const { posts } = Astro.props;
           const date = `${post.data.date.substring(8, 10)}/${post.data.date.substring(5, 7)}/${post.data.date.substring(2, 4)}`;
           return (
             <a class="item" href={`/posts/${post.slug}`}>
-              <div style="display: inline-flex; align-items: center; gap: var(--space-3xs)">
-                <p>{post.data.title}</p>
+              <div class="title">
                 {i === 0 && (
                   <div class="updated">
-                    <span class="animated-ping" />
-                    <span class="ping" />
+                    <span>Nuevo</span>
                   </div>
                 )}
+                <p>{post.data.title}</p>
               </div>
               <hr />
               <span>{date}</span>
