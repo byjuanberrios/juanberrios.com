@@ -49,6 +49,7 @@ export interface LastFmResponse {
 export interface PlayDate {
   date: string | undefined;
   time: string | undefined;
+  uts: string | undefined;
 }
 
 export interface LastSong {

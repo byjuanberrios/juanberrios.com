@@ -8,15 +8,15 @@ import meImage from "../../src/assets/images/avatar.webp";
 import "../styles/header.css";
 
 const { currentPath } = Astro.props;
-const message = currentPath === "/" ? "Ir a About" : "Ir al Inicio";
 const isHome = currentPath === "/";
+const message = "Ir al Inicio";
 ---
 
 <header class="main-header">
   <nav>
     <a href={isHome ? "/about" : "/"} class="brand-avatar">
       <Image src={meImage} alt="Avatar de Juan Berrios" loading="eager" />
-      <div class="popover">{message}</div>
+      {!isHome && <div class="popover">{message}</div>}
     </a>
     <MenuButton client:load />
   </nav>

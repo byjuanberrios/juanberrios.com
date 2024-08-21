@@ -42,6 +42,7 @@ export async function GET(context: APIContext) {
           timeStyle: "short",
           hour12: false,
         }),
+        uts: uts_date,
       }
     : null;
 
@@ -51,6 +52,7 @@ export async function GET(context: APIContext) {
     album,
     image,
     playDate,
+    uts_date,
   };
 
   return new Response(JSON.stringify(result), {

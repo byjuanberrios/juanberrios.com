@@ -1,11 +1,17 @@
 export const prerender = false;
 
 import { useEffect, useState } from "react";
-import type { LastSong } from "../types/lastfm";
-
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/es";
 import SoundWaves from "../assets/icons/SoundWaves";
 
+import type { LastSong } from "../types/lastfm";
+
 import "../styles/lastfm.css";
+
+dayjs.extend(relativeTime);
+dayjs.locale("es");
 
 export const Lastfm = () => {
   const [data, setData] = useState<LastSong>();
@@ -36,9 +42,7 @@ export const Lastfm = () => {
         <h2>Escuchando</h2>
         <div className="date">
           {playDate ? (
-            <p className="date">
-              El {playDate.date} a las {playDate.time} hrs
-            </p>
+            <p className="date">{dayjs(playDate.uts).fromNow()}</p>
           ) : (
             <p className="now">
               <SoundWaves />

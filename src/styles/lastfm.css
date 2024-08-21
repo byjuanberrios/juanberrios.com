@@ -24,6 +24,9 @@
                 &.date {
                     background-color: var(--color-gray-darker);
                     color: var(--color-black);
+                    &::first-letter {
+                        text-transform: capitalize;
+                    }
                 }
                 &.now {
                     background-color: var(--color-lightning);

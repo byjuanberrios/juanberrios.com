@@ -312,7 +312,7 @@ h1.big {
 }
 
 .base-top-padding {
-    margin-block-start: calc(var(--space-3xl) + var(--space-xl));
+    margin-block-start: calc(var(--space-3xl) + var(--space-2xl));
 }
 
 /* Spacing helpers */
