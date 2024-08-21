@@ -12,19 +12,12 @@ const { posts } = Astro.props;
         .sort((postA: RawPost, postB: RawPost) =>
           postA.data.date < postB.data.date ? 1 : -1
         )
-        .slice(0, 5)
+        .slice(0, 6)
         .map((post: RawPost, i: number) => {
           const date = `${post.data.date.substring(8, 10)}/${post.data.date.substring(5, 7)}/${post.data.date.substring(2, 4)}`;
           return (
             <a class="item" href={`/posts/${post.slug}`}>
-              <div class="title">
-                {i === 0 && (
-                  <div class="updated">
-                    <span>Nuevo</span>
-                  </div>
-                )}
-                <p>{post.data.title}</p>
-              </div>
+              <p>{post.data.title}</p>
               <hr />
               <span>{date}</span>
             </a>
