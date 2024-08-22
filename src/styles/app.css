@@ -158,6 +158,7 @@ figure {
         /* NOTE: calc() here is for negative margin space */
         margin-inline: calc(var(--space-3xs) * -1);
         max-width: calc(100% + (2 * var(--space-3xs)));
+        margin-bottom: 0 !important;
     }
     figcaption {
         font-size: var(--step--1);
