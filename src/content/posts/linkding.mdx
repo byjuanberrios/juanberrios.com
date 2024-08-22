@@ -4,21 +4,28 @@ date: "2024-08-22"
 summary: Cómo solucioné el desafío de gestionar y sincronizar mis marcadores. Descubre cómo utilicé Linkding, un gestor de marcadores autohospedable, para unificar y acceder a mis enlaces desde cualquier navegador y dispositivo, incluyendo mi iPhone.
 isPublished: true
 ---
+import ImageWithCaption from "../../components/ImageWithCaption.astro";
 
 En la búsqueda de una mejor experiencia de navegación y sincronización entre iPhone y MacBook, [me cambié de Chrome a Arc](/posts/arc). Pero esto abrió un nuevo problema _¿qué hago con todos los marcadores que tenía en Chrome?_ 🫠
 
 Si bien Chrome ofrece una barra de marcadores que me permite ordenar una larga lista de links en diferentes carpetas y acceder a ellas a través de una barra de fácil acceso, Arc en cambio ofrece otro enfoque más ligado a la productividad inmediata. Esto hizo que tener todos mis marcadores en la barra lateral se volviese (_aunque posible_) innecesario y desordenado.
 
-Quería entonces, unificar los marcadores y disponer de un lugar común desde donde consumirlos, sin importar si más adelante me da la locura y quiera cambiar de navegador.
+Me propuse encontrar una herramienta que me permitiera unificar los marcadores que tengo suelto en varios sitios para así tener una sola fuente desde donde consumirlo y también [desde donde compartirlos](/bookmarks), sin importar si más adelante me pudiese dar la locura y quisiera cambiar de navegador.
 
 También quería guardar cualquier link desde mi iPhone, sin importar desde qué aplicación me encontrara.
 
 Entonces… cómo soluciono todo esto, la respuesta es **Linkding** (no confundir con LinkedIn)
 
-Linkding es un gestor de marcadores autohospedable, sencillo y eficiente. Lo instalé en <a href="https://fly.io" target="_blank" rel="noreferrer noopener">fly.io</a> utilizando <a href="https://github.com/fspoettel/linkding-on-fly" target="_blank" rel="noreferrer noopener">este repositorio de GitHub</a>
+## Un lugar común para guardar links
+Linkding es un gestor de marcadores autohospedable, sencillo y eficiente que tiene como única función principal guardar links y categorizarlos.
 
-En iOS tuve que instalar un cliente para Linkding: una app que se llama <a href="https://apps.apple.com/tr/app/linkdy/id6479930976" rel="noreferrer noopener" target="_blank">Linkdy</a> y que me permite guardar cualquier sitio web desde casi cualquier app.
+<ImageWithCaption 
+    src="https://storage.juanberrios.com/linkding.png"
+    alt="Pantallazo de mi cuenta en Linkding, muchos de estos links los he rescatado desde Chrome, donde los agregué por alguna razón hace muchos años"
+>Pantallazo de mi cuenta en Linkding, muchos de estos links los he rescatado desde Chrome, donde los agregué por alguna razón hace muchos años</ImageWithCaption>
 
-{/* Boton como bookmark nativo para guardar links (eso falta) */}
+Instalé Linkding siguiendo <a href="https://github.com/fspoettel/linkding-on-fly" target="_blank" rel="noreferrer noopener">este repositorio de GitHub</a> para alojarlo en <a href="https://fly.io" target="_blank" rel="noreferrer noopener">Fly.io</a> ¿La razón? La factura a fin de mes es prácticamente $0.
 
-Linkding también dispone de una API desde donde puedes interactuar con el gestor, en mi caso lo uso para mostrar los bookmarks compartidos en [/bookmarks](/bookmarks)
+Pero como mencioné quería una forma de guardar cualquier link desde mi iPhone sin importar desde qué app estoy. Para eso utilizo una app que se llama <a href="https://apps.apple.com/tr/app/linkdy/id6479930976" rel="noreferrer noopener" target="_blank">Linkdy</a> y aprovecho de darle las gracias a *Juan Gilsanz Polo* por crear un buen cliente para Linkding.
+
+Como cereza del pastel Linkding también dispone de una API desde donde puedes interactuar con el gestor, en mi caso lo uso para mostrar los bookmarks compartidos en [/bookmarks](/bookmarks). Esto es genial ya que al guardar un link puedes hacerlo “Shared” o no y así decidir qué se muestra y qué no.
