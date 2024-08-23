@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/es";
 import SoundWaves from "../assets/icons/SoundWaves";
+import { IconBrandLastfm } from "@tabler/icons-react";
 
 import type { LastSong } from "../types/lastfm";
 
@@ -39,16 +40,27 @@ export const Lastfm = () => {
   return (
     <div className="listening-wrapper">
       <header>
-        <h2>Escuchando</h2>
-        <div className="date">
-          {playDate ? (
-            <p className="date">{dayjs(playDate.uts).fromNow()}</p>
-          ) : (
-            <p className="now">
-              <SoundWaves />
-              <span>Ahora</span>
-            </p>
-          )}
+        <div className="title-date">
+          <h2>Escuchando</h2>
+          <div className="date">
+            {playDate ? (
+              <p className="date">{dayjs(playDate.uts).fromNow()}</p>
+            ) : (
+              <p className="now">
+                <SoundWaves />
+                <span>Ahora</span>
+              </p>
+            )}
+          </div>
+        </div>
+        <div className="lastfm">
+          <a
+            href="https://www.last.fm/user/byjuanberrios"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <IconBrandLastfm color="#d92323" />
+          </a>
         </div>
       </header>
       <div className="listening">
