@@ -25,7 +25,7 @@
         .links {
             color: var(--color-highlight);
             display: flex;
-            gap: var(--space-xs);
+            gap: var(--space-s);
         }
     }
 }

@@ -31,7 +31,8 @@ header.main-header nav {
         left: 120%;
         visibility: hidden;
         opacity: 0;
-        background-color: var(--color-gray);
+        /* background-color: var(--color-gray); */
+        background-color: transparent;
         border: solid 1px var(--color-highlight);
         border-radius: var(--space-s);
         color: var(--color-highlight);
