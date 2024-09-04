@@ -1,36 +1,56 @@
 ---
 import "../styles/presentation.css";
-// import PortfolioData from "./PortfolioData.astro";
 ---
 
 <div class="presentation">
   <header>
-    <h1 class="big regular">
-      El sitio web de<br />
-      <span class="bold">Juan Berrios</span>
-    </h1>
     <p>
-      Esta es una casa siempre en construcción donde <a href="/posts"
-        >✍🏻 escribo</a
-      >, publico los proyectos de mi <a href="/works">⌨️ portafolio</a>,
-      comparto <a href="/playlists">💿 playlists</a>, <a href="/bookmarks"
-        >🔗 marcadores</a
-      >, entre <a href="/lists">📌 otras cosas</a> útiles o que me interesan.
-    </p>
-    <p>
-      Puedes <a href="/about">🤓 conocer más sobre mi</a>, sobre <a href="/this"
-        >💻 este sitio</a
-      > o simplemente pasar a saludar a alguna de mis redes sociales, estoy en <a
-        href="https://instagram.com/byjuanberrios"
-        target="_blank"
-        rel="noopener noreferrer">Instagram</a
-      > y en <a
-        href="https://x.com/byjuanberrios"
-        target="_blank"
-        rel="noopener noreferrer">X</a
-      > como <strong>@byjuanberrios</strong>.
+      <strong>Juan Berrios</strong><br />
+      <span>
+        Diseñador UI<br />
+        Desarrolador Frontend
+      </span>
     </p>
   </header>
 
-  <!-- <PortfolioData /> -->
+  <section style="margin-bottom: var(--space-xl)">
+    <p>
+      Este sitio web es mi patio de juegos donde publico, experimento, comparto
+      cosas y por sobre todo reuno mi vida digital. Adelante, explóralo…
+    </p>
+  </section>
+
+  <section class="principal-links">
+    <div class="items">
+      <a href="/posts">
+        <span>→&nbsp;&nbsp;Posts</span>
+        <hr />
+        <span class="slash">/posts</span>
+      </a>
+
+      <a href="/works">
+        <span>→&nbsp;&nbsp;Portafolio</span>
+        <hr />
+        <span class="slash">/works</span>
+      </a>
+
+      <a href="/about">
+        <span>→&nbsp;&nbsp;Sobre mi</span>
+        <hr />
+        <span class="slash">/about</span>
+      </a>
+
+      <a href="/playlists">
+        <span>→&nbsp;&nbsp;Playlists</span>
+        <hr />
+        <span class="slash">/playlists</span>
+      </a>
+
+      <a href="/bookmarks">
+        <span>→&nbsp;&nbsp;Bookmarks</span>
+        <hr />
+        <span class="slash">/bookmarks</span>
+      </a>
+    </div>
+  </section>
 </div>

@@ -2,10 +2,12 @@
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 
+import Message from "../components/Message.astro";
+
 import "../styles/about.css";
 ---
 
-<Base title="About" alt>
+<Base title="About">
   <div class="about">
     <header>
       <h1 class="inPage big">
@@ -30,6 +32,12 @@ import "../styles/about.css";
         sur de Santiago de Chile.
       </p>
     </div>
+
+    <Message>
+      Una presentación profesional la encuentras en <a href="/works"
+        >mi portafolio</a
+      >
+    </Message>
 
     <div class="images">
       <Image

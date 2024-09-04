@@ -1,6 +1,7 @@
 .colophon {
     .colophon-head {
         color: var(--color-highlight);
+        margin-block-end: var(--space-2xl);
     }
 }
 
