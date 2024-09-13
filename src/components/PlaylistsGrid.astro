@@ -35,12 +35,14 @@ playlists.sort(sortByDate);
             loading="eager"
           />
           <div class="content">
-            <p class="title">{playlist.data.name}</p>
-            <p class="desc">
-              {playlist.data.songs
-                ? `${playlist.data.songs} canciones`
-                : "Se actualiza continuamente"}
-            </p>
+            <div class="data">
+              <p class="title">{playlist.data.name}</p>
+              <p class="desc">
+                {playlist.data.songs
+                  ? `${playlist.data.songs} canciones`
+                  : "Se actualiza continuamente"}
+              </p>
+            </div>
             <div class="platforms">
               {playlist.data.platforms.appleMusicLink && (
                 <a
@@ -49,8 +51,7 @@ playlists.sort(sortByDate);
                   rel="noopener"
                   aria-label="platform"
                 >
-                  <Icon name="tabler:brand-apple" />
-                  <span>Apple music</span>
+                  <Icon name="tabler:brand-apple-filled" />
                 </a>
               )}
               {playlist.data.platforms.spotifyLink && (
@@ -60,8 +61,7 @@ playlists.sort(sortByDate);
                   rel="noopener"
                   aria-label="platform"
                 >
-                  <Icon name="tabler:brand-spotify" />
-                  <span>Spotify</span>
+                  <Icon name="tabler:brand-spotify-filled" />
                 </a>
               )}
             </div>
