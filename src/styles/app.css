@@ -281,6 +281,10 @@ h1.inPage {
     margin-bottom: calc(var(--space-xl) + var(--space-s));
 }
 
+h1.medium {
+    font-size: calc(var(--step-3) * 1.1);
+}
+
 h1.big {
     font-size: var(--step-5);
     line-height: 130%;
