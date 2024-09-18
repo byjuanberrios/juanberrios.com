@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+
+import "../styles/img-comp.css";
+
+const { src, alt, isLocal, classNames } = Astro.props;
+---
+
+<figure class={`image-with-caption ${classNames}`}>
+  <Image
+    src={src}
+    alt={alt || "Imagen sin descripción"}
+    class="border-small"
+    inferSize={!isLocal}
+    loading="eager"
+  />
+  <figcaption>
+    <slot />
+  </figcaption>
+</figure>

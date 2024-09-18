@@ -1,0 +1,29 @@
+---
+const { caption } = Astro.props;
+---
+
+<div class="images">
+  <figure>
+    <slot />
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+</div>
+
+<style>
+  .images {
+    figure {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: var(--space-m);
+      margin: var(--space-2xl) 0;
+      img {
+        border-radius: var(--space-3xs);
+        margin-bottom: 0;
+      }
+      figcaption {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+    }
+  }
+</style>

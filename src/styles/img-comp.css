@@ -1,0 +1,5 @@
+.image-with-caption {
+    figure, img {
+      margin-bottom: 0;
+    }
+  }
