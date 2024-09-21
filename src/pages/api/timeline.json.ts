@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import { Client } from "@notionhq/client";
 
 import type { APIContext } from "astro";
