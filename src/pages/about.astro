@@ -3,8 +3,9 @@ import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 
 import Message from "../components/Message.astro";
+import Img from "../components/Img.astro";
 
-import "../styles/about.css";
+import meImage from "../../src/assets/images/me.webp";
 ---
 
 <Base title="About">
@@ -39,27 +40,79 @@ import "../styles/about.css";
       >
     </Message>
 
-    <div class="images">
-      <Image
-        src="https://storage.juanberrios.com/profile-1.webp"
-        inferSize={true}
-        alt="Foto de Juan Berrios en un ambiente casual"
-      />
-      <Image
-        src="https://storage.juanberrios.com/profile-2.webp"
-        inferSize={true}
-        alt="Foto de Juan Berrios trabajando"
-      />
-    </div>
+    <!-- Imágenes -->
+    <Img
+      src={meImage}
+      alt="Foto de Juan Berrios"
+      isLocal
+      classNames="profileImage"
+      >Este soy yo. Foto hecha por <a
+        href="https://instagram.com/iamthejean"
+        target="_blank"
+        rel="noreferrer noopener">@iamthejean</a
+      ></Img
+    >
 
     <div>
-      <h2>Estoy trabajando en esta página</h2>
+      <h2>Bio</h2>
       <p>
-        Desde que incorporé mi portafolio en el sitio web, trasladé la <em
-          >Bio</em
-        > desde aquí <a href="/works#about">hacia allá</a>, ya que estaba
-        escrita desde un punto de vista profesional.
+        Nací en Curicó, Chile de el 6 de julio de 1992. Pasé los años escolares
+        haciendo lo mínimo para estar por encima de la media y pasé demasiado
+        tiempo curioseando en el animé y la cultura japonesa e imaginando si
+        algún día podría visitar Japón (spoiler: aun no lo logro).
+      </p>
+
+      <!-- <Img src="https://storage.juanberrios.com/profile-1.webp" inferSize={true}
+        >Foto de Juan Berrios en un ambiente casual</Img
+      > -->
+
+      <p>
+        Estudié en un colegio técnico la especialidad de electrónica, para
+        obtener un título y poder juntar dinero. Al egresar pasé tres años
+        trabajando en una viña como operador de maquinaria (nos tenían en ese
+        puesto por el título <strong>técnico en electrónica</strong>, pero menos
+        mal que nunca tuve que atender ninguna pana "<i
+          >porque lo hubiese hecho pésimo</i
+        >").
       </p>
     </div>
+    <p>
+      Eso no me hacía feliz y tampoco hacía felices a los demás, faltaba mucho a
+      otros compromisos por tener que trabajar, pasé temporadas enteras
+      encerrado en un galpón mirando como botellas de vino eran llenadas con
+      distintos tipos de vinos y de verdad, eso no me llenaba para nada (que no
+      se mal entienda, me encanta el vino, es solo que quiero vaciar botellas de
+      vino y no al revés).
+    </p>
+    <p>
+      Fue en medio de esas largas noches de trabajo repetitivo cuando lo vi
+      claro: ¡tenía que estudiar diseño!
+    </p>
+    <p>
+      Como lo estética de la publicidad, los libros y el internet siempre me
+      llamó la atención mi primera elección fue estudiar diseño, pero también me
+      hubiese gustado estudiar ingeniería informática.
+    </p>
+    <p>
+      Impulsado por el consejo de algunos amigos y el apoyo incondicional de mi
+      familia en 2013 ingresé a estudiar diseño gráfico en INACAP, Curicó.
+    </p>
+    <p>(Foto con Edo cuando estoy inscribiéndome)</p>
+    <p>
+      Durante la carrera terminé amando más lo digital que lo impreso, aunque
+      siempre he tenido un cariño especial por el diseño editorial y sobre todo
+      por el branding y el packaging creativo.
+    </p>
+    <p>
+      Al mismo tiempo y ya que la carrera no incluía ramos que introdujeran en
+      el desarrollo web (*por obvias razones*), aprendí de forma autodidacta a
+      crear sitios web (*por ensayo y error*). Estudié HTML, CSS y un poco de
+      JavaScript. Gracias YouTube.
+    </p>
+    <p>
+      Mientras estudiaba diseño empecé a tener mis primeros clientes de manera
+      freelance, algunos de esos proyectos los atesoro en mi memoria y otros
+      solo quiero olvidarlos 🫠
+    </p>
   </div>
 </Base>
