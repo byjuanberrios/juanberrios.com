@@ -43,7 +43,7 @@ const { prevPost, nextPost } = Astro.props;
 
 <Base title={post.data.title}>
   <div class="single-post">
-    <h1 class="medium">{post.data.title}</h1>
+    <h1>{post.data.title}</h1>
     <Content />
     <div class="pagination">
       <PrevNext {prevPost} {nextPost} />

@@ -1,13 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 .single-post {
-    text-wrap: pretty;
+    /* text-wrap: pretty; */
     line-height: 175%;
+
+    /* font-size: calc(var(--step-0) * 0.95); */
+
     h1 {
         max-width: 90%;
         text-wrap: balance;
         margin-block-end: calc(var(--space-2xl) * 1.2);
     }
     p, ul, ol {
-        color: var(--color-black-lighter);
+
+        /* font-family: "Merriweather", serif;
+        letter-spacing: normal;
+        line-height: 190%; */
+
+        color: var(--color-black-light);
     }
     img {
         margin-block: var(--space-xl);

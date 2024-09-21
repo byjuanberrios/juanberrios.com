@@ -7,6 +7,8 @@ declare namespace App {
       env: {
         LASTFM_USER: string;
         LASTFM_API_KEY: string;
+        NOTION_TIMELINE_DATABASE_ID: string;
+        NOTION_TOKEN: string;
       };
     };
   }
