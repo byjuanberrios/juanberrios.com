@@ -20,6 +20,7 @@
       display: grid;
       gap: var(--space-m);
       .timeline-item {
+        padding-right: var(--space-xs);
         p {
           margin: 0;
           &.date {
