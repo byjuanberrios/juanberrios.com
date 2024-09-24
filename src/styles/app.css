@@ -182,7 +182,7 @@ ul,
 ol {
     padding-left: var(--space-xl);
     li {
-        margin-block: var(--space-2xs);
+        margin-block: calc(var(--space-2xs) * 0.6);
     }
 }
 

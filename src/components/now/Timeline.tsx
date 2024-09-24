@@ -25,23 +25,34 @@ export const Timeline = () => {
   if (!data) {
     return (
       <div className="timeline">
-        <h2>Now</h2>
-        <p>Cargando…</p>
+        <h2>Timeline</h2>
+        <div className="timeline-loading">
+          <div className="timeline-item">
+            <div className="dateX"></div>
+            <div className="p"></div>
+          </div>
+        </div>
+        <div className="timeline-loading">
+          <div className="timeline-item">
+            <div className="dateX"></div>
+            <div className="p"></div>
+          </div>
+        </div>
       </div>
     );
   }
 
-  console.log(data);
-
   return (
     <div className="timeline">
-      <h2>Now</h2>
-      {data.map((item: any) => (
-        <div className="timeline-item">
-          <p className="date">{dayjs(item.date).fromNow()}</p>
-          <p>{item.text}</p>
-        </div>
-      ))}
+      <h2>Timeline</h2>
+      <div className="items">
+        {data.map((item: any) => (
+          <div className="timeline-item">
+            <p className="date">{dayjs(item.date).fromNow()}</p>
+            <div dangerouslySetInnerHTML={{ __html: item.html }} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

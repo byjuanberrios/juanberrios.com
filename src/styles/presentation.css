@@ -1,6 +1,6 @@
 
 .presentation {
-    margin-block-end: calc(var(--space-3xl) * 1.1);
+    margin-block-end: calc(var(--space-3xl) * 1.1) var(--space-2xl);
     
      header {
         margin-bottom: var(--space-3xl);

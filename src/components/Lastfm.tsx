@@ -29,8 +29,32 @@ export const Lastfm = () => {
 
   if (!data) {
     return (
-      <div className="listening-wrapper">
-        <p>Cargando…</p>
+      <div className="listening-wrapper listening-loading">
+        <header>
+          <div className="title-date">
+            <h2>Escuchando</h2>
+            <div className="date"></div>
+          </div>
+          <div className="lastfm">
+            <a
+              href="https://www.last.fm/user/byjuanberrios"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <IconBrandLastfm color="#d92323" />
+            </a>
+          </div>
+        </header>
+        <div className="listening">
+          <div className="cover"></div>
+          <div className="info">
+            <div className="song">
+              <div className="name"></div>
+              <div className="artist"></div>
+              <div className="album"></div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

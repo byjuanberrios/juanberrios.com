@@ -1,3 +1,15 @@
+@keyframes skeleton-loading {
+    0% {
+      background-color: var(--color-gray-dark);
+    }
+    50% {
+      background-color: var(--color-gray-darker);
+    }
+    100% {
+      background-color: var(--color-gray-dark);
+    }
+  }
+
 .listening-wrapper {
     margin-top: var(--space-3xl);
     header {
@@ -61,6 +73,7 @@
         margin-top: var(--space-m);
         .cover {
             border-radius: var(--space-3xs);
+            background-color: var(--color-gray-darker);
         }
         .info {
             overflow: hidden;
@@ -85,6 +98,42 @@
                 }
             }
         }   
+    }
+    &.listening-loading {
+        header {
+            .title-date {
+                h2 {}
+                .date {
+                    p {}
+                }
+            }
+            .lastfm {}
+        }
+        .listening {
+            .cover {
+                height: 70px;
+                background-color: var(--color-gray-darker);
+                animation: skeleton-loading 1.5s forwards infinite;
+            }
+            .info {
+                .song {
+                    display: grid;
+                    gap: calc(var(--space-xs) - var(--space-2xs));
+                    .name, .artist, .album {
+                        background-color: var(--color-gray-darker);
+                        animation: skeleton-loading 1.5s forwards infinite;
+                    }
+                    .name {
+                        width: calc(var(--space-3xl) * 2.2);
+                        height: var(--space-s);
+                    }
+                    .artist, .album {
+                        width: calc(var(--space-3xl) * 1.4);
+                        height: var(--space-xs);
+                    }
+                }
+            }
+        }
     }
 }
 
