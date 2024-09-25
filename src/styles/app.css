@@ -1,7 +1,7 @@
 /* @link https://utopia.fyi/type/calculator?c=360,14,1.15,1280,16,1.2,5,2,&s=0.75|0.5|0.25,1.25|1.5|2|3|4,s-l|xs-xs&g=s,xs,2xl,12 */
 /* @link https://utopia.fyi/space/calculator?c=360,14,1.15,1280,16,1.2,5,2,&s=0.75|0.5|0.25,1.25|1.5|2|3|4,s-l|xs-xs&g=s,xs,2xl,12 */
 
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
 
 :root {
     --step--2: clamp(0.6616rem, 0.6488rem + 0.0571vi, 0.6944rem);

@@ -6,6 +6,9 @@
         margin-bottom: var(--space-3xl);
         p {
             line-height: 150%;
+            .career {
+                color: var(--color-highlight);
+            }
         }
      }
 
