@@ -23,6 +23,7 @@
         padding-right: var(--space-xs);
         p {
           margin: 0;
+          text-wrap: pretty;
           &.date {
             opacity: 0.5;
             font-size: var(--step--1);

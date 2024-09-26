@@ -5,7 +5,7 @@
      header {
         margin-bottom: var(--space-3xl);
         p {
-            line-height: 150%;
+            line-height: 145%;
             .career {
                 color: var(--color-highlight);
             }
