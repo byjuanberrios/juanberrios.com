@@ -1,7 +1,7 @@
 import type { LinkdingBookmark, OrderedBookmark } from "../types/types";
 
 const fetchLinkding = await fetch(
-  "https://juanberrios-bm.fly.dev/api/bookmarks/shared",
+  "https://bookmarks.juanberrios.com/api/bookmarks/shared",
   {
     headers: {
       Authorization: `Token ${import.meta.env.LINKDING_TOKEN}`,
@@ -15,8 +15,8 @@ export async function getLinkdingBookmarks(): Promise<OrderedBookmark[]> {
     (acc: any, bookmark: LinkdingBookmark) => {
       const favicon = `https://www.google.com/s2/favicons?domain=${bookmark.url}`;
       const processedBookmark = {
-        title: bookmark.website_title,
-        description: bookmark.website_description,
+        title: bookmark.title,
+        description: bookmark.description,
         url: bookmark.url,
         tags: bookmark.tag_names,
         date: bookmark.date_added,

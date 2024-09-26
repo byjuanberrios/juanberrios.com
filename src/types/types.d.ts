@@ -68,8 +68,8 @@ export type Work = {
 };
 
 export type LinkdingBookmark = {
-  website_title: string;
-  website_description: string;
+  title: string;
+  description: string;
   url: string;
   tag_names: string[] | [];
   date_added: string;
