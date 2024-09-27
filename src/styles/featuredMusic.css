@@ -16,8 +16,8 @@
             align-content: flex-start; 
             padding-top: var(--space-3xs);
             p.position {
-                margin: 0; 
-                font-weight: 700; 
+                margin: 0;
+                font-variation-settings: 'wght' 550;
                 width: var(--space-xl);
                 height: var(--space-xl);
                 display:grid; 

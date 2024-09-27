@@ -52,7 +52,7 @@
     [cmdk-group-heading] {
       padding: 0 var(--space-m) var(--space-3xs);
       font-size: var(--step--1);
-      font-weight: 500;
+      font-variation-settings: 'wght' 550;
       color: var(--color-black-lighter);
       opacity: 0.7;
     }

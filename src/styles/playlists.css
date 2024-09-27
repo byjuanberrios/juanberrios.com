@@ -19,7 +19,7 @@
             }
             .data {
                 .title {
-                    font-weight: 500;
+                    font-variation-settings: 'wght' 550;
                     margin-bottom: calc(var(--space-3xs) / 2);
                 }
                 .desc {

@@ -48,7 +48,7 @@
     --color-lightning: oklch(89.99% 0.224 126.65);
     --color-lightning-dark: oklch(84.79% 0.22 127.89);
     --color-black-lighter: oklch(41.65% 0 0);
-    --color-black-light: oklch(25% 0 0);
+    --color-black-light: oklch(20% 0 0);
     --color-black: oklch(26.45% 0 0);
   }
 
@@ -56,10 +56,10 @@ body {
     background-color: var(--color-white);
     color: var(--color-black);
     font-family: 'Neue Montreal', sans-serif;
-    font-weight: 400;
+    font-variation-settings: 'wght' 430;
     font-size: var(--step-0);
-    letter-spacing: calc(var(--step-0) * 4 / 100);
-    line-height: 170%;
+    letter-spacing: calc(var(--step-0) * 3.5 / 100);
+    line-height: 165%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -108,7 +108,7 @@ h3,
 h4, 
 h5, 
 h6 {
-    font-weight: 550;
+    font-variation-settings: 'wght' 550;
 }
 
 h1 {
@@ -227,7 +227,11 @@ a {
 }
 
 b, strong {
-    font-weight: 550;
+    font-variation-settings: 'wght' 550;
+}
+
+i, em {
+    font-variation-settings: 'ital' 800 'wght' 400;
 }
 
 code {
@@ -301,11 +305,11 @@ h1.big {
 }
 
 .regular {
-    font-weight: 400;
+    font-variation-settings: 'wght' 400;
 }
 
 .bold {
-    font-weight: 550;
+    font-variation-settings: 'wght' 550;
 }
 
 /* Spacing */

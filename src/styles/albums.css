@@ -22,7 +22,7 @@
           font-size: var(--step-0);
           span {
             opacity: 0.3;
-            font-weight: 400;
+            font-variation-settings: 'wght' 400;
           }
         }
         p {
