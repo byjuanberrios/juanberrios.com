@@ -19,6 +19,10 @@
 
         color: var(--color-black-light);
     }
+    b, strong {
+        font-variation-settings: 'wght' 600;
+        color: var(--color-black);
+    }
     img {
         margin-block: var(--space-xl);
     }
@@ -52,5 +56,9 @@
                 opacity: 0.5;
             }
         }
+    }
+
+    .twitter-tweet {
+        margin-block: var(--space-2xs) -12px !important;
     }
 }

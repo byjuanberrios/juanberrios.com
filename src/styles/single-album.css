@@ -31,7 +31,9 @@
       h3 {
         margin: 0;
         line-height: 130%;
-        opacity: 0.5;
+        color: var(--color-highlight);
+        font-variation-settings: 'wght' 400;
+        /* opacity: 0.5; */
       }
     }
 
@@ -87,6 +89,16 @@
         background-repeat: no-repeat;
         background-size: contain;
         animation: rotate 0.7s infinite linear, appear 1s forwards;
+      }
+    }
+    .description, .tracklist {
+      h3 {
+        margin-bottom: var(--space-3xs);
+      }
+      p {
+        font-size: calc(var(--step--1) * 1.05);
+        line-height: 165%;
+        margin-top: var(--space-2xs);
       }
     }
     .description {
