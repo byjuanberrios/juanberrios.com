@@ -33,3 +33,6 @@ pnpm-debug.log*
 
 # cloudflare
 .dev.vars
+
+# Not Ready
+src/content/posts/new-post.mdx

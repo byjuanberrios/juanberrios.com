@@ -24,6 +24,8 @@
         p {
           margin: 0;
           text-wrap: pretty;
+          font-size: calc(var(--step-0) * 0.95);
+          line-height: 170%;
           &.date {
             opacity: 0.5;
             font-size: var(--step--1);
