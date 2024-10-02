@@ -1,24 +1,13 @@
 ---
 import { getCollection } from "astro:content";
-import IndexGrid from "./posts/IndexGrid.astro";
 import InPageGrid from "./posts/InPageGrid.astro";
 
 import type { Post } from "../types/types";
 import "../styles/posts.css";
-
-const { inPage } = Astro.props;
 
 const allPosts = await getCollection("posts", ({ data }: { data: Post }) => {
   return data.isPublished === true;
 });
 ---
 
-{
-  inPage ? (
-    // Page grid
-    <InPageGrid posts={allPosts} />
-  ) : (
-    // Index grid
-    <IndexGrid posts={allPosts} />
-  )
-}
+<InPageGrid posts={allPosts} />

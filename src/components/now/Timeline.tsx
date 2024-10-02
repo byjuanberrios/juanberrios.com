@@ -38,6 +38,18 @@ export const Timeline = () => {
             <div className="p"></div>
           </div>
         </div>
+        <div className="timeline-loading">
+          <div className="timeline-item">
+            <div className="dateX"></div>
+            <div className="p"></div>
+          </div>
+        </div>
+        <div className="timeline-loading">
+          <div className="timeline-item">
+            <div className="dateX"></div>
+            <div className="p"></div>
+          </div>
+        </div>
       </div>
     );
   }
