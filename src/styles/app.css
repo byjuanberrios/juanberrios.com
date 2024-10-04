@@ -1,8 +1,6 @@
 /* @link https://utopia.fyi/type/calculator?c=360,14,1.15,1280,16,1.2,5,2,&s=0.75|0.5|0.25,1.25|1.5|2|3|4,s-l|xs-xs&g=s,xs,2xl,12 */
 /* @link https://utopia.fyi/space/calculator?c=360,14,1.15,1280,16,1.2,5,2,&s=0.75|0.5|0.25,1.25|1.5|2|3|4,s-l|xs-xs&g=s,xs,2xl,12 */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
-
 :root {
     --step--2: clamp(0.6616rem, 0.6488rem + 0.0571vi, 0.6944rem);
     --step--1: clamp(0.7609rem, 0.7325rem + 0.126vi, 0.8333rem);
@@ -56,7 +54,7 @@ body {
     background-color: var(--color-white);
     color: var(--color-black);
     font-family: 'Neue Montreal', sans-serif;
-    font-variation-settings: 'wght' 430;
+    font-variation-settings: 'wght' 350;
     font-size: var(--step-0);
     letter-spacing: calc(var(--step-0) * 3.5 / 100);
     line-height: 165%;
@@ -74,14 +72,6 @@ body {
         --color-black: oklch(98.88% 0.001 17.18);
     }
 }
-
-/* .with-serif {
-    font-family: "Merriweather", serif;
-    letter-spacing: normal;
-    line-height: 190%;
-    font-size: calc(var(--step-0) * 0.95);
-     font-family: "Merriweather", serif;
-} */
 
 p,
 ol,
@@ -231,7 +221,13 @@ b, strong {
 }
 
 i, em {
-    font-variation-settings: 'ital' 800 'wght' 400;
+    font-family: "Writer", serif;
+    font-style: normal;
+
+    font-size: calc(var(--step-0) * 1.05);
+    font-variation-settings: "wght" 170;
+
+    letter-spacing: 0.03em;
 }
 
 code {

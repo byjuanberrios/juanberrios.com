@@ -18,7 +18,7 @@
     }
     .items {
       display: grid;
-      gap: var(--space-m);
+      gap: var(--space-l);
       .timeline-item {
         padding-right: var(--space-xs);
         p {
@@ -29,6 +29,7 @@
           &.date {
             opacity: 0.5;
             font-size: var(--step--1);
+            margin-bottom: var(--space-3xs);
             &::first-letter {
               text-transform: uppercase;
             }
