@@ -54,7 +54,7 @@ body {
     background-color: var(--color-white);
     color: var(--color-black);
     font-family: 'Neue Montreal', sans-serif;
-    font-variation-settings: 'wght' 350;
+    font-variation-settings: 'wght' 400;
     font-size: var(--step-0);
     letter-spacing: calc(var(--step-0) * 3.5 / 100);
     line-height: 165%;

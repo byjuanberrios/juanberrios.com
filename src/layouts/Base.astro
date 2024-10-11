@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import LoadingIndicator from "astro-loading-indicator/component";
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -77,6 +78,7 @@ const socialImageURL = new URL(socialImage.src, Astro.url);
     <meta name="twitter:creator" content="@byjuanberrios" />
 
     <ViewTransitions />
+    <LoadingIndicator color="var(--color-black)" />
   </head>
   <body class={alt && "alt"}>
     <Header currentPath={currentPath} />

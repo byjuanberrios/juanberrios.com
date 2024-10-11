@@ -23,6 +23,7 @@
     "@types/react-dom": "^18.3.0",
     "astro": "^4.5.18",
     "astro-icon": "^1.1.0",
+    "astro-loading-indicator": "^0.6.0",
     "cmdk": "^1.0.0",
     "dayjs": "^1.11.13",
     "marked": "^14.1.2",

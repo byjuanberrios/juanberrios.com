@@ -2545,6 +2545,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"astro-loading-indicator@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "astro-loading-indicator@npm:0.6.0"
+  peerDependencies:
+    astro: ^4.0.0
+  checksum: 10c0/4cde808eda3cb013de65661e218f05e7c4619e469b18b8976712298515e7750d5e9b5bd9404f17eee852123afdeb3d4ff057cc74d4e4226cdcfc09254184813f
+  languageName: node
+  linkType: hard
+
 "astro@npm:^4.5.18":
   version: 4.10.3
   resolution: "astro@npm:4.10.3"
@@ -4740,6 +4749,7 @@ __metadata:
     "@types/react-dom": "npm:^18.3.0"
     astro: "npm:^4.5.18"
     astro-icon: "npm:^1.1.0"
+    astro-loading-indicator: "npm:^0.6.0"
     cmdk: "npm:^1.0.0"
     dayjs: "npm:^1.11.13"
     marked: "npm:^14.1.2"
