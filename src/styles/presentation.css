@@ -7,7 +7,7 @@
         p {
             line-height: 145%;
             .career {
-                color: var(--color-highlight);
+                color: var(----color-accent-primary);
             }
         }
      }
@@ -38,14 +38,14 @@
                 text-decoration-line: none;
                 span {
                     &.slash {
-                        color: var(--color-highlight);
+                        color: var(----color-accent-primary);
                     }
                 }
                 hr {
                     margin: 0;
                     align-self: flex-end;
                     border-style: dashed;
-                    border-color: var(--color-gray-darker);
+                    border-color: var(--color-background-quaternary);
                     width: auto;
                     min-width: 2ch;
                     margin-bottom: 0.4rem;
@@ -61,7 +61,7 @@
 .portfolio-data {
     margin-top: var(--space-2xl);
     line-height: 160%;
-    border: solid 1px var(--color-gray-darker);
+    border: solid 1px var(--color-background-quaternary);
     border-radius: var(--space-xs);
     .item, .subitem {
         * {
@@ -87,8 +87,8 @@
     }
     .subitem {
         padding: var(--space-s) var(--space-m) var(--space-xs);
-        background-color: var(--color-gray-dark);
-        border-top: solid 1px var(--color-gray-darker);
+        background-color: var(--color-background-tertiary);
+        border-top: solid 1px var(--color-background-quaternary);
         font-size: var(--step--1);
         line-height: 150%;
         border-top-left-radius: 0;

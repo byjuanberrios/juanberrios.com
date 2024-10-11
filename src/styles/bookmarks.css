@@ -3,7 +3,7 @@
     width: 100%;
     padding: var(--space-xs) var(--space-m);
     margin-inline: calc(var(--space-3xs)* -1);
-    background-color: var(--color-gray-dark);
+    background-color: var(--color-background-tertiary);
     border-radius: var(--space-xs);
     margin-bottom: calc(var(--space-xl) + var(--space-xs));
     transition: all ease-in-out 0.2s;
@@ -30,7 +30,7 @@
       }
     }
     .items {
-      border-top: solid 1px var(--color-gray-darker);
+      border-top: solid 1px var(--color-background-quaternary);
       gap: var(--space-2xs) var(--space-s);
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -45,20 +45,20 @@
         display: inline-flex;
         font-variation-settings: 'wght' 400;
         align-items: center;
-        color: var(--color-highlight);
+        color: var(----color-accent-primary);
         transition: all ease-in-out 0.2s;
         &.category-selected,
         &:hover {
-          color: var(--color-black);
+          color: var(--color-foreground-tertiary);
         }
       }
     }
     &:hover {
-      background-color: var(--color-gray-dark);
+      background-color: var(--color-background-tertiary);
     }
     &.opened {
       &:hover {
-        background-color: var(--color-gray-dark);
+        background-color: var(--color-background-tertiary);
       }
     }
   }
@@ -112,13 +112,13 @@
 @media (prefers-color-scheme: dark) {
   .bookmarks {
     .categories {
-      background-color: var(--color-gray);
+      background-color: var(--color-background-secondary);
       &:hover {
-        background-color: var(--color-gray-dark);
+        background-color: var(--color-background-tertiary);
       }
       &.opened {
         &:hover {
-          background-color: var(--color-gray);
+          background-color: var(--color-background-secondary);
         }
       }
     }

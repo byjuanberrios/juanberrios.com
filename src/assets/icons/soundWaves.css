@@ -1,12 +1,12 @@
 #wave {
     height: 14px;
     width: 14px;
-    fill: var(--color-black);
+    fill: var(--color-foreground-tertiary);
   }
 
   @media (prefers-color-scheme: dark) {
     #wave {
-        fill: var(--color-white);
+        fill: var(--color-background-primary);
       }
   }
 

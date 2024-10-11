@@ -34,14 +34,14 @@
                 justify-content: flex-end;
                 flex-wrap: wrap;
                 gap: calc(var(--space-3xs) * 1.4);
-                color: var(--color-white);
+                color: var(--color-background-primary);
                 a {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     gap: var(--space-3xs);
                     text-decoration: none;
-                    background-color: var(--color-black);
+                    background-color: var(--color-foreground-tertiary);
                     /* padding: var(--space-2xs) calc(var(--space-xs)); */
                     text-wrap: nowrap;
                     border-radius: 100%;
@@ -65,7 +65,7 @@
             .content {
                 .platforms {
                     a {
-                        background-color: var(--color-lightning);
+                        background-color: var(----color-accent-secondary);
                     }
                 }
             }

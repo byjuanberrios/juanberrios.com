@@ -26,20 +26,20 @@
             }
             p {
                 max-width: 100%;
-                color: var(--color-black)
+                color: var(--color-foreground-tertiary)
             }
             hr {
                 margin: 0;
                 width: auto;
                 align-self: flex-end;
                 border-style: dashed;
-                border-color: var(--color-gray-darker);
+                border-color: var(--color-background-quaternary);
                 margin-bottom: 0.4rem;
                 min-width: 2ch;
             }
             span {
                 text-transform: capitalize;
-                color: var(--color-highlight);
+                color: var(----color-accent-primary);
             }
             &:hover {
                 opacity: 0.5;
@@ -84,7 +84,7 @@
 }
 
 .updated {
-    background-color: var(--color-black);
+    background-color: var(--color-foreground-tertiary);
     padding: 
         calc(var(--space-3xs) / 2) 
         calc(var(--space-xs) / 1.2) 
@@ -94,12 +94,12 @@
     span {
         margin: 0;
         font-size: var(--step--2);
-        color: var(--color-white) !important;
+        color: var(--color-background-primary) !important;
     }
 }
 
 @media (prefers-color-scheme: dark) {
     .updated {
-        background-color: var(--color-lightning);
+        background-color: var(----color-accent-secondary);
     }
 }

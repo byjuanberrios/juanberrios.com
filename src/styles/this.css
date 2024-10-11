@@ -1,6 +1,6 @@
 .colophon {
     .colophon-head {
-        color: var(--color-highlight);
+        color: var(----color-accent-primary);
         margin-block-end: var(--space-2xl);
     }
 }
@@ -8,7 +8,7 @@
 @media (prefers-color-scheme: dark) {
     .colophon {
         .colophon-head {
-            color: var(--color-lightning);
+            color: var(----color-accent-secondary);
         }
     }
 }

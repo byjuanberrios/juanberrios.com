@@ -18,12 +18,11 @@ header.main-header nav {
 
 .brand-avatar {
     display: block;
-    background-color: var(--color-gray);
+    background-color: var(--color-background-secondary);
     border-radius: 100%;
     position: relative;
     display: flex;
     justify-content: flex-start;
-    /* justify-content: space-between; */
     align-items: center;
     .popover {
         position: absolute;
@@ -31,11 +30,10 @@ header.main-header nav {
         left: 120%;
         visibility: hidden;
         opacity: 0;
-        /* background-color: var(--color-gray); */
-        background-color: transparent;
-        border: solid 1px var(--color-highlight);
+        background-color: var(--color-background-tertiary);
+        border: solid 1px var(----color-accent-primary);
         border-radius: var(--space-s);
-        color: var(--color-highlight);
+        color: var(----color-accent-primary);
         font-size: var(--step--2);
         padding: 0 var(--space-2xs);
         transition: all ease-out 0.15s;
@@ -58,10 +56,10 @@ header.main-header nav {
     position: relative;
     .popover {
         position: absolute;
-        background-color: var(--color-gray);
-        border: solid 1px var(--color-highlight);
+        background-color: var(--color-background-tertiary);
+        border: solid 1px var(----color-accent-primary);
         border-radius: var(--space-s);
-        color: var(--color-highlight);
+        color: var(----color-accent-primary);
         text-wrap: nowrap;
         font-size: var(--step--2);
         padding: 0 var(--space-2xs);
@@ -77,7 +75,7 @@ header.main-header nav {
     }
     span {
         font-size: var(--step--1); 
-        background-color: var(--color-black);
+        background-color: var(--color-foreground-tertiary);
         font-variation-settings: 'wght' 500;
         
         border-radius: var(--space-s); 
@@ -85,7 +83,7 @@ header.main-header nav {
         padding-inline: var(--space-s);
         transition: all ease 0.3s;
         display: block;
-        color: var(--color-white);
+        color: var(--color-background-primary);
         &:hover,
         &:focus {
             & ~ .popover {
@@ -100,7 +98,7 @@ header.main-header nav {
 @media (prefers-color-scheme: dark) {
     .menu-button {
         span {
-            background-color: var(--color-lightning);
+            background-color: var(----color-accent-secondary);
         }
     }
 }

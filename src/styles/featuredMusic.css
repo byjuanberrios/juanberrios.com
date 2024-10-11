@@ -23,8 +23,8 @@
                 display:grid; 
                 place-content: center; 
                 border-radius: 9999px;
-                background-color: var(--color-highlight); 
-                color: var(--color-white);
+                background-color: var(----color-accent-primary); 
+                color: var(--color-background-primary);
                 margin-bottom: var(--space-xs);
                 font-size: var(--step--1);
             }
@@ -55,7 +55,7 @@
         header {
             .releaseData {
                 p.position {
-                    background-color: var(--color-lightning); 
+                    background-color: var(----color-accent-secondary); 
                 }
             }
         }

@@ -7,7 +7,7 @@
             margin: 0;
         }
         p {
-            color: var(--color-highlight);
+            color: var(----color-accent-primary);
             font-size: var(--step--1);
         }
         h1 {
@@ -16,12 +16,12 @@
         }
     }
     p, ul, ol {
-        color: var(--color-black-light);
+        color: var(--color-foreground-secondary);
         text-wrap: pretty;
     }
     b, strong {
         font-variation-settings: 'wght' 600;
-        color: var(--color-black);
+        color: var(--color-foreground-tertiary);
     }
     img {
         margin-block: var(--space-xl);
@@ -38,7 +38,7 @@
     }
     .footnotes {
         margin: var(--space-2xl) 0;
-        border-top: solid 1px var(--color-gray-darker);
+        border-top: solid 1px var(--color-background-quaternary);
         font-size: var(--step--1);
         h2 { 
             display: none; 

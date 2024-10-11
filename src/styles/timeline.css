@@ -1,12 +1,12 @@
 @keyframes skeleton-loading {
   0% {
-    background-color: var(--color-gray-dark);
+    background-color: var(--color-background-tertiary);
   }
   50% {
-    background-color: var(--color-gray-darker);
+    background-color: var(--color-background-quaternary);
   }
   100% {
-    background-color: var(--color-gray-dark);
+    background-color: var(--color-background-tertiary);
   }
 }
 
@@ -50,7 +50,7 @@
         width: calc(var(--space-3xl) * 1.4);
         height: var(--space-s);
         margin-bottom: var(--space-2xs);
-        background-color: var(--color-gray-dark);
+        background-color: var(--color-background-tertiary);
         animation: skeleton-loading 1.5s forwards infinite;
       }
       .p {
@@ -60,7 +60,7 @@
           content: '';
           display: block;
           height: var(--space-s);
-          background-color: var(--color-gray-dark);
+          background-color: var(--color-background-tertiary);
           animation: skeleton-loading 1.5s forwards infinite;
         }
         &::before {

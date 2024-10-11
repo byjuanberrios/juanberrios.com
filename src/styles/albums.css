@@ -8,7 +8,7 @@
     .album {
       text-decoration: none;
       img {
-        background-color: var(--color-white);
+        background-color: var(--color-background-primary);
         border-radius: var(--space-3xs);
         margin-bottom: var(--space-xs);
         object-fit: contain;

@@ -1,12 +1,12 @@
 @keyframes skeleton-loading {
     0% {
-      background-color: var(--color-gray-dark);
+      background-color: var(--color-background-tertiary);
     }
     50% {
-      background-color: var(--color-gray-darker);
+      background-color: var(--color-background-quaternary);
     }
     100% {
-      background-color: var(--color-gray-dark);
+      background-color: var(--color-background-tertiary);
     }
   }
 
@@ -37,15 +37,15 @@
                     border-radius: var(--space-2xs);
                     text-wrap: nowrap;
                     &.date {
-                        background-color: var(--color-gray-darker);
-                        color: var(--color-black);
+                        background-color: var(--color-background-quaternary);
+                        color: var(--color-foreground-tertiary);
                         &::first-letter {
                             text-transform: capitalize;
                         }
                     }
                     &.now {
-                        background-color: var(--color-lightning);
-                        color: var(--color-black);
+                        background-color: var(----color-accent-secondary);
+                        color: var(--color-foreground-tertiary);
                         display: flex;
                         align-items: center;
                         gap: var(--space-2xs);
@@ -73,7 +73,7 @@
         margin-top: var(--space-m);
         .cover {
             border-radius: var(--space-3xs);
-            background-color: var(--color-gray-darker);
+            background-color: var(--color-background-quaternary);
         }
         .info {
             overflow: hidden;
@@ -112,7 +112,7 @@
         .listening {
             .cover {
                 height: 70px;
-                background-color: var(--color-gray-darker);
+                background-color: var(--color-background-quaternary);
                 animation: skeleton-loading 1.5s forwards infinite;
             }
             .info {
@@ -120,7 +120,7 @@
                     display: grid;
                     gap: calc(var(--space-xs) - var(--space-2xs));
                     .name, .artist, .album {
-                        background-color: var(--color-gray-darker);
+                        background-color: var(--color-background-quaternary);
                         animation: skeleton-loading 1.5s forwards infinite;
                     }
                     .name {
@@ -144,7 +144,7 @@
                 .date {
                     p {
                         &.now {
-                            color: var(--color-white);
+                            color: var(--color-background-primary);
                         }
                     }
                 }

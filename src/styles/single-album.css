@@ -31,7 +31,7 @@
       h3 {
         margin: 0;
         line-height: 130%;
-        color: var(--color-highlight);
+        color: var(----color-accent-primary);
         font-variation-settings: 'wght' 400;
         /* opacity: 0.5; */
       }
@@ -41,7 +41,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-2xs);
-      color: var(--color-white);
+      color: var(--color-background-primary);
       margin-bottom: var(--space-xl);
       a {
         display: flex;
@@ -49,7 +49,7 @@
         gap: var(--space-3xs);
         text-decoration: none;
         font-size: calc(var(--space-2xs) * 1.4);
-        background-color: var(--color-black);
+        background-color: var(--color-foreground-tertiary);
         padding: var(--space-3xs) calc(var(--space-xs));
         border-radius: var(--space-s);
         &:after {
@@ -68,7 +68,7 @@
         width: 70%;
         aspect-ratio: 1;
         object-fit: contain;
-        background-color: var(--color-white);
+        background-color: var(--color-background-primary);
         border-radius: var(--space-3xs);
         position: relative;
         z-index: 1;
@@ -110,7 +110,7 @@
     .single-album {
       .streaming-links {
         a {
-          background-color: var(--color-lightning);
+          background-color: var(----color-accent-secondary);
         }
       }
     }
