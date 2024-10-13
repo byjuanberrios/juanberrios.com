@@ -39,7 +39,7 @@
             }
             span {
                 text-transform: capitalize;
-                color: var(----color-accent-primary);
+                color: var(--color-accent-primary);
             }
             &:hover {
                 opacity: 0.5;
@@ -100,6 +100,6 @@
 
 @media (prefers-color-scheme: dark) {
     .updated {
-        background-color: var(----color-accent-secondary);
+        background-color: var(--color-accent-secondary);
     }
 }

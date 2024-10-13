@@ -65,7 +65,7 @@
             .content {
                 .platforms {
                     a {
-                        background-color: var(----color-accent-secondary);
+                        background-color: var(--color-accent-secondary);
                     }
                 }
             }

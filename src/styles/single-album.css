@@ -31,7 +31,7 @@
       h3 {
         margin: 0;
         line-height: 130%;
-        color: var(----color-accent-primary);
+        color: var(--color-accent-primary);
         font-variation-settings: 'wght' 400;
         /* opacity: 0.5; */
       }
@@ -110,7 +110,7 @@
     .single-album {
       .streaming-links {
         a {
-          background-color: var(----color-accent-secondary);
+          background-color: var(--color-accent-secondary);
         }
       }
     }

@@ -44,7 +44,7 @@
                         }
                     }
                     &.now {
-                        background-color: var(----color-accent-secondary);
+                        background-color: var(--color-accent-secondary);
                         color: var(--color-foreground-tertiary);
                         display: flex;
                         align-items: center;
@@ -100,15 +100,6 @@
         }   
     }
     &.listening-loading {
-        header {
-            .title-date {
-                h2 {}
-                .date {
-                    p {}
-                }
-            }
-            .lastfm {}
-        }
         .listening {
             .cover {
                 height: 70px;

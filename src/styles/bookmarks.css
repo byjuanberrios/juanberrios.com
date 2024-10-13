@@ -45,7 +45,7 @@
         display: inline-flex;
         font-variation-settings: 'wght' 400;
         align-items: center;
-        color: var(----color-accent-primary);
+        color: var(--color-accent-primary);
         transition: all ease-in-out 0.2s;
         &.category-selected,
         &:hover {

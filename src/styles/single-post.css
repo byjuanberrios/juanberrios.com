@@ -7,7 +7,7 @@
             margin: 0;
         }
         p {
-            color: var(----color-accent-primary);
+            color: var(--color-accent-primary);
             font-size: var(--step--1);
         }
         h1 {

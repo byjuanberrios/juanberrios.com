@@ -35,7 +35,7 @@
                     margin-top: var(--space-xs);
                 }
                 p {
-                    color: var(----color-accent-primary)
+                    color: var(--color-accent-primary)
                 }
                 .roles {
                     width: 100%;
@@ -85,7 +85,7 @@
                 line-height: 145%;
             }
             .tag {
-                color: var(----color-accent-primary);
+                color: var(--color-accent-primary);
             }
             &:last-child {
                 border-bottom: none;

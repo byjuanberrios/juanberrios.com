@@ -7,7 +7,7 @@
         p {
             line-height: 145%;
             .career {
-                color: var(----color-accent-primary);
+                color: var(--color-accent-primary);
             }
         }
      }
@@ -38,7 +38,7 @@
                 text-decoration-line: none;
                 span {
                     &.slash {
-                        color: var(----color-accent-primary);
+                        color: var(--color-accent-primary);
                     }
                 }
                 hr {

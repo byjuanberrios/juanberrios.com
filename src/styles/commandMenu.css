@@ -30,7 +30,7 @@
       padding: calc(var(--space-2xs) + var(--space-xs)) var(--space-m);
       background-color: var(--color-background-secondary);
       border-bottom: solid 1px var(--color-background-tertiary);
-      color: var(----color-accent-primary);
+      color: var(--color-accent-primary);
       outline: none;
       border-top-left-radius: var(--space-2xs);
       border-top-right-radius: var(--space-2xs);
@@ -82,18 +82,18 @@
         margin: 0;
         border-radius: var(--space-3xs);
         padding: var(--space-3xs) var(--space-2xs);
-        color: var(----color-accent-primary);
+        color: var(--color-accent-primary);
         border: solid 1px var(--color-background-quinary);
       }
       &[aria-selected="true"] {
         background-color: var(--color-background-quinary);
         .tag {
-          border: solid 1px var(----color-accent-primary);
+          border: solid 1px var(--color-accent-primary);
         }
       }
     }
     [cmdk-empty] {
       padding: var(--space-s) var(--space-m) var(--space-3xs);
-      color: var(----color-accent-primary)
+      color: var(--color-accent-primary)
     }
 }

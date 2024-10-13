@@ -13,18 +13,18 @@
             display: flex;
             align-items: center;
             gap: var(--space-3xs);
-            color: var(----color-accent-primary);
+            color: var(--color-accent-primary);
             svg {
                 width: calc(var(--space-2xs) + var(--space-2xs));
                 height: calc(var(--space-2xs) + var(--space-2xs));
             }
             p {
                 margin: 0;
-                color: var(----color-accent-primary)
+                color: var(--color-accent-primary)
             }
         }
         .links {
-            color: var(----color-accent-primary);
+            color: var(--color-accent-primary);
             display: flex;
             gap: var(--space-s);
         }
