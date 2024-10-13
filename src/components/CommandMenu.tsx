@@ -42,21 +42,9 @@ const menu: Menu = [
     external: false,
   },
   {
-    name: "Playlists",
-    href: "/playlists",
-    iconComp: <IconPlaylist />,
-    external: false,
-  },
-  {
     name: "Bookmarks",
     href: "/bookmarks",
     iconComp: <IconBookmark />,
-    external: false,
-  },
-  {
-    name: "Listas",
-    href: "/lists",
-    iconComp: <IconLibrary />,
     external: false,
   },
 ];
