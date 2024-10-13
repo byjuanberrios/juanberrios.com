@@ -223,13 +223,7 @@ b, strong {
 }
 
 i, em {
-    font-family: "Writer", serif;
-    font-style: normal;
-
-    font-size: calc(var(--step-0) * 1.05);
-    font-variation-settings: "wght" 300;
-
-    letter-spacing: 0.03em;
+    font-variation-settings: "wght" 400;
 }
 
 code {

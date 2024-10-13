@@ -2,13 +2,14 @@
 .single-post {
     line-height: 165%;
     header {
-        margin-block-end: var(--space-3xl);
+        margin-block-end: var(--space-2xl);
         h1, p {
             margin: 0;
         }
         p {
             color: var(--color-accent-primary);
             font-size: var(--step--1);
+            margin-bottom: var(--space-3xs);
         }
         h1 {
             max-width: 90%;
