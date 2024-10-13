@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-
 import type { Post, RawPost } from "../../types/types";
-
+import { calculateTimeAgo } from "../../utils/calculateTimeAgo";
 import "../../styles/postsDisplay.css";
 
 const posts = await getCollection(
@@ -21,18 +20,22 @@ const posts = await getCollection(
   <h2>Últimos posts</h2>
   <div class="items">
     {
-      posts.map((post: RawPost) => (
-        <div class="item">
-          <h4>
-            <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-          </h4>
-          <p class="summary">{post.data.summary}</p>
-          <div class="data">
-            <p>{post.data.date}</p>
-            <p>X Minutos</p>
+      posts.map((post: RawPost) => {
+        const timeAgo = calculateTimeAgo(post.data.date);
+        const summary =
+          post.data.summary && post.data.summary.length > 100
+            ? post.data.summary.slice(0, 100) + "..."
+            : post.data.summary;
+        return (
+          <div class="item">
+            <h4>
+              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+            </h4>
+            <p class="summary">{summary}</p>
+            <p class="date">{timeAgo}</p>
           </div>
-        </div>
-      ))
+        );
+      })
     }
   </div>
   <a href="/posts">Ver todos los posts</a>

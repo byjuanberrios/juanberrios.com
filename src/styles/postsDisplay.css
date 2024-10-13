@@ -13,15 +13,14 @@
             }
             p.summary {
                 margin-top: var(--space-2xs);
-                margin-bottom: var(--space-2xs);
+                margin-bottom: var(--space-3xs);
             }
-            .data {
-                display: flex;
-                gap: var(--space-m);
-                p {
-                    margin: 0;
-                    font-size: var(--step--1);
-                    opacity: 0.5;
+            p.date {
+                margin: 0;
+                font-size: var(--step--1);
+                opacity: 0.5;
+                &::first-letter {
+                    text-transform: capitalize;
                 }
             }
         }
