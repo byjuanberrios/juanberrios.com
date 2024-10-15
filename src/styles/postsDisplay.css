@@ -1,35 +1,74 @@
-.index-posts-grid {
+.posts-grid {
+    position: relative;
     h2 {
-        margin-bottom: calc(var(--space-l) * 1.05);
+        margin-bottom: var(--space-s)
     }
-    .items {
-        display: grid;
-        width: 100%;
-        gap: calc(var(--space-xl) * 0.8);
+    p.year {
+        margin-top: var(--space-2xl);
         margin-bottom: var(--space-l);
+        opacity: 0.4;
+    }
+    p.month {
+        opacity: 0.4;
+        text-transform: capitalize;
+    }
+    .grid {
         .item {
-            /* h4 {
-                margin-top: 0;
-                margin-bottom: var(--space-2xs);
-            } */
-            p.title {
-                margin-top: 0;
-                margin-bottom: var(--space-2xs);
-                font-variation-settings: 'wght' 500;
-            }
-            p.summary {
-                margin-top: var(--space-2xs);
-                margin-bottom: var(--space-3xs);
-                font-size: calc(var(--step-0)* 0.95);
-                line-height: 170%;
-            }
-            p.date {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            grid-column-gap: 0.4rem;
+            margin-top: var(--space-3xs);
+            text-decoration-line: none;
+            p, span {
                 margin: 0;
-                font-size: var(--step--1);
-                opacity: 0.5;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            p {
+                max-width: 100%;
+                color: var(--color-foreground-tertiary)
+            }
+            hr {
+                margin: 0;
+                width: auto;
+                align-self: flex-end;
+                border-style: dashed;
+                border-color: var(--color-background-quinary);
+                margin-bottom: 0.4rem;
+                min-width: 2ch;
+            }
+            span {
+                color: var(--color-accent-primary);
                 &::first-letter {
                     text-transform: capitalize;
                 }
+            }
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+    .more {
+        display: inline-block;
+        margin-block-start: var(--space-m);
+        opacity: 0.6;
+    }
+}
+
+@media (min-width: 768px) {
+    .posts-grid {
+        p.year {
+            position: absolute;
+            left: -6ch;
+            margin-top: 0;
+        }
+        p.year {
+            &:nth-child(n+3) {
+                margin-top: var(--space-2xl);
+                margin-bottom: 0;
+            }
+            &+p.month {
+                margin-top: var(--space-2xl);
             }
         }
     }

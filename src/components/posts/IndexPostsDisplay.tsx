@@ -18,31 +18,32 @@ const posts = await getCollection(
     .sort((postA: RawPost, postB: RawPost) =>
       postA.data.date < postB.data.date ? 1 : -1
     )
-    .slice(0, 3)
+    .slice(0, 6)
 );
 
 const IndexPostsDisplay = () => {
   return (
-    <div className="index-posts-grid">
+    <div className="posts-grid">
       <h2>Últimos posts</h2>
-      <div className="items">
-        {posts.map((post: RawPost) => {
-          const summary =
-            post.data.summary && post.data.summary.length > 120
-              ? post.data.summary.slice(0, 120) + "..."
-              : post.data.summary;
-          return (
-            <div className="item">
-              <p className="title">
-                <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-              </p>
-              <p className="summary">{summary}</p>
-              <p className="date">{dayjs(post.data.date).fromNow()}</p>
-            </div>
-          );
-        })}
+      <div className="grid">
+        {posts
+          .sort((postA: RawPost, postB: RawPost) =>
+            postA.data.date < postB.data.date ? 1 : -1
+          )
+          .slice(0, 6)
+          .map((post: RawPost, i: number) => {
+            return (
+              <a className="item" href={`/posts/${post.slug}`}>
+                <p>{post.data.title}</p>
+                <hr />
+                <span>{dayjs(post.data.date).fromNow()}</span>
+              </a>
+            );
+          })}
       </div>
-      <a href="/posts">Ver todos los posts</a>
+      <a href="/posts" className="more">
+        Ver todos los posts
+      </a>
     </div>
   );
 };
