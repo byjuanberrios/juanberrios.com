@@ -5,12 +5,17 @@
     .items {
         display: grid;
         width: 100%;
-        gap: calc(var(--space-xl) * 0.9);
+        gap: calc(var(--space-xl) * 0.8);
         margin-bottom: var(--space-l);
         .item {
-            h4 {
+            /* h4 {
                 margin-top: 0;
-                margin-bottom: var(--space-xs);
+                margin-bottom: var(--space-2xs);
+            } */
+            p.title {
+                margin-top: 0;
+                margin-bottom: var(--space-2xs);
+                font-variation-settings: 'wght' 500;
             }
             p.summary {
                 margin-top: var(--space-2xs);

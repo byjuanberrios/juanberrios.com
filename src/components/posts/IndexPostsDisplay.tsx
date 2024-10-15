@@ -28,14 +28,14 @@ const IndexPostsDisplay = () => {
       <div className="items">
         {posts.map((post: RawPost) => {
           const summary =
-            post.data.summary && post.data.summary.length > 100
-              ? post.data.summary.slice(0, 100) + "..."
+            post.data.summary && post.data.summary.length > 120
+              ? post.data.summary.slice(0, 120) + "..."
               : post.data.summary;
           return (
             <div className="item">
-              <h4>
+              <p className="title">
                 <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-              </h4>
+              </p>
               <p className="summary">{summary}</p>
               <p className="date">{dayjs(post.data.date).fromNow()}</p>
             </div>
