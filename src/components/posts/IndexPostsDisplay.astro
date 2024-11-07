@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import type { Post, RawPost } from "../../types/types";
+
+import PostDate from "./PostDate";
+
+import "../../styles/postsDisplay.css";
+
+const posts = await getCollection(
+  "posts",
+  ({ data }: { data: Post }) => data.isPublished
+).then((posts: RawPost[]) =>
+  posts
+    .sort((postA: RawPost, postB: RawPost) =>
+      postA.data.date < postB.data.date ? 1 : -1
+    )
+    .slice(0, 6)
+);
+---
+
+<div class="posts-grid">
+  <h2>Últimos posts</h2>
+  <div class="grid">
+    {
+      posts
+        .sort((postA: RawPost, postB: RawPost) =>
+          postA.data.date < postB.data.date ? 1 : -1
+        )
+        .slice(0, 6)
+        .map((post: RawPost) => {
+          return (
+            <a class="item" href={`/posts/${post.slug}`}>
+              <p>{post.data.title}</p>
+              <hr />
+              <PostDate date={post.data.date} client:load />
+            </a>
+          );
+        })
+    }
+  </div>
+  <a href="/posts" class="more"> Ver todos los posts </a>
+</div>
