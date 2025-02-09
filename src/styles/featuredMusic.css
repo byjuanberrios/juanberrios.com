@@ -48,6 +48,13 @@
             }
         }
     }
+    &.small {
+        margin-top: var(--space-l);
+        header {
+            grid-template-columns: calc(var(--space-xl) * 4) auto;
+            margin-bottom: var(--space-xl);
+        }
+    }
 }
 
 @media (prefers-color-scheme: dark) {

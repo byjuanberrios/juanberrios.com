@@ -2,11 +2,18 @@
 import { Image } from "astro:assets";
 import "../styles/featuredMusic.css";
 
-const { image, artist, releaseName, position, appleMusicUrl, spotifyUrl } =
-  Astro.props;
+const {
+  image,
+  artist,
+  releaseName,
+  position,
+  appleMusicUrl,
+  spotifyUrl,
+  small = false,
+} = Astro.props;
 ---
 
-<div class="musicReleaseCard">
+<div class={`musicReleaseCard ${small && "small"}`}>
   <header>
     <Image
       src={image}
@@ -14,9 +21,7 @@ const { image, artist, releaseName, position, appleMusicUrl, spotifyUrl } =
       inferSize={true}
     />
     <div class="releaseData">
-      <p class="position">
-        {position}
-      </p>
+      {position && <p class="position">{position}</p>}
       <h2>
         {releaseName}
       </h2>
