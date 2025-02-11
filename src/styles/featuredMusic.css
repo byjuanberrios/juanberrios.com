@@ -49,10 +49,28 @@
         }
     }
     &.small {
-        margin-top: var(--space-l);
+        background-color: var(--color-background-secondary);
+        border: 1px solid var(--color-background-tertiary);
+        border-radius: var(--space-2xs);
+        margin-top: var(--space-xl);
+        margin-bottom: var(--space-xl);
+        padding: var(--space-s);
         header {
             grid-template-columns: calc(var(--space-xl) * 4) auto;
-            margin-bottom: var(--space-xl);
+            margin-bottom: 0;
+            img {
+                border-radius: var(--space-2xs);
+            }
+            .releaseData {
+                h2 {
+                    font-size: var(--step-1);
+                    margin-bottom: calc(var(--space-3xs) / 2);
+                }
+                h4 {
+                    font-size: var(--step--1);
+                    color: var(--color-accent-primary);
+                }
+            }
         }
     }
 }

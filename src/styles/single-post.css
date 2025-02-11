@@ -18,7 +18,10 @@
     }
     p, ul, ol {
         color: var(--color-foreground-secondary);
+        font-size: 103%;
+        line-height: 170%;
         text-wrap: pretty;
+        margin-bottom: var(--space-m);
     }
     b, strong {
         font-variation-settings: 'wght' 600;
@@ -48,17 +51,17 @@
             opacity: 0.7;
         }
     }
-
     .pagination {
         margin-block-start: var(--space-2xl);
         .pagination-item {
-            margin-block-start: var(--space-m);
+            margin-block-start: var(--space-xl);
             p {
                 opacity: 0.5;
+                line-height: 100%;
+                margin-bottom: var(--space-2xs);
             }
         }
     }
-
     .twitter-tweet {
         margin-block: var(--space-2xs) -12px !important;
     }
