@@ -95,7 +95,9 @@ const {
 
     <div class="description">
       <h2>Sobre el proyecto</h2>
-      {(description as string[]).map((p) => <p>{p}</p>)}
+      <div class="grid gap-2 lg:gap-4">
+        {(description as string[]).map((p) => <p>{p}</p>)}
+      </div>
     </div>
 
     {
