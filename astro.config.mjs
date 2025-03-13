@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config';
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 import react from "@astrojs/react";
-
 import cloudflare from "@astrojs/cloudflare";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +13,8 @@ export default defineConfig({
     '/blog': '/posts',
     "/blog/[post]": "/posts/[post]",
   },
-  output: "hybrid",
+  vite: {
+    plugins: [tailwindcss()],
+  },
   adapter: cloudflare()
 });

@@ -1,7 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
+import type { ImageMetadata } from "astro";
 
 import { type Work } from "../../types/types";
 
@@ -10,9 +11,21 @@ import "../../styles/works.css";
 const { work } = Astro.params;
 if (!work) throw new Error("Slug not found");
 
+type Props = {
+  name: string;
+  year: number;
+  roles: string[];
+  services: string[];
+  tech: string[];
+  client: string;
+  description: string[];
+  externalLink: string | null;
+  images: ImageMetadata[] | null;
+};
+
 export async function getStaticPaths() {
   const collections = await getCollection("works");
-  return collections.map((work: Work) => {
+  return collections.map((work: CollectionEntry<"works">) => {
     return {
       params: {
         work: work.data.slug,
@@ -42,7 +55,7 @@ const {
   description,
   externalLink,
   images,
-}: Work["data"] = Astro.props;
+}: Props = Astro.props;
 ---
 
 <Base title={name}>

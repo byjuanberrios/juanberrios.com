@@ -1,11 +1,9 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
 
 import Base from "../../layouts/Base.astro";
 import { sortByDate } from "../../utils/sortByDate.astro";
 import PrevNext from "../../components/posts/PrevNext.astro";
-
-import { type RawPost } from "../../types/types";
 
 import "../../styles/single-post.css";
 
@@ -17,9 +15,9 @@ if (!post) throw new Error("No post found for this slug");
 const { Content } = await post.render();
 
 export async function getStaticPaths() {
-  const publishedPosts: RawPost[] = await getCollection(
+  const publishedPosts = await getCollection(
     "posts",
-    ({ data }: RawPost) => {
+    ({ data }: CollectionEntry<"posts">) => {
       return data.isPublished === true;
     }
   );

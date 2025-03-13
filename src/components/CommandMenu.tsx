@@ -15,9 +15,7 @@ import {
   IconFlare,
   IconHome,
   IconNotebook,
-  IconPlaylist,
   IconBookmark,
-  IconLibrary,
 } from "@tabler/icons-react";
 
 import "../styles/commandMenu.css";

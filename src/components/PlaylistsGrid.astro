@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 
 import { Icon } from "astro-icon/components";
@@ -9,8 +9,8 @@ import { type Playlist } from "../types/types";
 import "../styles/playlists.css";
 
 const sortByDate = (
-  a: { data: { date: Date } },
-  b: { data: { date: Date } }
+  a: CollectionEntry<"playlists">,
+  b: CollectionEntry<"playlists">
 ) => {
   const dateB = new Date(b.data.date);
   const dateA = new Date(a.data.date);

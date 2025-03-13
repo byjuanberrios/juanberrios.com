@@ -1,11 +1,15 @@
 export type Playlist = {
+  id: string;
+  collection: "playlists";
   data: {
-    imageUrl: string;
+    date: Date;
     name: string;
     songs?: number;
+    imageUrl: string;
     platforms: {
-      appleMusicLink: string | null;
-      spotifyLink: string | null;
+      spotifyLink?: string;
+      appleMusicLink?: string;
+      youtubeLink?: string;
     };
   };
 };
