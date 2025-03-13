@@ -1,15 +1,26 @@
 ---
 import { getCollection } from "astro:content";
 
-import type { OrderedPosts, Post } from "../types/types";
+import type { OrderedPosts, Post, RawPost } from "../types/types";
 import "../styles/posts.css";
 import { orderPostsByYear } from "../utils/orderPostsByYear.astro";
 
-const allPosts = await getCollection("posts", ({ data }: { data: Post }) => {
-  return data.isPublished === true;
+const allPosts = await getCollection("posts", (entry) => {
+  return entry.data.isPublished === true;
 });
 
-const orderedPosts: OrderedPosts = orderPostsByYear(allPosts);
+const rawPosts: RawPost[] = allPosts.map((post) => ({
+  data: {
+    isPublished: post.data.isPublished ?? false,
+    title: post.data.title ?? "",
+    date: post.data.date ?? "",
+    summary: post.data.summary,
+    image: post.data.image,
+  },
+  slug: post.slug,
+}));
+
+const orderedPosts: OrderedPosts = orderPostsByYear(rawPosts);
 ---
 
 <div class="posts-grid">

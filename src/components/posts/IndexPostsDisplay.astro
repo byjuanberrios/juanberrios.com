@@ -8,12 +8,22 @@ import "../../styles/postsDisplay.css";
 
 const posts = await getCollection(
   "posts",
-  ({ data }: { data: Post }) => data.isPublished
-).then((posts: RawPost[]) =>
+  (entry) => entry.data.isPublished
+).then((posts) =>
   posts
-    .sort((postA: RawPost, postB: RawPost) =>
-      postA.data.date < postB.data.date ? 1 : -1
+    .map(
+      (post): RawPost => ({
+        data: {
+          isPublished: post.data.isPublished ?? false,
+          title: post.data.title ?? "",
+          date: post.data.date ?? "",
+          summary: post.data.summary,
+          image: post.data.image,
+        },
+        slug: post.slug,
+      })
     )
+    .sort((postA, postB) => (postA.data.date < postB.data.date ? 1 : -1))
     .slice(0, 6)
 );
 ---
