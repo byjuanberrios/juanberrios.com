@@ -1,25 +1,26 @@
 ---
 import { Image } from "astro:assets";
 import { MenuButton } from "./MenuButton";
-import { CommandMenu } from "./CommandMenu";
 
 import meImage from "../../src/assets/images/avatar.webp";
 
-import "../styles/header.css";
+// import "../styles/header.css";
 
-const { currentPath } = Astro.props;
-const isHome = currentPath === "/";
-const message = "Ir al Inicio";
+// const { currentPath } = Astro.props;
+// const isHome = currentPath === "/";
+// const message = "Ir al Inicio";
 ---
 
-<header class="main-header">
-  <nav>
-    <a href={isHome ? "/about" : "/"} class="brand-avatar">
-      <Image src={meImage} alt="Avatar de Juan Berrios" loading="eager" />
-      {!isHome && <div class="popover">{message}</div>}
+<header class="max-w-extended px-6 py-7 m-auto">
+  <nav class="flex justify-between items-center">
+    <a href="/" class="brand-avatar">
+      <Image
+        src={meImage}
+        alt="Avatar de Juan Berrios"
+        loading="eager"
+        class="w-7 h-7 rounded-full"
+      />
     </a>
     <MenuButton client:load />
   </nav>
-
-  <CommandMenu client:only="react" />
 </header>

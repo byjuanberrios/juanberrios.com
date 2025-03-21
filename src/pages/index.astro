@@ -1,8 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import Presentation from "../components/Presentation.astro";
-import PostsGrid from "../components/PostsGrid.astro";
-import { Timeline } from "../components/now/Timeline";
+import { Updates } from "../components/now/Updates";
+import IndexPostsDisplay from "../components/posts/IndexPostsDisplay.astro";
 import { Lastfm } from "../components/Lastfm";
 ---
 
@@ -10,8 +10,8 @@ import { Lastfm } from "../components/Lastfm";
   <!-- Presentation -->
   <Presentation />
 
-  <!-- Now: Timeline -->
-  <Timeline client:idle />
+  <!-- Updates -->
+  <Updates client:idle />
 
   <!-- Posts Grid -->
   <PostsGrid />

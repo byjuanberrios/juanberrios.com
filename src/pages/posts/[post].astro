@@ -47,9 +47,10 @@ const { prevPost, nextPost } = Astro.props;
       <p>Post</p>
       <h1>{post.data.title}</h1>
     </header>
-    <Content />
-    <div class="pagination">
-      <PrevNext {prevPost} {nextPost} />
+    <!-- <div class="mt-10 prose-sm lg:prose-base"> -->
+    <div class="mt-12">
+      <Content />
     </div>
+    <PrevNext {prevPost} {nextPost} />
   </div>
 </Base>

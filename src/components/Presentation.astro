@@ -1,19 +1,20 @@
 ---
-import "../styles/presentation.css";
+// import "../styles/presentation.css";
 ---
 
-<div class="presentation">
-  <header>
-    <p>
+<!-- <div class="presentation mb-10"> -->
+<div class="mb-12">
+  <header class="mb-14">
+    <p class="leading-snug">
       <strong>Juan Berrios</strong><br />
-      <span class="career">
+      <span class="career text-stone-500">
         Diseñador UI<br />
         Desarrolador Frontend
       </span>
     </p>
   </header>
 
-  <section style="margin-bottom: var(--space-xl)">
+  <section class="mb-6">
     <p>
       Este sitio web es mi patio de juegos donde publico, experimento, comparto
       cosas y por sobre todo reuno mi vida digital. Adelante, explóralo…
@@ -21,35 +22,41 @@ import "../styles/presentation.css";
   </section>
 
   <section class="principal-links">
-    <div class="items">
-      <a href="/posts">
-        <span>→&nbsp;&nbsp;Posts</span>
-        <hr />
-        <span class="slash">/posts</span>
+    <div class="items grid gap-0.5">
+      <a
+        href="/posts"
+        class="grid grid-cols-[auto_1fr_auto] gap-x-1.5 no-underline group hover:opacity-60"
+      >
+        <span><span class="slide-and-out"></span>&nbsp;&nbsp;Posts</span>
+        <hr class="dashed-line" />
+        <span class="slash text-stone-400">/posts</span>
       </a>
 
-      <a href="/works">
-        <span>→&nbsp;&nbsp;Portafolio</span>
-        <hr />
-        <span class="slash">/works</span>
+      <a
+        href="/works"
+        class="grid grid-cols-[auto_1fr_auto] gap-x-1.5 no-underline group hover:opacity-60"
+      >
+        <span><span class="slide-and-out"></span>&nbsp;&nbsp;Portafolio</span>
+        <hr class="dashed-line" />
+        <span class="slash text-stone-400">/works</span>
       </a>
 
-      <a href="/about">
-        <span>→&nbsp;&nbsp;Sobre mi</span>
-        <hr />
-        <span class="slash">/about</span>
+      <a
+        href="/about"
+        class="grid grid-cols-[auto_1fr_auto] gap-x-1.5 no-underline group hover:opacity-60"
+      >
+        <span><span class="slide-and-out"></span>&nbsp;&nbsp;Sobre mi</span>
+        <hr class="dashed-line" />
+        <span class="slash text-stone-400">/about</span>
       </a>
 
-      <a href="/playlists">
-        <span>→&nbsp;&nbsp;Playlists</span>
-        <hr />
-        <span class="slash">/playlists</span>
-      </a>
-
-      <a href="/bookmarks">
-        <span>→&nbsp;&nbsp;Bookmarks</span>
-        <hr />
-        <span class="slash">/bookmarks</span>
+      <a
+        href="/bookmarks"
+        class="grid grid-cols-[auto_1fr_auto] gap-x-1.5 no-underline group hover:opacity-60"
+      >
+        <span><span class="slide-and-out"></span>&nbsp;&nbsp;Bookmarks</span>
+        <hr class="dashed-line" />
+        <span class="slash text-stone-400">/bookmarks</span>
       </a>
     </div>
   </section>

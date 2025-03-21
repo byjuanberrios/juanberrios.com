@@ -1,50 +1,24 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
-
 .single-post {
-    line-height: 165%;
     header {
-        margin-block-end: var(--space-3xl);
-        h1, p {
-            margin: 0;
-        }
         p {
-            color: var(--color-highlight);
-            font-size: var(--step--1);
-        }
-        h1 {
-            max-width: 90%;
-            text-wrap: balance;
+            opacity: 0.4;
         }
     }
-    p, ul, ol {
 
-        /* font-family: "Merriweather", serif;
-        letter-spacing: normal;
-        line-height: 190%; */
-
-        color: var(--color-black-light);
-    }
-    b, strong {
-        font-variation-settings: 'wght' 600;
-        color: var(--color-black);
-    }
-    img {
-        margin-block: var(--space-xl);
-    }
     iframe {
-        margin-block: calc(var(--space-xl) * 1.3);
+        margin-block: calc(var(--spacing) * 7);
         max-width: 100%;
         &[src^="https://www.youtube.com/"] {
-            border-radius: var(--space-2xs);
+            border-radius: var(--spacing);
             width: 100%;
             height: 100%;
             aspect-ratio: 16 / 9;
         }
     }
     .footnotes {
-        margin: var(--space-2xl) 0;
-        border-top: solid 1px var(--color-gray-darker);
-        font-size: var(--step--1);
+        margin: calc(var(--spacing) * 8) 0;
+        border-top: solid 1px var(--color-stone-300);
+        font-size: var(--text-sm);
         h2 { 
             display: none; 
         }
@@ -54,11 +28,14 @@
     }
 
     .pagination {
-        margin-block-start: var(--space-2xl);
+        margin-block-start: calc(var(--spacing) * 14);
         .pagination-item {
-            margin-block-start: var(--space-m);
+            margin-block-start: calc(var(--spacing) * 6);
             p {
-                opacity: 0.5;
+                opacity: 0.4;
+                line-height: 100%;
+                margin-bottom: calc(var(--spacing) * 0.8);
+                font-size: calc(var(--text-sm) * 1.1);
             }
         }
     }

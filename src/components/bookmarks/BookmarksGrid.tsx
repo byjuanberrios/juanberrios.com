@@ -44,21 +44,22 @@ export const BookmarksGrid = ({
         {filteredBookmarks
           .sort((a, b) => (a < b ? 1 : -1))
           .map(([year, items]) => (
-            <>
-              <p className="year">{year}</p>
-              <section className="items">
+            <div key={year} className="mb-6">
+              <p className="text-stone-400 mb-3">{year}</p>
+              <section className="grid gap-1">
                 {items.map((bookmark: Bookmark, i: number) => (
                   <a
                     href={bookmark.url}
                     target="_blank"
                     rel="noreferrer noopener"
                     key={i}
+                    className="no-decoration hover:opacity-65"
                   >
-                    <p>
+                    <p className="inline-flex items-start gap-2 m-0">
                       <img
                         src={bookmark.favicon}
                         alt="fav"
-                        style={{ borderRadius: "100%" }}
+                        className="rounded-full w-4 h-4 mt-0.5"
                       />
                       <span className="name">{bookmark.title}</span>
                     </p>

@@ -1,56 +1,86 @@
 .musicReleaseCard {
     width: 100%;
-    margin-top: calc(var(--space-xl) + var(--space-xs));
+    margin-block: calc(var(--spacing) * 7);
     header {
-        margin-bottom: var(--space-m);
         display: grid; 
         grid-template-columns: repeat(2, minmax(0, 1fr)); 
-        column-gap: var(--space-m);
+        column-gap: calc(var(--spacing) * 3.5);
         img {
-            border-radius: var(--space-3xs);
+            border-radius: calc(var(--spacing) * 2);
             margin-block: 0
         }
         .releaseData {
             display: grid; 
             align-items: flex-start; 
             align-content: flex-start; 
-            padding-top: var(--space-3xs);
+            padding-top: var(--spacing);
             p.position {
                 margin: 0;
                 font-variation-settings: 'wght' 550;
-                width: var(--space-xl);
-                height: var(--space-xl);
+                width: calc(var(--spacing) * 6);
+                height: calc(var(--spacing) * 6);
                 display:grid; 
                 place-content: center; 
-                border-radius: 9999px;
-                background-color: var(--color-highlight); 
-                color: var(--color-white);
-                margin-bottom: var(--space-xs);
-                font-size: var(--step--1);
+                border-radius: 100%;
+                background-color: var(--color-stone-200); 
+                /* color: var(--color-background-primary); */
+                margin-bottom: calc(var(--spacing) * 3);
+                /* font-size: var(--step--1); */
             }
             h2 {
                 margin-top: 0; 
-                margin-bottom: var(--space-3xs);
+                margin-bottom: 0;
                 line-height: 1.25;
             }
             h4 {
                 margin: 0; 
                 line-height: 1.25;
+                color: var(--color-stone-500);
+                font-variation-settings: 'wght' 500;
             }
-            .platformLinks {
-                margin-top: var(--space-xs);
+            .platformsLinks {
+                margin-top: calc(var(--spacing) * 4);
                 .link {
-                    line-height: 1.5;
+                    line-height: 140%;
                     a {
-                        font-size: var(--step--1);
+                        font-size: var(--text-sm);
+                        line-height: 1;
+                        margin: 0;
                     }
+                }
+            }
+        }
+    }
+    &.small {
+        /* padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5); */
+        padding: calc(var(--spacing) * 2.2) calc(var(--spacing) * 2.2);
+        /* border: solid 1px var(--color-stone-100); */
+        border-radius: calc(var(--spacing) * 2.5);
+        header {
+            grid-template-columns: calc(var(--spacing) * 24) auto;
+            margin-bottom: 0;
+            img {
+                border-radius: calc(var(--spacing) * 1.5);
+            }
+            .releaseData {
+                padding-block: calc(var(--spacing) * 1.2);
+                h2 {
+                    font-size: var(--text-base);
+                    /* margin-bottom: calc(var(--spacing) * 1); */
+                }
+                h4 {
+                    /* color: var(--color-accent-primary); */
+                    font-size: var(--text-sm)
+                }
+                .platformsLinks {
+                    margin-top: calc(var(--spacing) * 2);
                 }
             }
         }
     }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     .musicReleaseCard {
         header {
             .releaseData {
@@ -60,4 +90,4 @@
             }
         }
     }
-}
+} */

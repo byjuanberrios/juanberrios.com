@@ -10,7 +10,7 @@ import {
   getLinkdingCategories,
 } from "../scripts/linkding";
 
-import "../styles/bookmarks.css";
+// import "../styles/bookmarks.css";
 
 const bookmarks: OrderedBookmark[] = await getLinkdingBookmarks();
 const categories: string[] = await getLinkdingCategories();
@@ -22,7 +22,7 @@ const categories: string[] = await getLinkdingCategories();
 >
   <div class="bookmarks">
     <header>
-      <h1 class="inPage">Bookmarks</h1>
+      <h1 class="mb-8">Bookmarks</h1>
       <BookmarksCategories categories={categories} client:load />
     </header>
 

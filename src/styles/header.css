@@ -1,5 +1,5 @@
 header.main-header {
-    padding-block: calc(var(--space-l-xl) + var(--space-2xs));
+    padding-block: calc(var(--space-l) + var(--space-2xs));
     padding-inline: calc(var(--space-3xs) + var(--space-l));
     margin-inline: auto;
 }

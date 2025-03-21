@@ -3,8 +3,9 @@ import { getCollection } from "astro:content";
 import IndexGrid from "./posts/IndexGrid.astro";
 import InPageGrid from "./posts/InPageGrid.astro";
 
-import type { Post } from "../types/types";
-import "../styles/posts.css";
+import type { OrderedPosts, Post, RawPost } from "../types/types";
+// import "../styles/posts.css";
+import { orderPostsByYear } from "../utils/orderPostsByYear.astro";
 
 const { inPage } = Astro.props;
 
@@ -13,12 +14,53 @@ const allPosts = await getCollection("posts", ({ data }: { data: Post }) => {
 });
 ---
 
-{
-  inPage ? (
-    // Page grid
-    <InPageGrid posts={allPosts} />
-  ) : (
-    // Index grid
-    <IndexGrid posts={allPosts} />
-  )
-}
+<div>
+  <h1 class="regular mb-10">
+    Todos los <span class="bold">posts</span>
+  </h1>
+  <div class="relative">
+    {
+      Object.keys(orderedPosts)
+        .sort((yearA, yearB) => (yearA < yearB ? 1 : -1))
+        .map((year) => (
+          <div class="mb-10">
+            <p class="text-stone-400 md:absolute md:left-[-6ch] mt-4 first:mt-0">
+              {year}
+            </p>
+            {Object.keys(orderedPosts[year])
+              .sort((monthA, monthB) => (monthA < monthB ? 1 : -1))
+              .map((month) => {
+                const month_name = new Date(`1999/${month}/01`).toLocaleString(
+                  "es-ES",
+                  { month: "long" }
+                );
+                return (
+                  <>
+                    <p class="capitalize text-stone-400 mb-1">{month_name}</p>
+                    <div class="grid gap-1">
+                      {orderedPosts[year][month]
+                        .sort((postA, postB) => (postA < postB ? 1 : -1))
+                        .map((post: Post) => {
+                          const day = `${post.date.substring(8, 10)}`;
+                          return (
+                            <a
+                              class="item grid grid-cols-[auto_1fr_auto] gap-x-1.5 no-underline hover:opacity-60"
+                              href={`/posts/${post.slug}`}
+                            >
+                              <p class="whitespace-nowrap overflow-hidden m-0">
+                                {post.title}
+                              </p>
+                              <hr class="dashed-line" />
+                              <span class="text-stone-400">{day}</span>
+                            </a>
+                          );
+                        })}
+                    </div>
+                  </>
+                );
+              })}
+          </div>
+        ))
+    }
+  </div>
+</div>

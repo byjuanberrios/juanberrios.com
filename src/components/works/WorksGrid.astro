@@ -15,22 +15,32 @@ const sortByPriority = (a: { data: Work["data"] }, b: { data: Work["data"] }) =>
 works.sort(sortByPriority);
 ---
 
-<div class="items">
+<div class="mt-12">
   {
-    works.map((work: Work) => (
-      <div class="item">
-        <a class="image border-small" href={`/works/${work.data.slug}`}>
-          <Image src={work.data.cover} alt={work.data.name} loading="eager" />
+    works.map((work) => (
+      <div class="mb-12">
+        <a class="block mb-3 group" href={`/works/${work.data.slug}`}>
+          <Image
+            src={work.data.cover as ImageMetadata}
+            alt={work.data.name}
+            loading="eager"
+            class="aspect-[4/3] object-cover object-[0%_-25%] bg-stone-100 rounded-lg group-hover:bg-stone-200 transition-colors duration-300"
+          />
         </a>
-        <div class="data">
-          <h4>{work.data.name}</h4>
-          <p>{work.data.year}</p>
-          <div class="roles">
-            <p>
-              {work.data.roles.map((role) => (
-                <span>{role}</span>
+        <div class="grid grid-cols-2">
+          <div>
+            <h4 class="m-0">{work.data.name}</h4>
+            <p class="text-stone-400 text-sm m-0">
+              {work.data.roles.map((role, i) => (
+                <span>
+                  {/* {role} */}
+                  {i === work.data.roles.length - 1 ? role : `${role}, `}
+                </span>
               ))}
             </p>
+          </div>
+          <div class="w-full text-right text-stone-400">
+            <p class="m-0">{work.data.year}</p>
           </div>
         </div>
       </div>
