@@ -1,4 +1,4 @@
-export const prerender = false;
+// export const prerender = false;
 
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
@@ -8,8 +8,6 @@ import SoundWaves from "../assets/icons/SoundWaves";
 import { IconBrandLastfm } from "@tabler/icons-react";
 
 import type { LastSong } from "../types/lastfm";
-
-// import "../styles/lastfm.css";
 
 dayjs.extend(relativeTime);
 dayjs.locale("es");
