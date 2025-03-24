@@ -1,29 +1,59 @@
 ---
+import { getCollection } from "astro:content";
 import type { RawPost } from "../../types/types";
 
-const { posts } = Astro.props;
+import PostDate from "./PostDate";
+
+// import "../../styles/postsDisplay.css";
+
+const posts = await getCollection(
+  "posts",
+  (entry) => entry.data.isPublished
+).then((posts) =>
+  posts
+    .map(
+      (post): RawPost => ({
+        data: {
+          isPublished: post.data.isPublished ?? false,
+          title: post.data.title ?? "",
+          date: post.data.date ?? "",
+          summary: post.data.summary,
+          image: post.data.image,
+        },
+        slug: post.slug,
+      })
+    )
+    .sort((postA, postB) => (postA.data.date < postB.data.date ? 1 : -1))
+    .slice(0, 6)
+);
 ---
 
-<div class="posts-grid">
+<div class="mb-14">
   <h2>Últimos posts</h2>
-  <div class="grid">
+  <div class="grid gap-1 mb-3">
     {
       posts
         .sort((postA: RawPost, postB: RawPost) =>
           postA.data.date < postB.data.date ? 1 : -1
         )
         .slice(0, 6)
-        .map((post: RawPost, i: number) => {
-          const date = `${post.data.date.substring(8, 10)}/${post.data.date.substring(5, 7)}/${post.data.date.substring(2, 4)}`;
+        .map((post: RawPost) => {
           return (
-            <a class="item" href={`/posts/${post.slug}`}>
-              <p>{post.data.title}</p>
-              <hr />
-              <span>{date}</span>
+            <a
+              class="grid grid-cols-[auto_1fr_auto] gap-x-1.5 no-underline hover:opacity-60"
+              href={`/posts/${post.slug}`}
+            >
+              <p class="whitespace-nowrap overflow-hidden m-0">
+                {post.data.title}
+              </p>
+              <hr class="dashed-line" />
+              <PostDate date={post.data.date} client:load />
             </a>
           );
         })
     }
   </div>
-  <a href="/posts" class="more">Ver todos los posts</a>
+  <a href="/posts" class="more">
+    <span class="slide-and-out"></span>&nbsp;Ver todos los posts
+  </a>
 </div>

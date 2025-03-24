@@ -2,7 +2,6 @@
 import { getCollection, getEntry } from "astro:content";
 
 import Base from "../../layouts/Base.astro";
-import { sortByDate } from "../../utils/sortByDate.astro";
 import PrevNext from "../../components/posts/PrevNext.astro";
 
 import { type RawPost } from "../../types/types";
@@ -25,17 +24,22 @@ export async function getStaticPaths() {
   );
   const PostsLength = publishedPosts.length;
 
-  return publishedPosts.sort(sortByDate).map((post, i) => {
-    return {
-      params: {
-        post: post.slug,
-      },
-      props: {
-        prevPost: i + 1 === PostsLength ? null : publishedPosts[i + 1],
-        nextPost: i === 0 ? null : publishedPosts[i - 1],
-      },
-    };
-  });
+  return publishedPosts
+    .sort(
+      (a, b) =>
+        new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+    )
+    .map((post, i) => {
+      return {
+        params: {
+          post: post.slug,
+        },
+        props: {
+          prevPost: i + 1 === PostsLength ? null : publishedPosts[i + 1],
+          nextPost: i === 0 ? null : publishedPosts[i - 1],
+        },
+      };
+    });
 }
 
 const { prevPost, nextPost } = Astro.props;
@@ -47,7 +51,6 @@ const { prevPost, nextPost } = Astro.props;
       <p>Post</p>
       <h1>{post.data.title}</h1>
     </header>
-    <!-- <div class="mt-10 prose-sm lg:prose-base"> -->
     <div class="mt-12">
       <Content />
     </div>

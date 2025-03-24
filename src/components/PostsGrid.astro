@@ -9,9 +9,22 @@ import { orderPostsByYear } from "../utils/orderPostsByYear.astro";
 
 const { inPage } = Astro.props;
 
-const allPosts = await getCollection("posts", ({ data }: { data: Post }) => {
-  return data.isPublished === true;
+const allPosts = await getCollection("posts", (entry) => {
+  return entry.data.isPublished === true;
 });
+
+const rawPosts: RawPost[] = allPosts.map((post) => ({
+  data: {
+    isPublished: post.data.isPublished ?? false,
+    title: post.data.title ?? "",
+    date: post.data.date ?? "",
+    summary: post.data.summary,
+    image: post.data.image,
+  },
+  slug: post.slug,
+}));
+
+const orderedPosts: OrderedPosts = orderPostsByYear(rawPosts);
 ---
 
 <div>

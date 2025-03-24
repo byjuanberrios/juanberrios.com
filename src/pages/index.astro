@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Presentation from "../components/Presentation.astro";
 import { Updates } from "../components/now/Updates";
-import IndexPostsDisplay from "../components/posts/IndexPostsDisplay.astro";
+import IndexGrid from "../components/posts/IndexGrid.astro";
 import { Lastfm } from "../components/Lastfm";
 ---
 
@@ -14,7 +14,7 @@ import { Lastfm } from "../components/Lastfm";
   <Updates client:idle />
 
   <!-- Posts Grid -->
-  <PostsGrid />
+  <IndexGrid />
 
   <!-- Last.fm -->
   <Lastfm client:idle />

@@ -2,8 +2,15 @@
 import { Image } from "astro:assets";
 import "../styles/featuredMusic.css";
 
-const { image, artist, releaseName, position, appleMusicUrl, spotifyUrl } =
-  Astro.props;
+const {
+  image,
+  artist,
+  releaseName,
+  position,
+  appleMusicUrl,
+  spotifyUrl,
+  small = false,
+} = Astro.props;
 ---
 
 <div
@@ -16,9 +23,7 @@ const { image, artist, releaseName, position, appleMusicUrl, spotifyUrl } =
       inferSize={true}
     />
     <div class="releaseData">
-      <p class="position">
-        {position}
-      </p>
+      {!small && <p class="position">{position}</p>}
       <h2 style="">
         {releaseName}
       </h2>

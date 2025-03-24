@@ -1,9 +1,10 @@
 ---
-import { sortByDate } from "./sortByDate.astro";
 import type { OrderedPosts, RawPost } from "../types/types";
 
 export const orderPostsByYear = (posts: RawPost[]) => {
-  let allPostsByDate = posts.sort(sortByDate);
+  let allPostsByDate = posts.sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  );
 
   return allPostsByDate.reduce((acc: OrderedPosts, actualPost) => {
     const year: string = actualPost.data.date.substring(0, 4);

@@ -46,7 +46,7 @@ export const Lastfm = () => {
             </a>
           </div>
         </header>
-        <div className="grid items-center grid-cols-[70px_auto] gap-3 w-full">
+        <div className="grid items-center grid-cols-[70px_auto] gap-3 w-full animate-loading">
           <div className="rounded aspect-square bg-stone-200"></div>
           <div className="grid gap-1.5">
             <div className="w-24 h-2 bg-stone-300"></div>
@@ -67,11 +67,11 @@ export const Lastfm = () => {
           <h2 className="m-0">Escuchando</h2>
           <div className="flex gap-0.5 text-xs">
             {playDate ? (
-              <p className="m-0 inline-block text-wrap first-letter:uppercase bg-stone-200 py-1 px-1.5 rounded-lg">
+              <p className="m-0 inline-block text-wrap first-letter:uppercase bg-stone-200 dark:bg-stone-700 py-1 px-1.5 rounded-lg">
                 {dayjs(playDate.uts).fromNow()}
               </p>
             ) : (
-              <p className="m-0 flex items-center gap-1 bg-lime-300 py-1 px-1.5 rounded-lg">
+              <p className="m-0 flex items-center gap-1 bg-lime-300 dark:text-stone-900 py-1 px-1.5 rounded-lg">
                 <SoundWaves />
                 <span>Ahora</span>
               </p>

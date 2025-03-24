@@ -66,7 +66,7 @@ export const BookmarksGrid = ({
                   </a>
                 ))}
               </section>
-            </>
+            </div>
           ))}
       </div>
     </>

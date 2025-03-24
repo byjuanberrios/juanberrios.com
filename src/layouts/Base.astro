@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -76,7 +76,7 @@ const socialImageURL = new URL(socialImage.src, Astro.url);
     <meta name="twitter:domain" content="juanberrios.com" />
     <meta name="twitter:creator" content="@byjuanberrios" />
 
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body
     class={`${alt && "alt"} bg-stone-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 font-sans text-base tracking-normal`}

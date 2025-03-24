@@ -7,6 +7,18 @@ import { type Work } from "../../types/types";
 
 // import "../../styles/works.css";
 
+type Props = {
+  name: string;
+  year: number;
+  roles: string[];
+  services: string[];
+  tech: string[];
+  client: string;
+  description: string[];
+  externalLink: string | null;
+  images: ImageMetadata[] | null;
+};
+
 const { work } = Astro.params;
 if (!work) throw new Error("Slug not found");
 
@@ -42,7 +54,7 @@ const {
   description,
   externalLink,
   images,
-}: Work["data"] = Astro.props;
+}: Props = Astro.props;
 ---
 
 <Base title={name}>
