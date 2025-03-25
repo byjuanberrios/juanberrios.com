@@ -79,6 +79,7 @@ export async function GET(context: APIContext) {
     return new Response(
       JSON.stringify({
         error: error instanceof Error ? error.message : "Error desconocido",
+        details: error,
       }),
       {
         status: 500,

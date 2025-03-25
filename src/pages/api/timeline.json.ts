@@ -66,6 +66,7 @@ export async function GET(context: APIContext) {
     return new Response(
       JSON.stringify({
         error: "Error al obtener las actualizaciones",
+        details: error,
       }),
       {
         status: 500,
