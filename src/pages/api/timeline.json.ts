@@ -9,6 +9,11 @@ import type { APIContext } from "astro";
 // Cache por 5 minutos
 const CACHE_MAX_AGE = 300;
 
+// Función helper para codificar en base64 de manera segura con caracteres Unicode
+function safeBase64Encode(str: string): string {
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
 export async function GET(context: APIContext) {
   try {
     const runtime = context.locals.runtime;
@@ -41,10 +46,15 @@ export async function GET(context: APIContext) {
     const timeline = await Promise.all(
       pagesResults.map(async (result: any) => {
         const date = result.properties.Date.date.start;
+        console.log("date", date);
         const pageId = result.id;
+        console.log("pageId", pageId);
         const mdBlocks = await n2m.pageToMarkdown(pageId);
+        console.log("mdBlocks", mdBlocks);
         const markdownObject = n2m.toMarkdownString(mdBlocks);
+        console.log("markdownObject", markdownObject);
         const htmlContent = marked(markdownObject.parent);
+        console.log("htmlContent", htmlContent);
 
         return {
           date,
@@ -58,15 +68,14 @@ export async function GET(context: APIContext) {
       headers: {
         "Content-Type": "application/json",
         "Cache-Control": `public, max-age=${CACHE_MAX_AGE}`,
-        ETag: Buffer.from(JSON.stringify(timeline)).toString("base64"),
+        ETag: safeBase64Encode(JSON.stringify(timeline)),
       },
     });
   } catch (error) {
     console.error("Error en timeline.json:", error);
     return new Response(
       JSON.stringify({
-        error: "Error al obtener las actualizaciones",
-        details: error,
+        error: error instanceof Error ? error.message : "Error desconocido",
       }),
       {
         status: 500,

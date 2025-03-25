@@ -6,6 +6,11 @@ import type { LastFMResponse } from "../../types/lastfm";
 // Cache por 30 segundos ya que es información en tiempo real
 const CACHE_MAX_AGE = 30;
 
+// Función helper para codificar en base64 de manera segura con caracteres Unicode
+function safeBase64Encode(str: string): string {
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
 export async function GET(context: APIContext) {
   try {
     const runtime = context.locals.runtime;
@@ -71,7 +76,7 @@ export async function GET(context: APIContext) {
       headers: {
         "Content-Type": "application/json",
         "Cache-Control": `public, max-age=${CACHE_MAX_AGE}`,
-        ETag: Buffer.from(JSON.stringify(result)).toString("base64"),
+        ETag: safeBase64Encode(JSON.stringify(result)),
       },
     });
   } catch (error) {
@@ -79,7 +84,6 @@ export async function GET(context: APIContext) {
     return new Response(
       JSON.stringify({
         error: error instanceof Error ? error.message : "Error desconocido",
-        details: error,
       }),
       {
         status: 500,
