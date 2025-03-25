@@ -6,8 +6,6 @@ import Footer from "../components/Footer.astro";
 
 import socialImage from "../../src/assets/images/social.png";
 
-// import "../styles/reset.css";
-// import "../styles/fonts.css";
 import "../styles/app.css";
 
 const { title, description, alt = false } = Astro.props;
@@ -82,7 +80,6 @@ const socialImageURL = new URL(socialImage.src, Astro.url);
     class={`${alt && "alt"} bg-stone-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 font-sans text-base tracking-normal`}
   >
     <Header currentPath={currentPath} />
-    <!-- <main class="base-spacing max-spacing base-top-padding"> -->
     <main class="max-w-[647px] px-5 m-auto mt-24">
       <slot />
     </main>

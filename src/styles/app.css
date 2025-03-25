@@ -46,14 +46,6 @@ body {
     }
 }
 
-/* .with-serif {
-    font-family: "Merriweather", serif;
-    letter-spacing: normal;
-    line-height: 190%;
-    font-size: calc(var(--step-0) * 0.95);
-     font-family: "Merriweather", serif;
-} */
-
 @layer base {
     p,
     ol,

@@ -4,8 +4,6 @@ import type { RawPost } from "../../types/types";
 
 import PostDate from "./PostDate";
 
-// import "../../styles/postsDisplay.css";
-
 const posts = await getCollection(
   "posts",
   (entry) => entry.data.isPublished
@@ -29,7 +27,7 @@ const posts = await getCollection(
 ---
 
 <div class="mb-14">
-  <h2>Últimos posts</h2>
+  <h2 class="mb-3">Últimos posts</h2>
   <div class="grid gap-1 mb-3">
     {
       posts

@@ -1,13 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import IndexGrid from "./posts/IndexGrid.astro";
-import InPageGrid from "./posts/InPageGrid.astro";
 
-import type { OrderedPosts, Post, RawPost } from "../types/types";
-// import "../styles/posts.css";
-import { orderPostsByYear } from "../utils/orderPostsByYear.astro";
-
-const { inPage } = Astro.props;
+import type { OrderedPosts, Post, RawPost } from "../../types/types";
+import { orderPostsByYear } from "../../utils/orderPostsByYear.astro";
 
 const allPosts = await getCollection("posts", (entry) => {
   return entry.data.isPublished === true;
