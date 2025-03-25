@@ -1,4 +1,4 @@
-// export const prerender = false;
+export const prerender = false;
 
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
