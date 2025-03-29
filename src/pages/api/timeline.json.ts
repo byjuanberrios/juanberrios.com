@@ -5,14 +5,12 @@ import { NotionToMarkdown } from "notion-to-md";
 import { marked } from "marked";
 
 import type { APIContext } from "astro";
+import type { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { TimelinePageResponse } from "../../types/notion";
+import { generateETag } from "../../utils/generateETag";
 
-// Cache por 5 minutos
+// 5 minutes cache
 const CACHE_MAX_AGE = 300;
-
-// Función helper para codificar en base64 de manera segura con caracteres Unicode
-function safeBase64Encode(str: string): string {
-  return btoa(unescape(encodeURIComponent(str)));
-}
 
 export async function GET(context: APIContext) {
   try {
@@ -26,7 +24,7 @@ export async function GET(context: APIContext) {
     const notion = new Client({ auth: NOTION_TOKEN });
     const n2m = new NotionToMarkdown({ notionClient: notion });
 
-    const pages = await notion.databases.query({
+    const pages: QueryDatabaseResponse = await notion.databases.query({
       database_id: NOTION_TIMELINE_DATABASE_ID,
       sorts: [
         {
@@ -37,28 +35,34 @@ export async function GET(context: APIContext) {
       page_size: 4,
     });
 
-    const pagesResults = pages.results.filter((result: any) => {
+    const pagesResults = pages.results.filter((result) => {
+      const page = result as TimelinePageResponse;
       return (
-        result.properties.Date.date !== null && result.properties.Texto.title[0]
+        page.properties.Date.date !== null && page.properties.Texto.title[0]
       );
     });
 
     const timeline = await Promise.all(
-      pagesResults.map(async (result: any) => {
-        const date = result.properties.Date.date.start;
-        console.log("date", date);
-        const pageId = result.id;
-        console.log("pageId", pageId);
-        const mdBlocks = await n2m.pageToMarkdown(pageId);
-        console.log("mdBlocks", mdBlocks);
+      pagesResults.map(async (pageResult) => {
+        const page = pageResult as TimelinePageResponse;
+        const date = page.properties.Date.date.start;
+        const mdBlocks = await n2m.pageToMarkdown(page.id);
         const markdownObject = n2m.toMarkdownString(mdBlocks);
-        console.log("markdownObject", markdownObject);
-        const htmlContent = marked(markdownObject.parent);
-        console.log("htmlContent", htmlContent);
+
+        const htmlContent =
+          Object.keys(markdownObject).length !== 0 // Check if there is content
+            ? marked(markdownObject.parent)
+            : undefined;
+
+        const imageUrls =
+          page.properties.images?.rich_text
+            .filter((item) => item.text.link)
+            .map((item: any) => item.text.link.url) ?? undefined;
 
         return {
           date,
           html: htmlContent,
+          images: imageUrls,
         };
       })
     );
@@ -68,7 +72,7 @@ export async function GET(context: APIContext) {
       headers: {
         "Content-Type": "application/json",
         "Cache-Control": `public, max-age=${CACHE_MAX_AGE}`,
-        ETag: safeBase64Encode(JSON.stringify(timeline)),
+        ETag: await generateETag(timeline),
       },
     });
   } catch (error) {

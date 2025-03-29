@@ -32,6 +32,9 @@ importers:
       '@notionhq/client':
         specifier: ^2.2.15
         version: 2.3.0
+      '@splidejs/splide':
+        specifier: ^4.1.4
+        version: 4.1.4
       '@tabler/icons-react':
         specifier: ^3.4.0
         version: 3.31.0(react@18.3.1)
@@ -54,7 +57,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.5
       astro-loading-indicator:
-        specifier: ^0.6.0
+        specifier: ^0.6.1
         version: 0.6.1(astro@5.5.4(@types/node@22.13.13)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.37.0)(typescript@5.8.2)(yaml@2.7.0))
       cmdk:
         specifier: ^1.0.0
@@ -1267,6 +1270,9 @@ packages:
 
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
+
+  '@splidejs/splide@4.1.4':
+    resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
 
   '@tabler/icons-react@3.31.0':
     resolution: {integrity: sha512-2rrCM5y/VnaVKnORpDdAua9SEGuJKVqPtWxeQ/vUVsgaUx30LDgBZph7/lterXxDY1IKR6NO//HDhWiifXTi3w==}
@@ -4526,6 +4532,8 @@ snapshots:
       '@types/hast': 3.0.4
 
   '@shikijs/vscode-textmate@10.0.2': {}
+
+  '@splidejs/splide@4.1.4': {}
 
   '@tabler/icons-react@3.31.0(react@18.3.1)':
     dependencies:

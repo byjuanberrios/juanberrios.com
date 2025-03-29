@@ -2,14 +2,10 @@ export const prerender = false;
 
 import type { APIContext } from "astro";
 import type { LastFMResponse } from "../../types/lastfm";
+import { generateETag } from "../../utils/generateETag";
 
-// Cache por 30 segundos ya que es información en tiempo real
-const CACHE_MAX_AGE = 30;
-
-// Función helper para codificar en base64 de manera segura con caracteres Unicode
-function safeBase64Encode(str: string): string {
-  return btoa(unescape(encodeURIComponent(str)));
-}
+// 25 seconds cache
+const CACHE_MAX_AGE = 25;
 
 export async function GET(context: APIContext) {
   try {
@@ -76,7 +72,7 @@ export async function GET(context: APIContext) {
       headers: {
         "Content-Type": "application/json",
         "Cache-Control": `public, max-age=${CACHE_MAX_AGE}`,
-        ETag: safeBase64Encode(JSON.stringify(result)),
+        ETag: await generateETag(result),
       },
     });
   } catch (error) {

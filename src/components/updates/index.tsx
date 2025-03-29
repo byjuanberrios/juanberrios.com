@@ -1,6 +1,8 @@
 export const prerender = false;
 
 import { useEffect, useState } from "react";
+import Carousel from "../Carousel";
+
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/es";
@@ -11,6 +13,7 @@ dayjs.locale("es");
 interface TimelineItem {
   date: string;
   html: string;
+  images?: string[];
 }
 
 export const Updates = () => {
@@ -50,7 +53,7 @@ export const Updates = () => {
     return (
       <div className="updates mb-14">
         <h2 className="mb-4">Updates</h2>
-        <div className="grid gap-3.5 animate-loading">
+        <div className="grid gap-4 animate-loading">
           <div>
             <div className="grid gap-1.5">
               <div className="w-5 h-2 bg-stone-200 dark:bg-stone-800"></div>
@@ -87,16 +90,20 @@ export const Updates = () => {
   return (
     <div className="updates mb-14">
       <h2 className="mb-4">Updates</h2>
-      <div className="grid gap-3.5">
+      <div className="grid gap-4">
         {data?.map((item: TimelineItem, index: number) => (
           <div key={item.date + index} className="pr-1">
-            <p className="date text-pretty opacity-50 m-0 mb-0.5 text-sm first-letter:uppercase">
-              {dayjs(item.date).fromNow()}
-            </p>
+            <div className="inline-flex gap-1 text-stone-400">
+              <p className="m-0 mb-0.5 text-xs leading-[160%]">❯</p>
+              <p className="date text-pretty m-0 mb-0.5 text-sm first-letter:uppercase">
+                {dayjs(item.date).fromNow()}
+              </p>
+            </div>
             <div
               className="content"
               dangerouslySetInnerHTML={{ __html: item.html }}
             />
+            {item.images?.length ? <Carousel images={item.images} /> : ""}
           </div>
         ))}
       </div>

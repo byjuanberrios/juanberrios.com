@@ -13,7 +13,7 @@ import { LastfmLink } from "./LastfmLink";
 dayjs.extend(relativeTime);
 dayjs.locale("es");
 
-const POLLING_INTERVAL = 30000; // 30 segundos
+const POLLING_INTERVAL = 30000; // 30 seconds interval
 
 interface LastfmProps {
   className?: string;
@@ -46,10 +46,11 @@ export const Listening = ({ className = "" }: LastfmProps) => {
   useEffect(() => {
     fetchLastSong();
 
-    // Configurar polling solo si la canción está reproduciéndose
+    // Polling only if a song is playing
     const interval = setInterval(() => {
       if (data?.isNowPlaying) {
-        fetchLastSong();
+        // Random delay between 0 and 5 seconds
+        setTimeout(fetchLastSong, Math.random() * 5000);
       }
     }, POLLING_INTERVAL);
 

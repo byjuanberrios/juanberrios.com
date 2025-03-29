@@ -20,7 +20,6 @@
     --text-9xl: clamp(3.5399rem, 2.5022rem + 4.612vw, 6.1917rem);
     --spacing: clamp(0.3rem, 0.8261rem + 0.2174vi, 0.3rem);
     --tracking-normal: calc(var(--text-base) * 3.5 / 100);
-    /*  */
     --animate-loading: loading 1.5s ease-in-out infinite;
     @keyframes loading {
         50% {
@@ -276,7 +275,7 @@ strong, b, .bold {
 }
 
 .updates .content p {
-    @apply m-0;
+    @apply m-0 leading-relaxed;
 }
 
 blockquote {
@@ -302,7 +301,6 @@ hr {
 
   .slide-and-out {
     display: inline-block;
-    /* width: 20px; */
     width: 18px;
     height: 20px;
     position: relative;
@@ -324,3 +322,19 @@ hr {
   a:hover .slide-and-out:after {
     animation: slide-and-out 1s ease-in-out forwards;
   }
+
+
+.carouselWrapper {
+    
+    & .carousel {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+      
+    & .carousel::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+
+  
