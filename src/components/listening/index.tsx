@@ -8,7 +8,6 @@ import SoundWaves from "../../assets/icons/SoundWaves";
 
 import type { LastSong } from "../../types/lastfm";
 import { LoadingSkeleton } from "./Loading";
-import { LastfmLink } from "./LastfmLink";
 
 dayjs.extend(relativeTime);
 dayjs.locale("es");
@@ -61,8 +60,7 @@ export const Listening = ({ className = "" }: LastfmProps) => {
     return (
       <div className={className}>
         <header className="flex items-center justify-between mb-3 w-full">
-          <h2 className="m-0">Escuchando</h2>
-          <LastfmLink />
+          <h3 className="m-0">Escuchando</h3>
         </header>
         <p className="text-red-500">Error: {error}</p>
       </div>
@@ -83,7 +81,7 @@ export const Listening = ({ className = "" }: LastfmProps) => {
     <div className={className}>
       <header className="flex items-center justify-between mb-3 w-full">
         <div className="title-date flex items-center gap-2">
-          <h2 className="m-0">Escuchando</h2>
+          <h3 className="m-0">Escuchando</h3>
           <div className="flex gap-0.5 text-xs">
             {!isNowPlaying ? (
               <p className="m-0 inline-block text-wrap first-letter:uppercase bg-stone-200 dark:bg-stone-700 py-1 px-1.5 rounded-lg">
@@ -97,7 +95,6 @@ export const Listening = ({ className = "" }: LastfmProps) => {
             )}
           </div>
         </div>
-        <LastfmLink />
       </header>
       <div className="grid items-center grid-cols-[70px_auto] gap-3 w-full">
         <img

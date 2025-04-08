@@ -18,8 +18,8 @@ export const BookmarksCategories = ({
             key={i}
             className={`${
               selectedCategory === category
-                ? "bg-stone-900 text-white"
-                : "bg-stone-200 hover:bg-stone-300"
+                ? "bg-stone-900 dark:bg-stone-700 text-white"
+                : "bg-stone-200 dark:text-stone-900 hover:bg-stone-300"
             } rounded-full py-1 px-2.5 text-sm cursor-pointer transition ease-in-out duration-300`}
             onClick={() => updateCategory(category)}
           >

@@ -2,20 +2,13 @@
 import Base from "../layouts/Base.astro";
 import Presentation from "../components/Presentation.astro";
 import { Updates } from "../components/updates";
-import IndexGrid from "../components/posts/IndexGrid.astro";
 import { Listening } from "../components/listening";
 ---
 
 <Base>
-  <!-- Presentation -->
   <Presentation />
 
-  <!-- Updates -->
+  <Listening className="mb-12" client:idle />
+
   <Updates client:load />
-
-  <!-- Últimos posts -->
-  <IndexGrid />
-
-  <!-- Last.fm -->
-  <Listening client:idle />
 </Base>

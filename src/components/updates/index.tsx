@@ -42,7 +42,7 @@ export const Updates = () => {
 
   if (error) {
     return (
-      <div className="updates mb-14">
+      <div className="updates">
         <h2 className="mb-4">Updates</h2>
         <p className="text-red-500">Error: {error}</p>
       </div>
@@ -51,8 +51,8 @@ export const Updates = () => {
 
   if (isLoading) {
     return (
-      <div className="updates mb-14">
-        <h2 className="mb-4">Updates</h2>
+      <div className="updates">
+        <h3 className="mb-3">Updates</h3>
         <div className="grid gap-4 animate-loading">
           <div>
             <div className="grid gap-1.5">
@@ -88,13 +88,15 @@ export const Updates = () => {
   }
 
   return (
-    <div className="updates mb-14">
-      <h2 className="mb-4">Updates</h2>
-      <div className="grid gap-4">
+    <div className="updates">
+      <h3 className="mb-3">Updates</h3>
+      <div className="grid gap-3">
         {data?.map((item: TimelineItem, index: number) => (
           <div key={item.date + index} className="pr-1">
-            <div className="inline-flex gap-1 text-stone-400">
-              <p className="m-0 mb-0.5 text-xs leading-[160%]">❯</p>
+            <div className="inline-flex gap-1 text-stone-400 dark:text-stone-500">
+              <p className="m-0 mb-0.5 text-xs leading-[160%] text-stone-400 dark:text-stone-500">
+                ❯
+              </p>
               <p className="date text-pretty m-0 mb-0.5 text-sm first-letter:uppercase">
                 {dayjs(item.date).fromNow()}
               </p>

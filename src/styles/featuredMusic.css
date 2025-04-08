@@ -80,14 +80,15 @@
     }
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     .musicReleaseCard {
         header {
             .releaseData {
                 p.position {
-                    background-color: var(--color-lightning); 
+                    background-color: var(--color-stone-600);
+                    color: var(--color-stone-100);
                 }
             }
         }
     }
-} */
+}
