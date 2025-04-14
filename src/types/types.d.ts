@@ -32,7 +32,7 @@ export type Post = {
   date: string;
   summary?: string;
   image?: string;
-  slug: string;
+  slug?: string;
 };
 
 export type OrderedPosts = {
