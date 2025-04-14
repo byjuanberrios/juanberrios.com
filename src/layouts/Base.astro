@@ -80,7 +80,7 @@ const socialImageURL = new URL(socialImage.src, Astro.url);
     class={`${alt && "alt"} bg-stone-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 font-sans text-base tracking-normal`}
   >
     <Header currentPath={currentPath} />
-    <main class="max-w-[647px] px-5 m-auto mt-24">
+    <main class="max-w-[647px] px-5 m-auto mt-16 md:mt-20">
       <slot />
     </main>
     <Footer class="base-spacing max-spacing" />

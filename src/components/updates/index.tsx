@@ -77,7 +77,6 @@ export const Updates = () => {
       <Header />
       <div className="grid gap-3">
         {data?.map((item, index) => (
-          // <TimelineItem key={item.date + index} item={item} />
           <div className="pr-1" key={item.date + index}>
             <div className="inline-flex gap-1 text-stone-400 dark:text-stone-500">
               <p className="m-0 text-xs leading-[160%] text-stone-400 dark:text-stone-500">
