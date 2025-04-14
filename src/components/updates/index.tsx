@@ -1,6 +1,7 @@
 export const prerender = false;
 
 import { useEffect, useState } from "react";
+import LoadingSkeleton from "./LoadingSkeleton";
 import Carousel from "../Carousel";
 
 import dayjs from "dayjs";
@@ -40,6 +41,13 @@ export const Updates = () => {
     fetchData();
   }, []);
 
+  const Header = () => (
+    <header className="mb-6">
+      <h1>Microblog</h1>
+      <p>Actualizaciones cortas sobre lo que estoy haciendo.</p>
+    </header>
+  );
+
   if (error) {
     return (
       <div className="updates">
@@ -52,36 +60,13 @@ export const Updates = () => {
   if (isLoading) {
     return (
       <div className="updates">
-        <h3 className="mb-3">Updates</h3>
+        <Header />
         <div className="grid gap-4 animate-loading">
-          <div>
-            <div className="grid gap-1.5">
-              <div className="w-5 h-2 bg-stone-200 dark:bg-stone-800"></div>
-              <div className="w-full h-3 bg-stone-300 dark:bg-stone-700"></div>
-              <div className="w-1/2 h-3 bg-stone-300 dark:bg-stone-700"></div>
+          {[...Array(4)].map((_, i) => (
+            <div key={i}>
+              <LoadingSkeleton />
             </div>
-          </div>
-          <div>
-            <div className="timeline-item grid gap-1.5">
-              <div className="dateX w-5 h-2 bg-stone-200 dark:bg-stone-800"></div>
-              <div className="p w-full h-3 bg-stone-300 dark:bg-stone-700"></div>
-              <div className="p w-1/2 h-3 bg-stone-300 dark:bg-stone-700"></div>
-            </div>
-          </div>
-          <div>
-            <div className="timeline-item grid gap-1.5">
-              <div className="dateX w-5 h-2 bg-stone-200 dark:bg-stone-800"></div>
-              <div className="p w-full h-3 bg-stone-300 dark:bg-stone-700"></div>
-              <div className="p w-1/2 h-3 bg-stone-300 dark:bg-stone-700"></div>
-            </div>
-          </div>
-          <div>
-            <div className="timeline-item grid gap-1.5">
-              <div className="dateX w-5 h-2 bg-stone-200 dark:bg-stone-800"></div>
-              <div className="p w-full h-3 bg-stone-300 dark:bg-stone-700"></div>
-              <div className="p w-1/2 h-3 bg-stone-300 dark:bg-stone-700"></div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     );
@@ -89,12 +74,13 @@ export const Updates = () => {
 
   return (
     <div className="updates">
-      <h3 className="mb-3">Updates</h3>
+      <Header />
       <div className="grid gap-3">
-        {data?.map((item: TimelineItem, index: number) => (
-          <div key={item.date + index} className="pr-1">
+        {data?.map((item, index) => (
+          // <TimelineItem key={item.date + index} item={item} />
+          <div className="pr-1" key={item.date + index}>
             <div className="inline-flex gap-1 text-stone-400 dark:text-stone-500">
-              <p className="m-0 mb-0.5 text-xs leading-[160%] text-stone-400 dark:text-stone-500">
+              <p className="m-0 text-xs leading-[160%] text-stone-400 dark:text-stone-500">
                 ❯
               </p>
               <p className="date text-pretty m-0 mb-0.5 text-sm first-letter:uppercase">
@@ -105,7 +91,7 @@ export const Updates = () => {
               className="content"
               dangerouslySetInnerHTML={{ __html: item.html }}
             />
-            {item.images?.length ? <Carousel images={item.images} /> : ""}
+            {item.images?.length ? <Carousel images={item.images} /> : null}
           </div>
         ))}
       </div>

@@ -3,11 +3,7 @@ import { useStore } from "@nanostores/react";
 import { $bookmarkCategory } from "../../store/nano";
 import type { Bookmark, OrderedBookmark } from "../../types/types";
 
-export const BookmarksGrid = ({
-  bookmarks,
-}: {
-  bookmarks: OrderedBookmark[];
-}) => {
+export const LinksGrid = ({ bookmarks }: { bookmarks: OrderedBookmark[] }) => {
   const selectedCategory: string = useStore($bookmarkCategory);
   const [filteredBookmarks, setFilteredBookmarks] =
     useState<OrderedBookmark[]>(bookmarks);

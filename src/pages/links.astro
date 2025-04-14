@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
-import { BookmarksCategories } from "../components/bookmarks/BookmarksCategories";
-import { BookmarksGrid } from "../components/bookmarks/BookmarksGrid";
+import { LinksCategories } from "../components/bookmarks/LinksCategories";
+import { LinksGrid } from "../components/bookmarks/LinksGrid";
 
 import type { OrderedBookmark } from "../types/types";
 
@@ -15,15 +15,15 @@ const categories: string[] = await getLinkdingCategories();
 ---
 
 <Base
-  title="Bookmarks"
+  title="Links"
   description="Algunos de los marcadores de mi lista personal de Linkding"
 >
-  <div class="bookmarks">
+  <div class="links">
     <header>
-      <h1 class="mb-8">Bookmarks</h1>
-      <BookmarksCategories categories={categories} client:load />
+      <h1 class="mb-8">Links</h1>
+      <LinksCategories categories={categories} client:load />
     </header>
 
-    <BookmarksGrid bookmarks={bookmarks} client:load />
+    <LinksGrid bookmarks={bookmarks} client:load />
   </div>
 </Base>

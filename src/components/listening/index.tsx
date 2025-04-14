@@ -96,7 +96,10 @@ export const Listening = ({ className = "" }: LastfmProps) => {
           </div>
         </div>
       </header>
-      <div className="grid items-center grid-cols-[70px_auto] gap-3 w-full">
+      <div
+        className="grid items-center grid-cols-[70px_auto] gap-3 w-full"
+        style={{ backgroundImage: `url:(${image})` }}
+      >
         <img
           className="cover rounded bg-stone-200 w-[70px] h-[70px]"
           src={image}

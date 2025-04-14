@@ -16,6 +16,7 @@ export default defineConfig({
   redirects: {
     '/blog': '/posts',
     "/blog/[post]": "/posts/[post]",
+    "/bookmarks": "/links",
   },
   adapter: cloudflare(),
 });

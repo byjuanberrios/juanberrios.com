@@ -1,14 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import Presentation from "../components/Presentation.astro";
-import { Updates } from "../components/updates";
 import { Listening } from "../components/listening";
 ---
 
 <Base>
   <Presentation />
 
-  <Listening className="mb-12" client:idle />
-
-  <Updates client:load />
+  <Listening className="mt-12" client:idle />
 </Base>

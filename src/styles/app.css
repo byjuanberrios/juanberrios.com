@@ -316,12 +316,13 @@ hr {
     height: 20px;
     position: relative;
     overflow: hidden;
+    margin-right: 2px;
 
     &:after {
         content: "→ →";
         position: absolute;
         width: 34px;
-        height: 20px;
+        height: 15px;
         top: 0;
         left: 0;
         right: 0;
@@ -329,6 +330,15 @@ hr {
         margin: auto;
         text-align: center;
         transform: translateX(-50%);
+    }
+}
+
+@media (min-width: 768px) {
+    .slide-and-out {
+        margin-right: 4px;
+        &:after {
+            height: 18px;
+        }
     }
 }
 

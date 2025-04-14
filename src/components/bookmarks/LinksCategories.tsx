@@ -1,13 +1,7 @@
-// import { useState } from "react";
-
 import { useStore } from "@nanostores/react";
 import { $bookmarkCategory, updateCategory } from "../../store/nano";
 
-export const BookmarksCategories = ({
-  categories,
-}: {
-  categories: string[];
-}) => {
+export const LinksCategories = ({ categories }: { categories: string[] }) => {
   const selectedCategory = useStore($bookmarkCategory);
 
   return (
