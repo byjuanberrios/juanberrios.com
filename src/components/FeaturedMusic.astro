@@ -13,7 +13,9 @@ const {
 } = Astro.props;
 ---
 
-<div class={`musicReleaseCard ${small && "small"}`}>
+<div
+  class={`musicReleaseCard ${small && "small bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-800"} `}
+>
   <header>
     <Image
       src={image}
@@ -21,12 +23,12 @@ const {
       inferSize={true}
     />
     <div class="releaseData">
-      {position && <p class="position">{position}</p>}
-      <h2>
+      {!small && <p class="position">{position}</p>}
+      <h2 style="">
         {releaseName}
       </h2>
       <h4>{artist}</h4>
-      <div class="platformLinks">
+      <div class="platformsLinks">
         {
           appleMusicUrl && (
             <div class="link">

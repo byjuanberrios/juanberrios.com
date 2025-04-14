@@ -1,49 +1,24 @@
-
 .single-post {
-    line-height: 165%;
     header {
-        margin-block-end: var(--space-2xl);
-        h1, p {
-            margin: 0;
-        }
         p {
-            color: var(--color-accent-primary);
-            font-size: var(--step--1);
-            margin-bottom: var(--space-3xs);
-        }
-        h1 {
-            max-width: 90%;
-            text-wrap: balance;
+            opacity: 0.4;
         }
     }
-    p, ul, ol {
-        color: var(--color-foreground-secondary);
-        font-size: 103%;
-        line-height: 170%;
-        text-wrap: pretty;
-        margin-bottom: var(--space-m);
-    }
-    b, strong {
-        font-variation-settings: 'wght' 600;
-        color: var(--color-foreground-tertiary);
-    }
-    img {
-        margin-block: var(--space-xl);
-    }
+
     iframe {
-        margin-block: calc(var(--space-xl) * 1.3);
+        margin-block: calc(var(--spacing) * 7);
         max-width: 100%;
         &[src^="https://www.youtube.com/"] {
-            border-radius: var(--space-2xs);
+            border-radius: var(--spacing);
             width: 100%;
             height: 100%;
             aspect-ratio: 16 / 9;
         }
     }
     .footnotes {
-        margin: var(--space-2xl) 0;
-        border-top: solid 1px var(--color-background-quaternary);
-        font-size: var(--step--1);
+        margin: calc(var(--spacing) * 8) 0;
+        border-top: solid 1px var(--color-stone-300);
+        font-size: var(--text-sm);
         h2 { 
             display: none; 
         }
@@ -52,13 +27,14 @@
         }
     }
     .pagination {
-        margin-block-start: var(--space-2xl);
+        margin-block-start: calc(var(--spacing) * 14);
         .pagination-item {
-            margin-block-start: var(--space-xl);
+            margin-block-start: calc(var(--spacing) * 6);
             p {
-                opacity: 0.5;
+                opacity: 0.4;
                 line-height: 100%;
-                margin-bottom: var(--space-2xs);
+                margin-bottom: calc(var(--spacing) * 0.8);
+                font-size: calc(var(--text-sm) * 1.1);
             }
         }
     }

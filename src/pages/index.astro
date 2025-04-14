@@ -1,22 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import Presentation from "../components/Presentation.astro";
-import { Timeline } from "../components/now/Timeline";
-import IndexPostsDisplay from "../components/posts/IndexPostsDisplay.astro";
-import { Lastfm } from "../components/Lastfm";
+import { Listening } from "../components/listening";
 ---
 
 <Base>
-  <!-- Presentation -->
   <Presentation />
 
-  <!-- Now: Timeline -->
-  <Timeline client:idle />
-
-  <!-- Index Posts Display -->
-  <!-- <IndexPostsDisplay client:load /> -->
-  <IndexPostsDisplay />
-
-  <!-- Last.fm -->
-  <Lastfm client:idle />
+  <Listening className="mt-12" client:idle />
 </Base>

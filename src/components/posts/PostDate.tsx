@@ -8,7 +8,7 @@ dayjs.extend(relativeTime);
 dayjs.locale("es");
 
 const PostDate = ({ date }: { date: string }) => {
-  return <span>{dayjs(date).fromNow()}</span>;
+  return <span className="text-stone-400">{dayjs(date).fromNow()}</span>;
 };
 
 export default PostDate;

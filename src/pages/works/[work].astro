@@ -5,7 +5,17 @@ import { getCollection } from "astro:content";
 
 import { type Work } from "../../types/types";
 
-import "../../styles/works.css";
+type Props = {
+  name: string;
+  year: number;
+  roles: string[];
+  services: string[];
+  tech: string[];
+  client: string;
+  description: string[];
+  externalLink: string | null;
+  images: ImageMetadata[] | null;
+};
 
 const { work } = Astro.params;
 if (!work) throw new Error("Slug not found");
@@ -42,50 +52,65 @@ const {
   description,
   externalLink,
   images,
-}: Work["data"] = Astro.props;
+}: Props = Astro.props;
 ---
 
 <Base title={name}>
   <div class="work">
-    <header>
+    <header class="mb-12">
       <h1>{name}</h1>
     </header>
 
-    <div class="data">
-      <div class="item">
-        <p class="tag">Año</p>
-        <p>{year}</p>
+    <div class="data mb-10">
+      <div
+        class="item grid grid-cols-[0.35fr_0.65fr] py-2.5 border-b border-b-stone-200 dark:border-b-stone-800"
+      >
+        <p class="tag !m-0 text-stone-500">Año</p>
+        <p class="!m-0">{year}</p>
       </div>
-      <div class="item">
-        <p class="tag">Rol</p>
+      <div
+        class="item grid grid-cols-[0.35fr_0.65fr] py-2.5 border-b border-b-stone-200 dark:border-b-stone-800"
+      >
+        <p class="tag !m-0 text-stone-500">Rol</p>
 
         <div>
-          {roles.map((role) => <p>{role}</p>)}
+          {roles.map((role) => <p class="!m-0">{role}</p>)}
         </div>
       </div>
-      <div class="item">
-        <p class="tag">Tecnologías</p>
+      <div
+        class="item grid grid-cols-[0.35fr_0.65fr] py-2.5 border-b border-b-stone-200 dark:border-b-stone-800"
+      >
+        <p class="tag !m-0 text-stone-500">Tecnologías</p>
 
         <div>
-          {tech.map((tech) => <p>{tech}</p>)}
+          {tech.map((tech) => <p class="!m-0">{tech}</p>)}
         </div>
       </div>
-      <div class="item">
-        <p class="tag">Servicios</p>
+      <div
+        class="item grid grid-cols-[0.35fr_0.65fr] py-2.5 border-b border-b-stone-200 dark:border-b-stone-800"
+      >
+        <p class="tag !m-0 text-stone-500">Servicios</p>
 
         <div>
-          {services.map((service) => <p>{service}</p>)}
+          {services.map((service) => <p class="!m-0">{service}</p>)}
         </div>
       </div>
-      <div class="item">
-        <p class="tag">Cliente</p>
-        <p>{client}</p>
+      <div
+        class={`item grid grid-cols-[0.35fr_0.65fr] py-2.5 ${externalLink ? "border-b border-b-stone-200 dark:border-b-stone-800" : ""}`}
+      >
+        <p class="tag !m-0 text-stone-500">Cliente</p>
+        <p class="!m-0">{client}</p>
       </div>
       {
         externalLink && (
-          <div class="item">
-            <p class="tag">Visitar</p>
-            <a href={externalLink} target="_blank" rel="noreferrer noopener">
+          <div class="item grid grid-cols-[0.35fr_0.65fr] py-2">
+            <p class="tag !m-0 text-stone-500">Visitar</p>
+            <a
+              href={externalLink}
+              target="_blank"
+              rel="noreferrer noopener"
+              class="!m-0"
+            >
               Live site
             </a>
           </div>
@@ -95,14 +120,14 @@ const {
 
     <div class="description">
       <h2>Sobre el proyecto</h2>
-      <div class="grid gap-2 lg:gap-4">
+      <div>
         {(description as string[]).map((p) => <p>{p}</p>)}
       </div>
     </div>
 
     {
       images && (
-        <div class="images" style="margin: 20px 0">
+        <div class="images mt-8 grid gap-2 md:gap-4">
           {images.map((image) => (
             <Image
               src={image}

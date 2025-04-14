@@ -1,14 +1,11 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import LoadingIndicator from "astro-loading-indicator/component";
+import { ClientRouter } from "astro:transitions";
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 import socialImage from "../../src/assets/images/social.png";
 
-import "../styles/reset.css";
-import "../styles/fonts.css";
 import "../styles/app.css";
 
 const { title, description, alt = false } = Astro.props;
@@ -69,7 +66,7 @@ const socialImageURL = new URL(socialImage.src, Astro.url);
     <meta name="twitter:image" content={socialImageURL} />
     <meta itemprop="image" content={socialImageURL} />
 
-    <meta name="copyright" content="(c) 2024 Juan Berrios" />
+    <meta name="copyright" content="(c) 2025 Juan Berrios" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -77,12 +74,13 @@ const socialImageURL = new URL(socialImage.src, Astro.url);
     <meta name="twitter:domain" content="juanberrios.com" />
     <meta name="twitter:creator" content="@byjuanberrios" />
 
-    <ViewTransitions />
-    <LoadingIndicator color="var(--color-foreground-tertiary)" />
+    <ClientRouter />
   </head>
-  <body class={alt && "alt"}>
+  <body
+    class={`${alt && "alt"} bg-stone-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 font-sans text-base tracking-normal`}
+  >
     <Header currentPath={currentPath} />
-    <main class="base-spacing max-spacing base-top-padding">
+    <main class="max-w-[647px] px-5 m-auto mt-24">
       <slot />
     </main>
     <Footer class="base-spacing max-spacing" />

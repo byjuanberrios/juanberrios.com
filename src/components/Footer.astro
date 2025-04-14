@@ -1,18 +1,20 @@
 ---
 import IconMap from "../assets/icons/IconMap.astro";
 
-import "../styles/footer.css";
-
 const { class: className } = Astro.props;
 ---
 
-<footer class={`${className} footer`}>
-  <div class="footer-content">
-    <div class="made">
-      <IconMap />
-      <p>Hecho en Curicó, CL</p>
+<footer class={`${className} footer max-w-[647px] px-5 py-7 m-auto mt-5`}>
+  <div
+    class="footer-content flex items-center justify-between border-t border-stone-200 dark:border-stone-800 pt-6"
+  >
+    <div class="flex items-center gap-1">
+      <div class="w-3 h-3">
+        <IconMap />
+      </div>
+      <p class="!m-0 text-sm">Hecho en Curicó, CL</p>
     </div>
-    <div class="links">
+    <div class="links flex gap-1 text-sm">
       <a href="/this">/this</a>
     </div>
   </div>
