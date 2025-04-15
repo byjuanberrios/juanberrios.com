@@ -7,5 +7,13 @@ import { Listening } from "../components/listening";
 <Base>
   <Presentation />
 
+  <div class="grid gap-1 items-center">
+    <a href="/posts"><span class="slide-and-out"></span>Posts</a>
+    <a href="/updates"><span class="slide-and-out"></span>Microblog</a>
+    <a href="/works"><span class="slide-and-out"></span>Portafolio</a>
+    <a href="/about"><span class="slide-and-out"></span>Sobre mí</a>
+    <a href="/links"><span class="slide-and-out"></span>Links</a>
+  </div>
+
   <Listening className="mt-12" client:idle />
 </Base>

@@ -1,11 +1,10 @@
 ---
 import { ClientRouter } from "astro:transitions";
-
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { ThemeProvider } from "../components/ThemeProvider";
 
 import socialImage from "../../src/assets/images/social.png";
-
 import "../styles/app.css";
 
 const { title, description, alt = false } = Astro.props;
@@ -15,7 +14,7 @@ const canonicalURL = new URL(currentPath, Astro.url);
 const socialImageURL = new URL(socialImage.src, Astro.url);
 ---
 
-<html lang="es">
+<html lang="es" class="system">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -79,10 +78,12 @@ const socialImageURL = new URL(socialImage.src, Astro.url);
   <body
     class={`${alt && "alt"} bg-stone-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 font-sans text-base tracking-normal`}
   >
-    <Header currentPath={currentPath} />
-    <main class="max-w-[647px] px-5 m-auto mt-16 md:mt-20">
-      <slot />
-    </main>
-    <Footer class="base-spacing max-spacing" />
+    <ThemeProvider client:load>
+      <Header />
+      <main class="max-w-[647px] px-5 m-auto mt-16 md:mt-20">
+        <slot />
+      </main>
+      <Footer class="base-spacing max-spacing" />
+    </ThemeProvider>
   </body>
 </html>

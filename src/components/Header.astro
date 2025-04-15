@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 import meImage from "../../src/assets/images/avatar.webp";
+import { ToggleTheme } from "./ToggleTheme";
 ---
 
 <header
@@ -18,5 +19,6 @@ import meImage from "../../src/assets/images/avatar.webp";
   <nav class="inline-flex text-sm gap-3 md:gap-7">
     <a href="/posts">Posts</a>
     <a href="/about">Acerca de</a>
+    <ToggleTheme client:load />
   </nav>
 </header>

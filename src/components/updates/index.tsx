@@ -61,7 +61,7 @@ export const Updates = () => {
     return (
       <div className="updates">
         <Header />
-        <div className="grid gap-4 animate-loading">
+        <div className="grid gap-3 animate-loading">
           {[...Array(4)].map((_, i) => (
             <div key={i}>
               <LoadingSkeleton />
