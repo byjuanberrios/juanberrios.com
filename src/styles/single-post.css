@@ -42,3 +42,13 @@
         margin-block: var(--space-2xs) -12px !important;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .dark .single-post .footnotes {
+        border-color: var(--color-stone-700);
+    }
+}
+
+.dark .single-post .footnotes {
+    border-color: var(--color-stone-700);
+}
