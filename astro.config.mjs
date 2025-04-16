@@ -5,10 +5,14 @@ import react from "@astrojs/react";
 import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 
-// https://astro.build/config
+import vtbot from "astro-vtbot";
+
 export default defineConfig({
   site: 'https://juanberrios.com',
-  integrations: [mdx(), react()],
+  integrations: [mdx(), react(), vtbot({
+      autoLint: true,
+      progressBar: true
+  })],
   vite: {
     plugins: [tailwindcss()],
   },

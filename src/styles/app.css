@@ -47,6 +47,10 @@ body {
     line-height: 165%;
 }
 
+.swup-progress-bar {
+    background-color: rgb(64, 128, 192);
+}
+
 @layer base {
     p,
     ol,

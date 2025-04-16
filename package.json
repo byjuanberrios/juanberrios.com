@@ -25,7 +25,7 @@
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "astro": "5.6.2",
-    "astro-loading-indicator": "^0.6.1",
+    "astro-vtbot": "^2.1.2",
     "cmdk": "^1.0.0",
     "dayjs": "^1.11.13",
     "marked": "^14.1.2",

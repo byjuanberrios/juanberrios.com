@@ -1,10 +1,13 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import ProgressBar from "astro-vtbot/components/ProgressBar.astro";
+
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ThemeProvider } from "../components/ThemeProvider";
 
 import socialImage from "../../src/assets/images/social.png";
+
 import "../styles/app.css";
 
 const { title, description } = Astro.props;
@@ -74,22 +77,24 @@ const socialImageURL = new URL(socialImage.src, Astro.url);
     <meta name="twitter:creator" content="@byjuanberrios" />
 
     <ClientRouter />
+    <ProgressBar />
+
     <script is:inline>
-      (function () {
+      (() => {
         const theme =
           localStorage.getItem("theme") ||
           (window.matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
             : "light");
-        const root = document.documentElement;
         if (theme === "dark") {
-          root.classList.add("dark");
+          document.documentElement.classList.add("dark");
         } else {
-          root.classList.remove("dark");
+          document.documentElement.classList.remove("dark");
         }
       })();
     </script>
   </head>
+
   <body
     class="bg-stone-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 font-sans text-base tracking-normal"
   >
