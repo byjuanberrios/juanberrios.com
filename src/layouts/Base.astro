@@ -7,14 +7,14 @@ import { ThemeProvider } from "../components/ThemeProvider";
 import socialImage from "../../src/assets/images/social.png";
 import "../styles/app.css";
 
-const { title, description, alt = false } = Astro.props;
+const { title, description } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 const canonicalURL = new URL(currentPath, Astro.url);
 const socialImageURL = new URL(socialImage.src, Astro.url);
 ---
 
-<html lang="es" class="">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -74,9 +74,24 @@ const socialImageURL = new URL(socialImage.src, Astro.url);
     <meta name="twitter:creator" content="@byjuanberrios" />
 
     <ClientRouter />
+    <script is:inline>
+      (function () {
+        const theme =
+          localStorage.getItem("theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        const root = document.documentElement;
+        if (theme === "dark") {
+          root.classList.add("dark");
+        } else {
+          root.classList.remove("dark");
+        }
+      })();
+    </script>
   </head>
   <body
-    class={`${alt && "alt"} bg-stone-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 font-sans text-base tracking-normal`}
+    class="bg-stone-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 font-sans text-base tracking-normal"
   >
     <ThemeProvider client:load>
       <Header />

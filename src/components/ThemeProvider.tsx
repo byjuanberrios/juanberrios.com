@@ -7,18 +7,11 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const root = window.document.documentElement;
-
-    // Solo aplicar el tema del sistema si es la primera carga
-    if (!localStorage.getItem("theme")) {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? THEME_MAP.dark
-        : THEME_MAP.light;
-      themeStore.set(systemTheme);
+    if (theme === THEME_MAP.dark) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
     }
-
-    root.classList.remove(THEME_MAP.light, THEME_MAP.dark);
-    root.classList.add(theme);
   }, [theme]);
 
   return <>{children}</>;
