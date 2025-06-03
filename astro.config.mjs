@@ -20,6 +20,7 @@ export default defineConfig({
     '/blog': '/posts',
     "/blog/[post]": "/posts/[post]",
     "/bookmarks": "/links",
+    "/works": "https://juanberrios.dev",
   },
   adapter: cloudflare(),
 });
